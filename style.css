@@ -11,4 +11,14 @@
     --background-title: #F5CE85;
     --color-text: #FFFFFF;
     --color-text-title: #79774E;
+    --font-display: 'Maiandra GD', sans-serif;
+                                                
+}
+/**
+body {
+  background: linear-gradient(to left, lime 28px, red 77%, cyan);
+}
+*/
+h1{
+    font-family: var(--font-display);
 }
