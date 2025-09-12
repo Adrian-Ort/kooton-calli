@@ -14,6 +14,9 @@
     --font-display: 'Maiandra GD', sans-serif;
     --font-text: "Reddit Sans", sans-serif;
                                                 
+    /*Device sizes*/
+    --mobile-max: 576px;
+    --tablet-max: 768px;
 }
 /**
 body {
