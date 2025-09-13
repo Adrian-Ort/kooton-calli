@@ -1,8 +1,9 @@
 :root {
     --background-header: rgb(14, 124, 116);
-    --background-footer: 084A46;
+    --background-footer: #084A46;
     --background-title: #F5CE85;
     --color-text: #FFFFFF;
+    --color-hover: #969191;
     --color-text-title: #79774E;
     --font-display: 'Maiandra GD', sans-serif;
     --font-text: "Reddit Sans", sans-serif;
@@ -19,3 +20,20 @@ body {
 h1{
     font-family: var(--font-display);
 }
+
+/* Footer */
+.footer{
+  padding-top: 0.1rem ;
+  background-color: var(--background-footer);
+  color: var(--color-text);
+  font: var(--font-display);
+}
+
+a {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+a:hover {
+        color: var(--color-hover) ;
+    }
