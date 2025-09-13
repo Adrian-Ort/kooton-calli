@@ -26,7 +26,7 @@ h1{
   padding-top: 0.1rem ;
   background-color: var(--background-footer);
   color: var(--color-text);
-  font: var(--font-display);
+  font-family: var(--font-text);
 }
 
 a {
@@ -37,3 +37,8 @@ a {
 a:hover {
         color: var(--color-hover) ;
     }
+
+#title-footer{
+  font-family: var(--font-display);
+  font-size: xx-large;
+}
