@@ -4,5 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Importar el JS de Bootstrap (con Popper incluido)
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-// Si tienes tu propio CSS, ponlo después para que sobrescriba
-import './CSS/style.css';
+// CSS
+import '../CSS/normalize.css';         // reset primero
+import '../CSS/global_variables.css';  // variables globales
+// import '../CSS/main.css;            // estilos principales      
+
+// Componentes
+import './components.js';

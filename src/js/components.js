@@ -14,5 +14,5 @@ async function loadComponent(containerId, fileName) {
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', 'header.html');
     loadComponent('footer', 'footer.html');
-    loadComponent('sidebar', 'navbar.html');
+    loadComponent('navbar', 'navbar.html');
 });
