@@ -1,0 +1,21 @@
+:root {
+    --background-header: rgb(14, 124, 116);
+    --background-footer: 084A46;
+    --background-title: #F5CE85;
+    --color-text: #FFFFFF;
+    --color-text-title: #79774E;
+    --font-display: 'Maiandra GD', sans-serif;
+    --font-text: "Reddit Sans", sans-serif;
+                                                
+    /*Device sizes*/
+    --mobile-max: 576px;
+    --tablet-max: 768px;
+}
+/**
+body {
+  background: linear-gradient(to left, lime 28px, red 77%, cyan);
+}
+*/
+h1{
+    font-family: var(--font-display);
+}
