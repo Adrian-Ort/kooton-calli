@@ -14,7 +14,9 @@
 h1{
     font-family: var(--font-display);
 }
-
+body{
+  font-family: var(--font-text);
+}
 /* Footer */
 .footer{
   padding-top: 0.1rem ;
