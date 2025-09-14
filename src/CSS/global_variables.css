@@ -11,6 +11,7 @@
     /*Device sizes*/
     --mobile-max: 576px;
     --tablet-max: 768px;
+    --desktop-max: 1140px;
 }
 /**
 body {
