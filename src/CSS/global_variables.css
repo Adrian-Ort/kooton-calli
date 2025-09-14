@@ -1,6 +1,4 @@
 :root {
-    --background-header: rgb(14, 124, 116);
-    --background-footer: #084A46;
     --background-title: #F5CE85;
     --color-text: #FFFFFF;
     --color-hover: #969191;
@@ -11,13 +9,8 @@
     /*Device sizes*/
     --mobile-max: 576px;
     --tablet-max: 768px;
-    --desktop-max: 1140px;
 }
-/**
-body {
-  background: linear-gradient(to left, lime 28px, red 77%, cyan);
-}
-*/
+
 h1{
     font-family: var(--font-display);
 }
