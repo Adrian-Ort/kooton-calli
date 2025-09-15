@@ -3,8 +3,10 @@
     font-family: var(--font-text);
     color: var(--color-text);
 }
+
 /*boton persona*/
-.login-button, .cart-button{
+.login-button,
+.cart-button {
     color: white;
     font-size: 14px;
     padding: 8px 20px;
@@ -16,12 +18,12 @@
 
 /*boton de hambuerguesa en el header*/
 .navbar-toggler {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }
 
 .company-logo {
@@ -29,11 +31,10 @@
     width: 10%;
 }
 
-.cart-logo, .user-logo {
-    width: 2rem;   
+.cart-logo,
+.user-logo {
+    width: 2rem;
     height: auto;
     margin: 0 0.5rem;
     display: block;
 }
-
-

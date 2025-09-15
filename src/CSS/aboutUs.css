@@ -13,8 +13,9 @@
 }
 
 .paragraph-mision, .paragraph-vision {
+    max-width: 70%;
+    margin: 0 auto; /* Centra el párrafo horizontalmente */
     text-align: center;
-    margin: 0rem 1.1rem 0rem 1.1rem;
     font-size: 1.2rem;
     line-height: 1.5;
     font-family: var(--font-text);
@@ -29,8 +30,6 @@
     font-family: var(--font-display);
     color: var(--color-text-title);
 }
-
-
 
 div > a > img {
     border-radius: 8px; /*Bordes redondeados de las imagenes*/
