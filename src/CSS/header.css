@@ -24,7 +24,16 @@
   padding: 0;
 }
 
-.logo {
+.company-logo {
     box-sizing: border-box;
     width: 10%;
 }
+
+.cart-logo, .user-logo {
+    width: 2rem;   
+    height: auto;
+    margin: 0rem 5rem 0rem 5rem;
+    display: block;
+}
+
+
