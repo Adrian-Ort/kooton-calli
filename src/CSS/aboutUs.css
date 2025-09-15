@@ -1,0 +1,30 @@
+/* Style for aboutUs page */
+
+.title-mision, .title-vision, .title-nosotros {
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    color: var(--background-footer);
+}
+.title-vision, .title-nosotros {
+    margin-top: 2rem;
+}
+
+.paragraph-mision, .paragraph-vision {
+    text-align: center;
+    margin: 0rem 1.1rem 0rem 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: var(--font-text);
+    color: black;
+}
+
+.title-gracias {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    color: var(--color-text-title);
+}

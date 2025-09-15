@@ -10,6 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 // CSS
 import '../CSS/main.css';  // main styles
 import '../CSS/header.css'; // header styles
+import '../CSS/aboutUs.css'; // aboutUs styles
 
 // Components
 import './components.js';
