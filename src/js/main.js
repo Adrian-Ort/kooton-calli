@@ -8,6 +8,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../CSS/normalize.css';         // first reset to normalize
 import '../CSS/global_variables.css';  // global variables
 import '../CSS/main.css';  // main styles
+import '../CSS/header.css'; // header styles
 
 // Components
 import './components.js';
