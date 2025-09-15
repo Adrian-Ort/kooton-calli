@@ -1,6 +1,5 @@
 import '../CSS/normalize.css';         // first reset to normalize
 
-
 // Import Bootstrap styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 
