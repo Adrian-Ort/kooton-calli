@@ -1,5 +1,7 @@
-#header{
-  color: red;
+.header .navbar {
+    background: var(--background-header-desktop);
+    font-family: var(--font-text);
+    color: var(--color-text);
 }
 /*boton persona*/
 .login-button, .cart-button{

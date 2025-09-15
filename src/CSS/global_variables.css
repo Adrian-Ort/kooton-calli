@@ -5,6 +5,9 @@
     --color-text-title: #79774E;
     --font-display: 'Maiandra GD', sans-serif;
     --font-text: "Reddit Sans", sans-serif;
+    --background-header-desktop: linear-gradient(to right, #AAEBE6 10%, #0E7C74 35%, #084A46 100%);
+    --background-header-tablet: linear-gradient(to right, #AAEBE6 20%, #0E7C74 60%, #084A46 100%);
+    --background-footer: #084A46; 
                                                 
     /*Device sizes*/
     --mobile-max: 576px;
