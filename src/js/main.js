@@ -1,5 +1,5 @@
 import '../CSS/normalize.css';         // first reset to normalize
-import '../CSS/global_variables.css';  // global variables
+
 
 // Import Bootstrap styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,6 +11,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '../CSS/main.css';  // main styles
 import '../CSS/header.css'; // header styles
 import '../CSS/aboutUs.css'; // aboutUs styles
+ // global variables
+import '../CSS/global_variables.css';
 
 // Components
 import './components.js';

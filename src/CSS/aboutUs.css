@@ -1,6 +1,7 @@
 /* Style for aboutUs page */
 
 .title-mision, .title-vision, .title-nosotros {
+    padding-top: 2rem;
     text-align: center;
     margin-top: 5rem;
     font-size: 2.5rem;
@@ -29,25 +30,15 @@
     color: var(--color-text-title);
 }
 
+
+
 div > a > img {
     border-radius: 8px; /*Bordes redondeados de las imagenes*/
     width: 100%; /*La imagen ocupa el 100% del ancho de su contenedor.*/
     height: auto; /*Mantiene la proporción original de la imagen.*/
     box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
 }
-div > a {
-    text-decoration: none; /*Para eliminar el subrayado del texto porque se veia feo*/
-    color: inherit; /*Hereda el color del contenedor o del texto padre (para consistencia).*/    
-}
-div {
-    display: grid; /*Activa el sistema de cuadrícula CSS.*/
-    grid-template-columns: /**/
-        repeat(
-            auto-fit, /*ajusta automáticamente la cantidad de columnas visibles según el ancho disponible en pantalla.*/
-            minmax(150px, 1fr) /*Crea columnas flexibles que nunca sean más pequeñas de 150px y se expandan hasta ocupar el espacio disponible (máximo 1fr cada una).*/
-        );
-    gap: 32px; /*Define un espacio uniforme entre los elementos de la cuadrícula.*/
-}
+
 
 
 div > a > p {
@@ -56,6 +47,7 @@ div > a > p {
     font-weight: 500; /*lo que da énfasis al texto sin ser muy grueso.*/
     color: #333; /* color */
 }
+
 .titulo-galeria {
     text-align: center;
     font-size: clamp(1.5rem, 5vw, 3rem); /* se adapta al tamaño de pantalla */
