@@ -1,4 +1,4 @@
-import '../CSS/normalize.css';         // first reset to normalize
+import '../css/normalize.css';         // first reset to normalize
 
 // Import Bootstrap styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // CSS
-import '../CSS/main.css';  // main styles
-import '../CSS/header.css'; // header styles
-import '../CSS/aboutUs.css'; // aboutUs styles
+import '../css/main.css';  // main styles
+import '../css/header.css'; // header styles
+import '../css/aboutUs.css'; // aboutUs styles
  // global variables
-import '../CSS/global_variables.css';
+import '../css/global_variables.css';
 
 // Components
 import './components.js';

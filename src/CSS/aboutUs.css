@@ -1,16 +1,18 @@
 /* Style for aboutUs page */
 
 .title-mision, .title-vision, .title-nosotros {
-    padding-top: 2rem;
+    padding-top: 3rem;
     text-align: center;
-    margin-top: 5rem;
     font-size: 2.5rem;
     font-family: var(--font-display);
     color: var(--background-footer);
 }
-.title-vision, .title-nosotros {
-    margin-top: 2rem;
-}
+
+
+/*.title-vision, .title-nosotros {
+    margin-top: 2rem; /*Adrian: refactor: remove duplicate margin-top rules for the same classes to avoid redundancy and confusion
+
+}*/
 
 .paragraph-mision, .paragraph-vision {
     max-width: 70%;
@@ -24,8 +26,8 @@
 
 .title-gracias {
     text-align: center;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 2rem; /*Adrian: style: adjust margin-top from 4rem to 2 rem to reduce excessive spacing */
+    margin-bottom: 2rem;/*Adrian: style: adjust margin-bottom from 4rem to 2 rem to reduce excessive spacing */
     font-size: 2.5rem;
     font-family: var(--font-display);
     color: var(--color-text-title);
@@ -37,8 +39,6 @@ div > a > img {
     height: auto; /*Mantiene la proporción original de la imagen.*/
     box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
 }
-
-
 
 div > a > p {
     margin-top: 8px; /*Espaciado superior para separar el texto de la imagen.*/
@@ -60,13 +60,13 @@ div > a > p {
     justify-content: center;
     flex-wrap: wrap; /* Si tienes varias tarjetas */
     gap: 20px; /* Espacio entre tarjetas */
-    padding: 50px 0;
+    padding: 1rem 0; /*Adrian: style: reduce padding from 50px 0 to 1rem 0 to avoid excessive white space at the top*/
 }
 
 /* Contenedor individual de cada tarjeta para la perspectiva 3D */
 .card-container {
     width: 300px; /* Ancho deseado de la tarjeta */
-    height: 400px; /* Altura deseada de la tarjeta */
+    height: 300px; /* Altura deseada de la tarjeta */ /*Adrian: Resolved extra whitespace issue in stylesheet*/
     perspective: 1000px; /* Define la profundidad del efecto 3D */
 }
 
