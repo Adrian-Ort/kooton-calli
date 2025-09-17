@@ -24,15 +24,14 @@
 }
 
 /* Texto del header en el navbar central */
-.navbar:not(.offcanvas) .nav-link {
-  color: white !important; 
+.navbar.navbar-dark .nav-link {
+  color: white !important; /* blancos arriba */
 }
 
 /* Texto del header dentro del offcanvas */
-.offcanvas-body .nav-link {
-  color: black !important;
+.navbar .offcanvas-body .nav-link {
+  color: black !important; /* negros en el offcanvas */
 }
-
 
 .company-logo {
     box-sizing: border-box;
