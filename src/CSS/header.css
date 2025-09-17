@@ -7,12 +7,10 @@
 /*boton persona*/
 .login-button,
 .cart-button {
-    color: white;
     font-size: 14px;
     padding: 8px 20px;
-    border-radius: 50px;
+    border-radius: 10px;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 /*boton de hambuerguesa en el header*/
@@ -25,9 +23,20 @@
     padding: 0;
 }
 
+/* Texto del header en el navbar central */
+.navbar:not(.offcanvas) .nav-link {
+  color: white !important; 
+}
+
+/* Texto del header dentro del offcanvas */
+.offcanvas-body .nav-link {
+  color: black !important;
+}
+
+
 .company-logo {
     box-sizing: border-box;
-    height: 70px;
+    height: 60px;
     width: auto;
 }
 
