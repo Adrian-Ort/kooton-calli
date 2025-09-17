@@ -15,7 +15,6 @@
     transition: 0.3s;
 }
 
-
 /*boton de hambuerguesa en el header*/
 .navbar-toggler {
     width: 40px;
@@ -28,7 +27,8 @@
 
 .company-logo {
     box-sizing: border-box;
-    width: 10%;
+    height: 70px;
+    width: auto;
 }
 
 .cart-logo,
@@ -41,5 +41,10 @@
 .icon-group{
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
+}
+
+.logo-offcanvas-img{
+    height: 40px;
+    width: auto;
 }
