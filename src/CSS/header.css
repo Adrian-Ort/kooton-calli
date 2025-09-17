@@ -35,6 +35,11 @@
 .user-logo {
     width: 2rem;
     height: auto;
-    margin: 0 0.5rem;
     display: block;
+}
+
+.icon-group{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
