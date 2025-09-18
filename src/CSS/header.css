@@ -44,6 +44,10 @@
     width: 2rem;
     height: auto;
     display: block;
+    
+    box-shadow: none;
+    filter: none;
+    background: none;
 }
 
 .icon-group{
