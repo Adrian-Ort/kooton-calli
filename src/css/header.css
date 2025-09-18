@@ -32,6 +32,29 @@
 .navbar .offcanvas-body .nav-link {
   color: black !important; /* negros en el offcanvas */
 }
+.nav-link{
+    position: relative;
+}
+
+/*Efecto hover en los enlaces del header*/
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: white;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+}
 
 .company-logo {
     box-sizing: border-box;
