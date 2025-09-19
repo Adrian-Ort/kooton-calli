@@ -23,8 +23,14 @@
     padding: 0;
 }
 
-
-
+/*Efecto hover en el boton de hamburguesa*/
+.navbar{
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #black;
+}
+.navbar .offcanvas.show {
+    --bs-navbar-color: black;
+}
 .nav-link{
     position: relative;
 }
