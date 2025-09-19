@@ -5,14 +5,23 @@
     color: var(--background-footer);
 }
 
+.contact__box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .contact__box__title {
+    display: flex;
+    flex-direction: column;
     font-family: var(--font-text);
     text-align: center;
     margin: 1rem 0rem 1rem 5rem;
+
 }
 
 .contact__box__input {
-    width: 50rem;
+    width: 30rem;
     height: 2rem;
     border: 2px solid #E6C27F;
     border-radius: 0.5rem;
@@ -47,13 +56,14 @@
 }
 
 .contact__last__box {
+    width: 35rem;
     background-color: var(--color-text-title);
     color: var(--color-text);
     font-family: var(--font-text);
     font-size: 24px;
     border-radius: 6px;
     border: none;
-    margin: 3rem 4rem 3rem;
+    margin: 3rem 2rem 3rem;
     padding: 10px 24px 10px 24px;
 }
 
@@ -64,7 +74,7 @@
 
 .contact__last_box_title {
     color: white;
-    padding: 1rem 2rem 1rem 0.5rem;
+    padding: 1rem 0rem 1rem 0.5rem;
     font-size: 2rem;
 }
 

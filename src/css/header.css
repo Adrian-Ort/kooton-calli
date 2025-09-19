@@ -23,14 +23,13 @@
     padding: 0;
 }
 
-/* Texto del header en el navbar central */
-.navbar.navbar-dark .nav-link {
-  color: white !important; /* blancos arriba */
+/*Efecto hover en el boton de hamburguesa*/
+.navbar{
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #black;
 }
-
-/* Texto del header dentro del offcanvas */
-.navbar .offcanvas-body .nav-link {
-  color: black !important; /* negros en el offcanvas */
+.navbar .offcanvas.show {
+    --bs-navbar-color: black;
 }
 .nav-link{
     position: relative;
