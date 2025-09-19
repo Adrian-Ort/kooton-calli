@@ -1,0 +1,20 @@
+.footer{
+  padding-top: 0.1rem ;
+  background-color: var(--background-footer);
+  color: var(--color-text);
+  font-family: var(--font-text);
+}
+
+a{
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+a:hover {
+        color: var(--color-hover) ;
+    }
+
+#title-footer{
+  font-family: var(--font-display);
+  font-size: xx-large;
+}
