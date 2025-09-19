@@ -5,14 +5,18 @@
   font-family: var(--font-text);
 }
 
-a{
+.white-link, .social-icon{
         color: var(--color-text);
         text-decoration: none;
     }
 
-a:hover {
+.social-icon:hover {
         color: var(--color-hover) ;
     }
+
+  .white-link:hover {
+        color: var(--color-hover) ;
+    }  
 
 #title-footer{
   font-family: var(--font-display);
