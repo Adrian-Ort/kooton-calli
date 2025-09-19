@@ -22,11 +22,15 @@
     justify-content: center;
     padding: 0;
 }
-.nav--a{
-    color: white;
+
+/*Efecto hover en el boton de hamburguesa*/
+.navbar{
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #black;
 }
-
-
+.navbar .offcanvas.show {
+    --bs-navbar-color: black;
+}
 .nav-link{
     position: relative;
 }
