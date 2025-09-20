@@ -1,5 +1,10 @@
 .category-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* Desktop. P Inicio */
+
+    position: relative;
+    width: 1140px;
+    height: 1695px;
+
+    background: #FFFFFF;
+
 }
