@@ -1,17 +1,17 @@
-.contact_title {
+.contact--title {
     margin-top: 6.5rem;
     text-align: center;
     font-family: var(--font-display);
     color: var(--background-footer);
 }
 
-.contact__box{
+.contact--box{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.contact__box__title {
+.contact--box--title {
     display: flex;
     flex-direction: column;
     font-family: var(--font-text);
@@ -20,24 +20,25 @@
 
 }
 
-.contact__box__input {
+.contact--box--input {
     width: 30rem;
     height: 2rem;
     border: 2px solid #E6C27F;
     border-radius: 0.5rem;
 }
 
-#contact__box__input__message {
+#contact--box--input--message {
     width: 50rem;
     height: 10rem;
 }
 
-.contact_div {
+
+.contact--div {
     display: flex;
     margin-top: 3rem;
     justify-content: center;
 }
-.contact_div__button {
+.contact--div--button {
     background-color: var(--color-text-title);
     color: var(--color-text);
     font-family: var(--font-text);
@@ -47,7 +48,7 @@
     padding: 10px 24px 10px 24px;
 }
 
-.contact__bottom__box {
+.contact--bottom--box {
     display: flex;
     justify-content: center;
     gap: 4rem;
@@ -55,7 +56,7 @@
 
 }
 
-.contact__last__box {
+.contact--last--box {
     width: 35rem;
     background-color: var(--color-text-title);
     color: var(--color-text);
@@ -67,18 +68,20 @@
     padding: 10px 24px 10px 24px;
 }
 
-.contact__logo {
+.contact--logo {
         width: 18rem;
         height: auto;
     }
 
-.contact__last_box_title {
+.contact--last--box--title {
     color: white;
     padding: 1rem 0rem 1rem 0.5rem;
     font-size: 2rem;
 }
 
-.contact__last_box_items {
+.contact--last--box--items {
     font-size: 1rem;
     padding-left: 4rem;
 }
+
+

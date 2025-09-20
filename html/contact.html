@@ -1,0 +1,68 @@
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+</head>
+
+<body>
+	<!--Header-->
+	<div id="header"></div>
+
+	<main>
+		<h1 class="contact--title">CONTÁCTANOS</h1>
+
+		<section class="contact--box">
+			<div class="contact--box--title">
+				<label for="">Nombre completo</label>
+				<input id="input--name" class="contact--box--input" type="text" placeholder="Fulanito">
+			</div>
+			<div class="contact--box--title">
+				<label for="">Correo</label>
+				<input id="input--email" class="contact--box--input" type="email" placeholder="fulanito@correo.com">
+
+			</div>
+			<div class="contact--box--title">
+				<label for="">Teléfono</label>
+				<input id="input--phone" class="contact--box--input" type="tel" placeholder="777-111-888">
+
+			</div>
+			<div class="contact--box--title">
+				<label for="contact--box--input--message">Descripción</label>
+				<textarea id="input--message" class="contact--box--input" id="contact--box--input--message" name="user_message" type="text" placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
+			</div>
+		</section>
+
+		<div class="contact--div">
+			<button class="contact--div--button" onclick="saveInputs()">Enviar</button>
+		</div>
+	
+
+		<section class="contact--bottom--box">
+			<img class="contact--logo" src="../src/img/logo-dividido.png" alt="Logo de la marca">
+			<div class="contact--last--box">
+				<h2 class="contact--last--box--title">Kooton-Calli Co. Ltd.</h2>
+				<ul class="contact--last--box--items">
+					<li>Correo electrónico: hola@kootoncalli.com</li>
+					<li>Whatsapp: (+52) 55-5555-5555</li>
+					<li>Instagram: @KootonCalliMx</li>
+					<li>Facebook: /KootonCalli</li>
+					<li>Oficinas centrales: Ciudad de México, México.</li>
+				</ul>
+			</div>
+			</section>
+
+
+	</main>
+
+	<!--Footer-->
+	<div id="footer"></div>
+	<!--El Script hace que Vite inyecte main.js-->
+	<script type="module" src="/src/js/main.js"></script>
+	<script src="../src/js/contact.js"></script> <!--Por el momento lo conectare así-->
+
+</body>
+</html>
+
+
+
+
+
