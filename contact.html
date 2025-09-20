@@ -9,40 +9,39 @@
 	<div id="header"></div>
 
 	<main>
-		<h1 class="contact_title">CONTÁCTANOS</h1>
+		<h1 class="contact--title">CONTÁCTANOS</h1>
 
-		<section class="contact__box">
-			<div class="contact__box__title">
-				Nombre
-				<input class="contact__box__input" type="text" placeholder="Nombre">
+		<section class="contact--box">
+			<div class="contact--box--title">
+				<label for="">Nombre completo</label>
+				<input id="input--name" class="contact--box--input" type="text" placeholder="Fulanito">
 			</div>
-			<div class="contact__box__title">
-				Correo
-				<input class="contact__box__input" type="text" placeholder="Correo electrónico">
-
-			</div>
-			<div class="contact__box__title">
-				Teléfono
-				<input class="contact__box__input" type="text" placeholder="Teléfono">
+			<div class="contact--box--title">
+				<label for="">Correo</label>
+				<input id="input--email" class="contact--box--input" type="email" placeholder="fulanito@correo.com">
 
 			</div>
-			<div class="contact__box__title">
-				Descripción
-				<input class="contact__box__input" id="contact__box__input__message" type="text" placeholder="Mensaje">
+			<div class="contact--box--title">
+				<label for="">Teléfono</label>
+				<input id="input--phone" class="contact--box--input" type="tel" placeholder="777-111-888">
 
+			</div>
+			<div class="contact--box--title">
+				<label for="contact--box--input--message">Descripción</label>
+				<textarea id="input--message" class="contact--box--input" id="contact--box--input--message" name="user_message" type="text" placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
 			</div>
 		</section>
 
-		<div class="contact_div">
-			<button class="contact_div__button">Enviar</button>
+		<div class="contact--div">
+			<button class="contact--div--button" onclick="saveInputs()">Enviar</button>
 		</div>
 	
 
-		<section class="contact__bottom__box">
-			<img class="contact__logo" src="./src/img/logo-dividido.png" alt="Logo de la marca">
-			<div class="contact__last__box">
-				<h2 class="contact__last_box_title">Kooton-Calli Co. Ltd.</h2>
-				<ul class="contact__last_box_items">
+		<section class="contact--bottom--box">
+			<img class="contact--logo" src="./src/img/logo-dividido.png" alt="Logo de la marca">
+			<div class="contact--last--box">
+				<h2 class="contact--last--box--title">Kooton-Calli Co. Ltd.</h2>
+				<ul class="contact--last--box--items">
 					<li>Correo electrónico: hola@kootoncalli.com</li>
 					<li>Whatsapp: (+52) 55-5555-5555</li>
 					<li>Instagram: @KootonCalliMx</li>

@@ -17,3 +17,7 @@ import '../css/global_variables.css';
 
 // Components
 import './components.js';
+
+
+// JS
+import './contact.js'
