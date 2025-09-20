@@ -9,33 +9,40 @@
 
 	<main>
 		<h1 class="contact--title">CONTÁCTANOS</h1>
-
-		<section class="contact--box">
-			<div class="contact--box--title">
-				<label for="">Nombre completo</label>
-				<input id="input--name" class="contact--box--input" type="text" placeholder="Fulanito">
-			</div>
-			<div class="contact--box--title">
-				<label for="">Correo</label>
-				<input id="input--email" class="contact--box--input" type="email" placeholder="fulanito@correo.com">
-
-			</div>
-			<div class="contact--box--title">
-				<label for="">Teléfono</label>
-				<input id="input--phone" class="contact--box--input" type="tel" placeholder="777-111-888">
-
-			</div>
-			<div class="contact--box--title">
-				<label for="contact--box--input--message">Descripción</label>
-				<textarea id="input--message" class="contact--box--input" id="contact--box--input--message" name="user_message" type="text" placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
-			</div>
-		</section>
-
-		<div class="contact--div">
-			<button class="contact--div--button" onclick="saveInputs()">Enviar</button>
-		</div>
-	
-
+		<form action="https://formspree.io/f/mgvlgqbb" method="POST">
+			<section class="contact--box">
+				<div class="contact--box--title">
+					<label for="">Nombre completo</label>
+					<input id="input--name" class="contact--box--input" type="text" name="name" placeholder="Fulanito">
+				</div>
+				<div class="contact--box--title">
+					<label for="">Correo</label>
+					<input id="input--email" class="contact--box--input" type="email" name="email"
+						placeholder="fulanito@correo.com">
+		
+				</div>
+				<div class="contact--box--title">
+					<label for="">Teléfono</label>
+					<input id="input--phone" class="contact--box--input" type="tel" name="phone" placeholder="777-111-888">
+		
+				</div>
+				<div class="contact--box--title">
+					<label for="">Asunto</label>
+					<input id="input--name" class="contact--box--input" type="text" name="subject" placeholder="Saludo">
+				</div>
+				<div class="contact--box--title">
+					<label for="contact--box--input--message">Descripción</label>
+					<textarea id="input--message" class="contact--box--input" id="contact--box--input--message"
+						name="user_message" type="text" name="message"
+						placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
+				</div>
+		
+				<div class="contact--div">
+					<button class="contact--div--button" type="submit">Enviar</button>
+				</div>
+			</section>
+		</form>
+		
 		<section class="contact--bottom--box">
 			<img class="contact--logo" src="../src/img/logo-dividido.png" alt="Logo de la marca">
 			<div class="contact--last--box">
