@@ -26,3 +26,21 @@
 .second-column-home{
     margin-top: 15%;
 }
+
+.category-image{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.overlay-text{
+    position: absolute; /* Posición absoluta dentro del contenedor */
+    top: 50%; /* Distancia desde la parte superior del contenedor */
+    left: 50%; /* Distancia desde la parte izquierda del contenedor */
+    transform: translate(-50%, -50%);
+    color: white; /* Color del texto para que sea visible sobre la imagen */
+    background-color: rgba(0, 0, 0, 0.0); /* Un fondo semitransparente para mejorar la legibilidad */
+    padding: 5px 10px; /* Espaciado dentro del cuadro de texto */
+    font-family: var(--font-display);
+    font-size: 2rem;
+}
