@@ -5,9 +5,22 @@
     margin-right: auto;
 }
 
-.category-image, .man-img-home, .woman-img-home{
-    border-color: blue;
-    border: 0.5rem;
+.man-img-home, .woman-img-home{
+    border: 3px solid 79774E;
+    border-radius: 0.5rem;
+}
+
+.man-img-home:hover, .woman-img-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 5px 5px grey;
+}
+
+.woman-img-home{
+    border: 0.5rem solid #F5CE85;
+}
+
+.man-img-home{
+    border: 0.5rem solid #79774E;
 }
 
 .second-column-home{

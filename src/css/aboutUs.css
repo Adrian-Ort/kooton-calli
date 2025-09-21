@@ -33,12 +33,12 @@
     color: var(--color-text-title);
 }
 
-div > a > img {
+/*div > a > img {
     border-radius: 8px; /*Bordes redondeados de las imagenes*/
-    width: 100%; /*La imagen ocupa el 100% del ancho de su contenedor.*/
-    height: auto; /*Mantiene la proporción original de la imagen.*/
-    box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
-}
+    /* width: 100%; /*La imagen ocupa el 100% del ancho de su contenedor.*/
+    /*height: auto; /*Mantiene la proporción original de la imagen.*/
+    /*box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
+/*} */ 
 
 div > a > p {
     margin-top: 8px; /*Espaciado superior para separar el texto de la imagen.*/
