@@ -6,8 +6,8 @@
 }
 
 .man-img-home, .woman-img-home{
-    border: 3px solid 79774E;
-    border-radius: 0.5rem;
+    border: 0.5rem solid 79774E;
+    border-radius: 2rem;
 }
 
 .man-img-home:hover, .woman-img-home:hover {
@@ -34,13 +34,13 @@
 }
 
 .overlay-text{
-    position: absolute; /* Posición absoluta dentro del contenedor */
-    top: 50%; /* Distancia desde la parte superior del contenedor */
-    left: 50%; /* Distancia desde la parte izquierda del contenedor */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
     transform: translate(-50%, -50%);
-    color: white; /* Color del texto para que sea visible sobre la imagen */
-    background-color: rgba(0, 0, 0, 0.0); /* Un fondo semitransparente para mejorar la legibilidad */
-    padding: 5px 10px; /* Espaciado dentro del cuadro de texto */
+    color: white; 
+    background-color: rgba(0, 0, 0, 0.0);
+    padding: 5px 10px; 
     font-family: var(--font-display);
     font-size: 2rem;
 }
