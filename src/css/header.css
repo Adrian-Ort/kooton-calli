@@ -1,0 +1,85 @@
+.header .navbar {
+    background: var(--background-header-desktop);
+    font-family: var(--font-text);
+    color: var(--color-text);
+}
+
+/*boton persona*/
+.login-button,
+.cart-button {
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/*boton de hambuerguesa en el header*/
+.navbar-toggler {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/*Efecto hover en el boton de hamburguesa*/
+.navbar{
+    --bs-navbar-color: #fff;
+    --bs-navbar-hover-color: #black;
+}
+.navbar .offcanvas.show {
+    --bs-navbar-color: black;
+}
+.nav-link{
+    position: relative;
+}
+
+/*Efecto hover en los enlaces del header*/
+@media(min-width: 991px){
+    .nav-link::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: white;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.company-logo {
+    box-sizing: border-box;
+    height: 60px;
+    width: auto;
+}
+
+.cart-logo,
+.user-logo {
+    width: 2rem;
+    height: auto;
+    display: block;
+    
+    box-shadow: none;
+    filter: none;
+    background: none;
+}
+
+.icon-group{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo-offcanvas-img{
+    height: 40px;
+    width: auto;
+}
+

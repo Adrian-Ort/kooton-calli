@@ -1,0 +1,36 @@
+:root {
+    --background-title: #F5CE85;
+    --color-text: #FFFFFF;
+    --color-hover: #969191;
+    --color-text-title: #79774E;
+    --font-display: 'Maiandra GD', sans-serif;
+    --font-text: "Reddit Sans", sans-serif;
+    --background-header-desktop: linear-gradient(to right, #AAEBE6 10%, #0E7C74 35%, #084A46 100%);
+    --background-header-tablet: linear-gradient(to right, #AAEBE6 20%, #0E7C74 60%, #084A46 100%);
+    --background-footer: #084A46; 
+    
+    /*buttons*/
+    --primary-buttton-color-brown: #79774E;
+    --primary-buttton-color-salmon: #D3AF6C;
+    --primary-buttton-color-delete: #E06464;
+    --primary-buttton-color-add: #98DEDA;
+    
+    --secondary-button-stroke-color-neutral: #EAEAEA;
+    --secondary-button-stroke-color-and-font: #D3AF6C;
+    --secondary-stroke-width: 2px;
+
+    --primary-button-round-corners: 8px;
+    --secondary-button-round-corners: 100px;
+
+                                                
+    /*Device sizes*/
+    --mobile-max: 576px;
+    --tablet-max: 768px;
+}
+
+h1{
+    font-family: var(--font-display);
+}
+body{
+  font-family: var(--font-text);
+}

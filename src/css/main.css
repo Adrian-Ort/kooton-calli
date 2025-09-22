@@ -1,0 +1,9 @@
+.bg-gradient-custom{
+        background: var(--background-header-desktop)
+}
+
+@media (max-width: 768px) {
+    .bg-gradient-custom{
+        background: var(--background-header-tablet)
+    }
+}

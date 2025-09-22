@@ -2,7 +2,7 @@ async function loadComponent(containerId, fileName) {
     const containerElement = document.getElementById(containerId);
     if (containerElement) {
         try{
-            const response = await fetch(`components/${fileName}`);
+            const response = await fetch(`/components/${fileName}`);
             const content = await response.text();
             containerElement.innerHTML = content;
         }catch(error){
@@ -14,5 +14,4 @@ async function loadComponent(containerId, fileName) {
 document.addEventListener('DOMContentLoaded', () => {
     loadComponent('header', 'header.html');
     loadComponent('footer', 'footer.html');
-    loadComponent('sidebar', 'navbar.html');
 });

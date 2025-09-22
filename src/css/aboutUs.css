@@ -1,0 +1,168 @@
+/* Style for aboutUs page */
+
+.title-mision, .title-vision, .title-nosotros {
+    padding-top: 3rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    color: var(--background-footer);
+}
+
+
+/*.title-vision, .title-nosotros {
+    margin-top: 2rem; /*Adrian: refactor: remove duplicate margin-top rules for the same classes to avoid redundancy and confusion
+
+}*/
+
+.paragraph-mision, .paragraph-vision {
+    max-width: 70%;
+    margin: 0 auto; /* Centra el párrafo horizontalmente */
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: var(--font-text);
+    color: black;
+}
+
+.title-gracias {
+    text-align: center;
+    margin-top: 2rem; /*Adrian: style: adjust margin-top from 4rem to 2 rem to reduce excessive spacing */
+    margin-bottom: 2rem;/*Adrian: style: adjust margin-bottom from 4rem to 2 rem to reduce excessive spacing */
+    font-size: 2.5rem;
+    font-family: var(--font-display);
+    color: var(--color-text-title);
+}
+
+/*div > a > img {
+    border-radius: 8px; /*Bordes redondeados de las imagenes*/
+    /* width: 100%; /*La imagen ocupa el 100% del ancho de su contenedor.*/
+    /*height: auto; /*Mantiene la proporción original de la imagen.*/
+    /*box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
+/*} */ 
+
+div > a > p {
+    margin-top: 8px; /*Espaciado superior para separar el texto de la imagen.*/
+    font-size: 14px; /*Tamaño de fuente pequeño y legible.*/
+    font-weight: 500; /*lo que da énfasis al texto sin ser muy grueso.*/
+    color: #333; /* color */
+}
+
+.titulo-galeria {
+    text-align: center;
+    font-size: clamp(1.5rem, 5vw, 3rem); /* se adapta al tamaño de pantalla */
+    margin-bottom: 24px;
+    color: #222;
+}
+
+/* Contenedor principal de la sección (opcional, para centrar) */
+.team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Si tienes varias tarjetas */
+    gap: 20px; /* Espacio entre tarjetas */
+    padding: 1rem 0; /*Adrian: style: reduce padding from 50px 0 to 1rem 0 to avoid excessive white space at the top*/
+}
+
+/* Contenedor individual de cada tarjeta para la perspectiva 3D */
+.card-container {
+    width: 300px; /* Ancho deseado de la tarjeta */
+    height: 300px; /* Altura deseada de la tarjeta */ /*Adrian: Resolved extra whitespace issue in stylesheet*/
+    perspective: 1000px; /* Define la profundidad del efecto 3D */
+}
+
+/* El elemento que gira */
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* Esencial para el giro 3D */
+    transition: transform 0.8s; /* Animación de giro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Al pasar el cursor, la tarjeta gira */
+.card-container:hover .card {
+    transform: rotateY(180deg); /* Gira 180 grados en el eje Y */
+}
+
+/* Estilos para las caras frontal y trasera */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la cara cuando está girada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden; /* Para que la imagen no se salga */
+}
+
+.card-front {
+    background-color: #f8f9fa; /* Color de fondo si la imagen no cubre todo */
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+    border-radius: 10px;
+}
+
+.card-back {
+    background-color: #084A46; /* Color de fondo del mensaje */
+    color: white;
+    transform: rotateY(180deg); /* La cara trasera comienza girada 180 grados */
+    padding: 20px;
+    flex-direction: column; /* Para alinear el texto verticalmente */
+    justify-content: center; /* Centrar contenido */
+}
+
+.card-back h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.card-back p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.card-back .btn {
+    background-color: rgb(13, 110, 0);
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card-back .btn:hover {
+    background-color: #a5c70e;
+}
+
+.image-grid {
+    display: grid;
+    /* On small screens, the grid will be a single column. */
+    /* On larger screens, this will change. */
+    grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns. */
+    gap: 16px; /* Adds space between grid items. */
+}
+
+/* Media query for larger screens */
+@media (max-width: 767px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* On small screens, the grid will have a single column. */
+    }
+}
+
+.image-grid img {
+    width: 100%; /* Makes sure the image fills its grid cell. */
+    height: auto; /* Maintains the image's aspect ratio. */
+    border-radius: 8px; /* Adds a nice rounded border to the images. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gives the images a slight shadow. */
+}

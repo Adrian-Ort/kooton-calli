@@ -1,0 +1,46 @@
+.category-image, .woman-img-home, .man-img-home {
+    display: block;
+    max-width: 25rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.man-img-home, .woman-img-home{
+    border: 0.5rem solid 79774E;
+    border-radius: 2rem;
+}
+
+.man-img-home:hover, .woman-img-home:hover {
+    transform: translateY(-5px);
+    box-shadow: 10px 5px 5px grey;
+}
+
+.woman-img-home{
+    border: 0.5rem solid #F5CE85;
+}
+
+.man-img-home{
+    border: 0.5rem solid #79774E;
+}
+
+.second-column-home{
+    margin-top: 15%;
+}
+
+.category-image{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.overlay-text{
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: white; 
+    background-color: rgba(0, 0, 0, 0.0);
+    padding: 5px 10px; 
+    font-family: var(--font-display);
+    font-size: 2rem;
+}
