@@ -7,10 +7,50 @@
 	<!--Header-->
 	<div id="header"></div>
 
-	<main>
-		
+    <header class="bg-warning text-center py-4 product-header">
+        <h1 class="product-title-header mb-0">SUÉTER OFRENDA</h1>
+    </header>
 
-	</main>
+    <main class="container py-5 product-container">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-md-5 d-flex flex-column justify-content-center order-md-1">
+                <div class="product-info-card card p-4 mb-4">
+                    <h5 class="card-title text-center mb-3">Descripción</h5>
+                    <p class="card-text text-muted" id="product-description">
+                        Aquí va la descripción de un producto, puede incluir el color, material y una breve reseña del diseño y el artista.
+                    </p>
+                </div>
+                
+                <div class="product-info-card card p-4 mb-4">
+                    <h5 class="card-title text-center mb-3">Talla</h5>
+                    <select class="form-select text-center" id="size-select">
+                        <option selected disabled>Elige una talla</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                
+                <div class="d-flex justify-content-center mb-3">
+                    <h3 class="product-price text-success" id="product-price">$450.39 MXN</h3>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button class="btn btn-dark btn-lg add-to-cart-btn" id="add-to-cart-btn">
+                        Añadir al cesto
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-md-5 d-flex justify-content-center align-items-center order-md-2">
+                <div class="image-card card p-4">
+                    <img id="product-image" src="ruta/a/tu/imagen.png" class="img-fluid rounded-3" alt="Imagen del Suéter Ofrenda">
+                </div>
+            </div>
+        </div>
+    </main>
+
 
 	<!--Footer-->
 	<div id="footer"></div>
