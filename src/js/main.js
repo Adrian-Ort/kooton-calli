@@ -33,7 +33,15 @@ fetch('/data/items.json')
     .then(data => {
         console.log('Datos cargados correctamente:', data);
         data.forEach(item => {
-            itemsController.addItem(item.name, item.img, item.description);
+            itemsController.addItem(
+                item.id,
+                item.name,
+                item.price,
+                item.img,
+                item.description,
+                item.category,
+                item.subcategory
+            );
 
         });
         // Llama a la función que muestra los productos en la página
