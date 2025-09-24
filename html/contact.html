@@ -1,6 +1,15 @@
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<base id="__base" href="/" />
+	<script type="module">
+		// Dev: '/', Build/Preview: '/kooton-calli/'
+		document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+	</script>
+
+
 </head>
 
 <body>
@@ -19,12 +28,13 @@
 					<label for="">Correo</label>
 					<input id="input--email" class="contact--box--input" type="email" name="email"
 						placeholder="fulanito@correo.com">
-		
+
 				</div>
 				<div class="contact--box--title">
 					<label for="">Teléfono</label>
-					<input id="input--phone" class="contact--box--input" type="tel" name="phone" placeholder="777-111-888">
-		
+					<input id="input--phone" class="contact--box--input" type="tel" name="phone"
+						placeholder="777-111-888">
+
 				</div>
 				<div class="contact--box--title">
 					<label for="">Asunto</label>
@@ -36,15 +46,15 @@
 						name="user_message" type="text" name="message"
 						placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
 				</div>
-		
+
 				<div class="contact--div">
 					<button class="contact--div--button" type="submit">Enviar</button>
 				</div>
 			</section>
 		</form>
-		
+
 		<section class="contact--bottom--box">
-			<img class="contact--logo" src="../src/img/logo-dividido.png" alt="Logo de la marca">
+			<img class="contact--logo" src="img/logo-dividido.png" alt="Logo de la marca">
 			<div class="contact--last--box">
 				<h2 class="contact--last--box--title">Kooton-Calli Co. Ltd.</h2>
 				<ul class="contact--last--box--items">
@@ -55,19 +65,15 @@
 					<li>Oficinas centrales: Ciudad de México, México.</li>
 				</ul>
 			</div>
-			</section>
+		</section>
 	</main>
 
 	<!--Footer-->
 	<div id="footer"></div>
 	<!--El Script hace que Vite inyecte main.js-->
 	<script type="module" src="/src/js/main.js"></script>
-	<script src="../src/js/contact.js"></script> <!--Por el momento lo conectare así-->
+	<!--<script type="module" src="/src/js/contact.js"></script>--> <!--Por el momento lo conectare así-->
 
 </body>
+
 </html>
-
-
-
-
-

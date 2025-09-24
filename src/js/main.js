@@ -23,9 +23,9 @@ import './components.js';
 // Page Contact
 import './contact.js';
 
-import ItemsController from '/src/js/itemsController.js';
+import ItemsController  from './itemsController.js';
 
-// Ejemplo de cómo cargar los datos
+
 const itemsController = new ItemsController();
 
 fetch('/data/items.json')
@@ -63,3 +63,4 @@ fetch('/data/items.json')
 
     })
     .catch(error => console.error('Error al cargar el JSON:', error));
+

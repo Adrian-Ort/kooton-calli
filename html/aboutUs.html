@@ -5,14 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+
+
     <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link Font Maiandra GD-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet"> <!--Font Reddit Sans-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../src/css/global_variables.css">
+
 
 </head>
 
@@ -47,8 +53,7 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Denisse-Lizeth-González-González.jpg"
-                                alt="Foto-de-Den">
+                            <img src="img/team-pictures/foto-Denisse-Lizeth-González-González.jpg" alt="Foto-de-Den">
                         </div>
                         <div class="card-face card-back">
                             <h3>Denisse Lizeth González González</h3>
@@ -63,8 +68,7 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Jaime-Armando-Martínez-Palomera.jpg"
-                                alt="Foto-de-Jaime">
+                            <img src="img/team-pictures/foto-Jaime-Armando-Martínez-Palomera.jpg" alt="Foto-de-Jaime">
                         </div>
                         <div class="card-face card-back">
                             <h3>Jaime Armando Martínez Palomera</h3>
@@ -81,26 +85,28 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Jose-Alberto-Escalante-Toledo.jpg"
-                                alt="Foto-de-Beto">
+                            <img src="img/team-pictures/foto-Jose-Alberto-Escalante-Toledo.jpg" alt="Foto-de-Beto">
                         </div>
                         <div class="card-face card-back">
                             <h3>Jose Alberto Escalante Toledo</h3>
                             <p>Programador full stack en desarrollo, con especial interés en el área de front-end. Me
                                 caracterizo por disfrutar del trabajo en equipo y mantener una actitud de aprendizaje
                                 constante frente a nuevas tecnologías.</p>
-                            <a href="#" class="btn btn-primary">Ver Perfil</a>
+                            <a href="https://www.linkedin.com/in/alberto-escalante-toledo/" class="btn btn-primary">Ver
+                                Perfil</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-José-Angel-Tirado-Luna.jpg" alt="Foto-de-Angel">
+                            <img src="img/team-pictures/foto-José-Angel-Tirado-Luna.jpg" alt="Foto-de-Angel">
                         </div>
                         <div class="card-face card-back">
                             <h3>José Angel Tirado Luna</h3>
-                            <p>Soy egresado de Matemáticas Aplicadas y Computación, con una sólida formación en análisis, resolución de problemas y desarrollo de software. Me especializo en Desarrollo Java FullStack, con mayor interés en el Backend.</p>
+                            <p>Soy egresado de Matemáticas Aplicadas y Computación, con una sólida formación en
+                                análisis, resolución de problemas y desarrollo de software. Me especializo en Desarrollo
+                                Java FullStack, con mayor interés en el Backend.</p>
                             <a href="https://www.linkedin.com/in/jose-angel-tirado/" class="btn btn-primary">Ver
                                 Perfil</a>
                         </div>
@@ -109,7 +115,8 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/Kooton-Calli-Logo-StandAlone.jpg" alt="Foto-de-Adrian"> <!--Foto del logo-->
+                            <img src="img/Kooton-Calli-Logo-StandAlone.jpg" alt="Foto-de-Adrian">
+                            <!--Foto del logo-->
                         </div>
                         <div class="card-face card-back">
 
@@ -124,12 +131,12 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Miguel-Adrian-Ortega-Herrera.jpg"
-                                alt="Foto-de-Adrian">
+                            <img src="img/team-pictures/foto-Miguel-Adrian-Ortega-Herrera.jpg" alt="Foto-de-Adrian">
                         </div>
                         <div class="card-face card-back">
                             <h3>Miguel Adrian Ortega Herrera</h3>
-                            <p>Desarrollador Web en formación, con estudios en Ingeniería en Sistemas Computacionales, comprometido con el aprendizaje continuo y el trabajo en equipo.</p>
+                            <p>Desarrollador Web en formación, con estudios en Ingeniería en Sistemas Computacionales,
+                                comprometido con el aprendizaje continuo y el trabajo en equipo.</p>
                             <a href="https://www.linkedin.com/in/miguel-adrian-ortegah9/" class="btn btn-primary">Ver
                                 Perfil</a>
                         </div>
@@ -138,11 +145,13 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Nicteha-Fragoso.jpg" alt="Foto-de-Nic">
+                            <img src="img/team-pictures/foto-Nicteha-Fragoso.jpg" alt="Foto-de-Nic">
                         </div>
                         <div class="card-face card-back">
                             <h3>Nicteha Fragoso</h3>
-                            <p>Desarrolladora Full Stack con mayor tendencia al Frontend. Formación en Diseño y Comunicación; tengo interés en mejorar la experiencia de usuario e interfaces aplicando código con diseño atractivo y funcional.</p>
+                            <p>Desarrolladora Full Stack con mayor tendencia al Frontend. Formación en Diseño y
+                                Comunicación; tengo interés en mejorar la experiencia de usuario e interfaces aplicando
+                                código con diseño atractivo y funcional.</p>
                             <a href="https://www.linkedin.com/in/nicteha-fragoso/" class="btn btn-primary">Ver
                                 Perfil</a>
                         </div>
@@ -151,12 +160,13 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Pedro-Serrano-Viveros.jpg"
-                                alt="Miembro del Equipo 1">
+                            <img src="img/team-pictures/foto-Pedro-Serrano-Viveros.jpg" alt="Miembro del Equipo 1">
                         </div>
                         <div class="card-face card-back">
                             <h3>Pedro Serrano Viveros</h3>
-                            <p>Iniciando en programación, motivado a seguir aprendiendo y creciendo. Me especializo en frontend, utilizando HTML, CSS y JavaScript para diseñar interfaces modernas, atractivas y funcionales con enfoque en experiencia de usuario.</p>
+                            <p>Iniciando en programación, motivado a seguir aprendiendo y creciendo. Me especializo en
+                                frontend, utilizando HTML, CSS y JavaScript para diseñar interfaces modernas, atractivas
+                                y funcionales con enfoque en experiencia de usuario.</p>
                             <a href="https://www.linkedin.com/in/pedro-serrano23/" class="btn btn-primary">Ver
                                 Perfil</a>
                         </div>
@@ -165,7 +175,7 @@
                 <div class="card-container">
                     <div class="card">
                         <div class="card-face card-front">
-                            <img src="../src/img/team-pictures/foto-Yeudiel-Avelar-Martínez.jpg" alt="Foto-de-Yeu">
+                            <img src="img/team-pictures/foto-Yeudiel-Avelar-Martínez.jpg" alt="Foto-de-Yeu">
                         </div>
                         <div class="card-face card-back">
                             <h3>Yeudiel Avelar Martínez</h3>

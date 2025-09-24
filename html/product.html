@@ -1,17 +1,26 @@
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<base id="__base" href="/" />
+	<script type="module">
+		// Dev: '/', Build/Preview: '/kooton-calli/'
+		document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+	</script>
+
+
 </head>
 
 <body>
 	<!--Header-->
 	<div id="header"></div>
 
-    <header class="bg-warning text-center py-4 product-header">
+	<header class="bg-warning text-center py-4 product-header">
         <h1 class="product-title-header mb-0">SUÉTER OFRENDA</h1>
     </header>
 
-    <main class="container py-5 product-container">
+	<main class="container py-5 product-container">
         <div class="row gx-5 justify-content-center">
             <div class="col-md-5 d-flex flex-column justify-content-center order-md-1">
                 <div class="product-info-card card p-4 mb-4">
@@ -51,11 +60,11 @@
         </div>
     </main>
 
-
 	<!--Footer-->
 	<div id="footer"></div>
 	<!--El Script hace que Vite inyecte main.js-->
-	<script type="module" src="../src/js/main.js"></script>
+	<script type="module" src="/src/js/main.js"></script>
 
 </body>
+
 </html>
