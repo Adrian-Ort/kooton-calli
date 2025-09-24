@@ -23,3 +23,44 @@ import './components.js';
 // Page Contact
 import './contact.js';
 
+import ItemsController  from './itemsController.js';
+
+
+const itemsController = new ItemsController();
+
+fetch('/data/items.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log('Datos cargados correctamente:', data);
+        data.forEach(item => {
+            itemsController.addItem(
+                item.id,
+                item.name,
+                item.price,
+                item.img,
+                item.description,
+                item.category,
+                item.subcategory
+            );
+
+        });
+        // Llama a la función que muestra los productos en la página
+        // itemsController.displayItems(); 
+
+
+
+        //Test adding items to items.json
+        itemsController.addItem(
+            11,
+            "CamisaTest",
+            11.11,
+            "img",
+            "description",
+            "category",
+            "subcategory"
+        );
+        console.log("la lista de productos es: ", itemsController.items); // Muestra los items en la consola
+
+    })
+    .catch(error => console.error('Error al cargar el JSON:', error));
+

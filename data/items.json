@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "name": "Camisa holgada",
+        "price": 20.5,
+        "img": "img.jpg",
+        "description": "Esto es una camisa",
+        "category": "Hombre",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 2,
+        "name": "Pantalón",
+        "price": 35.0,
+        "img": "img2.jpg",
+        "description": "Esto es un pantalón",
+        "category": "Hombre",
+        "subcategory": "Pantalones"
+    },
+    {
+        "id": 3,
+        "name": "Falda",
+        "price": 25.0,
+        "img": "img3.jpg",
+        "description": "Esto es una falda",
+        "category": "Mujer",
+        "subcategory": "Faldas"
+    },
+    {
+        "id": 4,
+        "name": "Vestido de Flores",
+        "price": 45.0,
+        "img": "img4.jpg",
+        "description": "Esto es un vestido",
+        "category": "Mujer",
+        "subcategory": "Vestidos"
+    },
+    {
+        "id": 5,
+        "name": "Camisa moderna",
+        "price": 60.0,
+        "img": "img5.jpg",
+        "description": "Esta es una buena camisa",
+        "category": "Hombre",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 6,
+        "name": "Suéter cómodo",
+        "price": 30.0,
+        "img": "img6.jpg",
+        "description": "Este es un suéter",
+        "category": "Mujer",
+        "subcategory": "Suéteres"
+    },
+    {
+        "id": 7,
+        "name": "Sueter ajustado",
+        "price": 15.0,
+        "img": "img7.jpg",
+        "description": "Esto es una suéter",
+        "category": "Hombre",
+        "subcategory": "Suéteres"
+    },
+    {
+        "id": 8,
+        "name": "Chal gramde",
+        "price": 18.0,
+        "img": "img8.jpg",
+        "description": "Esto es una Chal",
+        "category": "Mujer",
+        "subcategory": "Suéteres"
+    },
+    {
+        "id": 9,
+        "name": "Chaqueta",
+        "price": 50.0,
+        "img": "img9.jpg",
+        "description": "Esto es una chaqueta",
+        "category": "Hombre",
+        "subcategory": "Suéteres"
+    },
+    {
+        "id": 10,
+        "name": "Abrigo",
+        "price": 80.0,
+        "img": "img10.jpg",
+        "description": "Esto es un abrigo",
+        "category": "Mujer",
+        "subcategory": "Suéteres"
+    }
+]
