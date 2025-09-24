@@ -23,44 +23,49 @@ import './components.js';
 // Page Contact
 import './contact.js';
 
-import ItemsController  from './itemsController.js';
+import '../css/normalize.css';
+// ... (todos tus otros imports)
+import ItemsController from './itemsController.js';
 
+// Envolvemos todo en una función asíncrona para poder usar 'await'
+async function initializeApp() {
+    // 1. Inicializar el controlador.
+    const itemsController = new ItemsController();
+    
+    // 2. Esperar a que los datos se carguen desde el JSON.
+    await itemsController.loadInitialItems(); // ¡Este 'await' es la clave!
 
-const itemsController = new ItemsController();
+    // 3. Obtener el ID del producto desde la URL.
+    const params = new URLSearchParams(window.location.search);
+    const productId = parseInt(params.get('id'));
 
-fetch('/data/items.json')
-    .then(response => response.json())
-    .then(data => {
-        console.log('Datos cargados correctamente:', data);
-        data.forEach(item => {
-            itemsController.addItem(
-                item.id,
-                item.name,
-                item.price,
-                item.img,
-                item.description,
-                item.category,
-                item.subcategory
-            );
+    // 4. Procesar el producto (el resto de tu código sigue igual).
+    if (productId) {
+        const product = itemsController.getItemById(productId);
 
-        });
-        // Llama a la función que muestra los productos en la página
-        // itemsController.displayItems(); 
+        if (product) {
+            // Conectar IDs del HTML con los datos del producto.
+            document.querySelector('.product-title-header').textContent = product.name;
+            document.getElementById('product-description').textContent = product.description;
+            document.getElementById('product-price').textContent = product.price;
+            
+            const productImage = document.getElementById('product-image');
+            // Asumiendo que tus imágenes están en una carpeta 'img'
+            productImage.src = `public/img/${product.img}`; 
+            productImage.alt = `Imagen de ${product.name}`;
+            
+            // Actualiza el título de la pestaña del navegador
+            document.title = product.name;
 
+        } else {
+            console.error(`Error: No se encontró el producto con ID ${productId}.`);
+            // Aquí podrías mostrar un mensaje 404.
+        }
+    } else {
+        console.error('Error: ID de producto no especificado en la URL.');
+        // Redirigir al catálogo o mostrar un error.
+    }
+}
 
-
-        //Test adding items to items.json
-        itemsController.addItem(
-            11,
-            "CamisaTest",
-            11.11,
-            "img",
-            "description",
-            "category",
-            "subcategory"
-        );
-        console.log("la lista de productos es: ", itemsController.items); // Muestra los items en la consola
-
-    })
-    .catch(error => console.error('Error al cargar el JSON:', error));
-
+// Espera a que el DOM esté cargado y luego ejecuta nuestra función principal.
+document.addEventListener('DOMContentLoaded', initializeApp);
