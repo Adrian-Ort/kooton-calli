@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Camisa holgada",
         "price": 20.5,
-        "img": "img.jpg",
+        "img": "blue-sweeter-man.png",
         "description": "Esto es una camisa",
         "category": "Hombre",
         "subcategory": "Camisas"
