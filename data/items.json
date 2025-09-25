@@ -4,89 +4,89 @@
         "name": "Suéter azúl patrones blancos",
         "price": 20.5,
         "img": "blue-sweeter-man.png",
-        "description": "Esto es una camisa",
+        "description": "Sueter azul con patrones blancos en el pecho y brazos tipo lana de esos que venden en Toluca",
         "category": "Hombre",
         "subcategory": "Camisas"
     },
     {
         "id": 2,
-        "name": "Pantalón",
+        "name": "Falda patrones océano",
         "price": 35.0,
-        "img": "img2.jpg",
-        "description": "Esto es un pantalón",
-        "category": "Hombre",
+        "img": "flowers-ocean-pattern-skirt.png",
+        "description": "Falda con patrones inspirados en flores y en el océano hecha de manta en tonos azules y rojos",
+        "category": "Mujer",
         "subcategory": "Pantalones"
     },
     {
         "id": 3,
-        "name": "Falda",
+        "name": "Suéter verde con patrones",
         "price": 25.0,
-        "img": "img3.jpg",
-        "description": "Esto es una falda",
+        "img": "granite-sweeter-green-man.png",
+        "description": "Suéter color verde con apariencia de arena y patrones cuadrangulares en el pecho y brazos. Colores rojo y azul",
         "category": "Mujer",
-        "subcategory": "Faldas"
+        "subcategory": "Suéteres"
     },
     {
         "id": 4,
-        "name": "Vestido de Flores",
+        "name": "Sudadera blanca con flor",
         "price": 45.0,
-        "img": "img4.jpg",
-        "description": "Esto es un vestido",
+        "img": "hoodie-flowe-white.png",
+        "description": "Sudadera blanca con flor morada en la parte inferior. De la flor se desprenden mariposas y aves",
         "category": "Mujer",
-        "subcategory": "Vestidos"
+        "subcategory": "Suéteres"
     },
     {
         "id": 5,
-        "name": "Camisa moderna",
+        "name": "Sudadera para hombre rústica",
         "price": 60.0,
-        "img": "img5.jpg",
-        "description": "Esta es una buena camisa",
+        "img": "man-whit-hoodie-home.png",
+        "description": "Sudadera para hombre con un diseño atemporal y fresco",
         "category": "Hombre",
-        "subcategory": "Camisas"
+        "subcategory": "Suéteres"
     },
     {
         "id": 6,
-        "name": "Suéter cómodo",
+        "name": "Playera azul Mictlán",
         "price": 30.0,
-        "img": "img6.jpg",
-        "description": "Este es un suéter",
+        "img": "mictlan-T-shirt.png",
+        "description": "Playera azul inspirada en el río de los muertos Apanohuacalhuia hacia el Mictlán",
         "category": "Mujer",
-        "subcategory": "Suéteres"
+        "subcategory": "Camisas"
     },
     {
         "id": 7,
-        "name": "Sueter ajustado",
+        "name": "Pants gris con patrones",
         "price": 15.0,
-        "img": "img7.jpg",
-        "description": "Esto es una suéter",
+        "img": "pattern-grey-pants.png",
+        "description": "Pantalones deportivos grises con blanco en forma de piedra",
         "category": "Hombre",
-        "subcategory": "Suéteres"
+        "subcategory": "Pantalones"
     },
     {
         "id": 8,
-        "name": "Chal gramde",
+        "name": "Falda tableada",
         "price": 18.0,
-        "img": "img8.jpg",
-        "description": "Esto es una Chal",
+        "img": "pettern-skirt.png",
+        "description": "Falda tableada con estampado de paliacate que muestra colores verdes, azul y rojo",
         "category": "Mujer",
         "subcategory": "Suéteres"
     },
     {
         "id": 9,
-        "name": "Chaqueta",
+        "name": "Pantalón con estampado tradicional",
         "price": 50.0,
-        "img": "img9.jpg",
-        "description": "Esto es una chaqueta",
-        "category": "Hombre",
-        "subcategory": "Suéteres"
+        "img": "shredded-paper.png",
+        "description": "Pantalones para mujer con un diseño de colores y estampado de tejidos tradicionales",
+        "category": "Mujer",
+        "subcategory": "Pantalones"
     },
     {
         "id": 10,
-        "name": "Abrigo",
+        "name": "Blusa bordada",
         "price": 80.0,
-        "img": "img10.jpg",
-        "description": "Esto es un abrigo",
+        "img": "talavera-blouse.png",
+        "description": "Blusa para mujer de manga corta",
         "category": "Mujer",
-        "subcategory": "Suéteres"
+        "subcategory": "Camisas"
     }
 ]
