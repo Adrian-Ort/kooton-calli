@@ -1,10 +1,10 @@
 [
     {
         "id": 1,
-        "name": "Camisa holgada",
+        "name": "Suéter azúl patrones blancos",
         "price": 20.5,
         "img": "img.jpg",
-        "description": "Esto es una camisa",
+        "description": "Suéter color azul con patrones en blanco, puños azul marino y blanco",
         "category": "Hombre",
         "subcategory": "Camisas"
     },
