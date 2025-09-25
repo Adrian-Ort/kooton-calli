@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+    <title>Sign up</title>
+
+</head>
+<body>
+
+    <!--Header-->
+    <div id="header"></div>
+
+    <main style="padding-top: 50px;">
+        <div class="container">
+            <div class="signup-form my-4">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!--Footer-->
+    <div id="footer"></div>
+    <!--El Script hace que Vite inyecte main.js-->
+    <script type="module" src="/src/js/main.js"></script>
+    <!--<script type="module" src="/src/js/contact.js"></script>--> <!--Por el momento lo conectare así-->
+
+</body>
+</html>
