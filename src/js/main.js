@@ -50,12 +50,12 @@ async function initializeApp() {
             document.getElementById('product-price').textContent = product.price;
             
             const productImage = document.getElementById('product-image');
-            // Asumiendo que tus imágenes están en una carpeta 'img'
-            productImage.src = `public/img/${product.img}`; 
-            productImage.alt = `Imagen de ${product.name}`;
+            // Para la ruta de las imágenes
+            productImage.src = `public/img/product-images${product.img}`; 
+            productImage.alt = `Imagen de ${product.description}`;
             
             // Actualiza el título de la pestaña del navegador
-            document.title = product.name;
+            //document.title = product.name;
 
         } else {
             console.error(`Error: No se encontró el producto con ID ${productId}.`);
