@@ -21,30 +21,30 @@
 		<form action="https://formspree.io/f/mgvlgqbb" method="POST">
 			<section class="contact--box">
 				<div class="contact--box--title">
-					<label for="">Nombre completo</label>
-					<input id="input--name" class="contact--box--input" type="text" name="name" placeholder="Fulanito">
+					<label for="input--name">Nombre completo</label>
+					<input id="input--name" class="contact--box--input" type="text" name="name" placeholder="Fulanito de Tal" requires minleght="5" >
 				</div>
 				<div class="contact--box--title">
-					<label for="">Correo</label>
+					<label for="input--email">Correo</label>
 					<input id="input--email" class="contact--box--input" type="email" name="email"
-						placeholder="fulanito@correo.com">
+						placeholder="fulanito@correo.com" title="Coloca un correo válido para que podamos contactarte" required>
 
 				</div>
 				<div class="contact--box--title">
-					<label for="">Teléfono</label>
+					<label for="input--phone">Teléfono</label>
 					<input id="input--phone" class="contact--box--input" type="tel" name="phone"
-						placeholder="777-111-888">
+						placeholder="777-111-888" pattern="[0-9\-]+" title="Solo números y guiones" required>
 
 				</div>
 				<div class="contact--box--title">
 					<label for="">Asunto</label>
-					<input id="input--name" class="contact--box--input" type="text" name="subject" placeholder="Saludo">
+					<input id="input--name" class="contact--box--input" type="text" name="subject" placeholder="Saludo" title="Coloca el tema del que nos quieres contar">
 				</div>
 				<div class="contact--box--title">
 					<label for="contact--box--input--message">Descripción</label>
 					<textarea id="input--message" class="contact--box--input" id="contact--box--input--message"
 						name="user_message" type="text" name="message"
-						placeholder="Ej.: Me encanta su página y la ropa que venden"></textarea>
+						placeholder="Ej.: Me encanta su página y la ropa que venden" title="Coloca aquí el mensaje que deseas compartirnos" required></textarea>
 				</div>
 
 				<div class="contact--div">
