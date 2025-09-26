@@ -1,0 +1,15 @@
+/* Estilo del borde*/
+.form-control{
+    border:2px solid #E6C27F !important;
+}
+.form-control:focus{
+    border-color: #E6C27F !important;
+}
+.btn-register{
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #79774E;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}

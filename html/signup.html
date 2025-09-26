@@ -8,6 +8,7 @@
         // Dev: '/', Build/Preview: '/kooton-calli/'
         document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
     </script>
+    <link rel="stylesheet" href="./src/css/login.css">
     <title>Sign up</title>
 
 </head>
@@ -21,21 +22,37 @@
             <div class="signup-form my-4">
                 <form>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" placeholder="Michaela" aria-label="First name">
+                            </div>
+                            <div class="col">
+                                <label class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" placeholder="Lopez" aria-label="Last name">
+                            </div>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <label for="exampleInputPhone" class="form-label">Número de Teléfono</label>
+                        <input type="phone" class="form-control" placeholder="5512345678" id="exampleInputPhone" aria-describedby="PhoneHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" placeholder="michaela@kooton.com" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn-register">Registrar</button>
                 </form>
 
+            </div>
+
+            <div class="row px-3 mb-4">
+                <small class="font-weight-bold">¿Ya tienes una cuenta?
+                <a class="text-danger" href="#">Acceder</a></small>
             </div>
 
         </div>
