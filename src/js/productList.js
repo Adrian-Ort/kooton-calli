@@ -31,7 +31,7 @@ async function loadAndDisplayProducts() {
                 <div class="col-md-4 col-sm-6">
                     <div class="card h-100 shadow-lg bg-secondary bg-opacity-25 border-1 rounded-4">
                         <div class="p-3">
-                            <img src="/public/img/products-images/${product.img}" class="img-fluid rounded-5" alt="Imagen de ${product.name}">
+                            <img src="/img/products-images/${product.img}" class="img-fluid rounded-5" alt="Imagen de ${product.name}">
                         </div>
                         <div class="card-body text-center d-flex flex-column p-2">
                             <h5 class="card-title">${product.name}</h5>
