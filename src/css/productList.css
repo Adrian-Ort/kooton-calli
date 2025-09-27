@@ -11,11 +11,13 @@ background-color: #c1c0c0;
     background-color: #979696;
 }
 
-.flex__container__product__list {
+.flex__container__product__list{
+    margin-top: 4.5rem;
     background-color: #F5CE85;
     display: flex;
     justify-content: center;
     padding: 15px;
-    color: #084A46;
-    
+    color: #084A46;    
 }
+
+
