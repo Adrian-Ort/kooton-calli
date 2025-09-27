@@ -1,0 +1,26 @@
+.flex__container__shopping__cart {
+    margin-top: 4.5rem;
+    background-color: #79774E;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+    color: #ffffff;
+    font-family: var(--font-text);
+}
+
+.container__cart__elements {
+    margin: 2rem;
+    background-color: #F5CE85;
+    padding: 20px;
+    border-radius: 15px;    
+}
+
+/*Sirve para ocultar las flechas que aparecen por defecto en los navegadores 
+en esto la neta me eche un chat gpt xD
+alrato o el domingo pongo lo que falta en ingles
+falta hacer el .js para darle funcionalidad a los botones de + y -
+me falta poner el precio*/
+.quitar__flechas::-webkit-outer-spin-button,
+.quitar__flechas::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
