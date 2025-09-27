@@ -39,13 +39,13 @@ function validateForm(event) {
 
     return true;
 }
-
+/*
 // Prevenir caracteres no numéricos en el teléfono
 document.getElementById("input--phone").addEventListener("input", function(e) {
     // Permitir solo números, guiones y borrar
     this.value = this.value.replace(/[^0-9\-]/g, '');
-});
-
+});*/
+/*
 // Asignar la validación al formulario
 document.querySelector("form").addEventListener("submit", validateForm);
-
+*/

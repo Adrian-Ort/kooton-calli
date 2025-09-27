@@ -22,6 +22,6 @@ import './components.js';
 
 // Page Contact
 import './contact.js';
-
+import './inventory-management.js'
 import '../css/normalize.css';
 // ... (todos tus otros imports)
