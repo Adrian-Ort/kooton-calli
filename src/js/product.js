@@ -24,7 +24,7 @@ async function initializeApp() {
             
             const productImage = document.getElementById('product-image');
             // Para la ruta de las imágenes
-            productImage.src = `public/img/product-images/${product.img}`; 
+            productImage.src = `/img/products-images/${product.img}`; 
             productImage.alt = `Imagen de ${product.name}`;
             
             // Actualiza el título de la pestaña del navegador
