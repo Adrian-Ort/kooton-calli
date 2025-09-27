@@ -8,13 +8,47 @@
     font-family: var(--font-text);
 }
 
+.descripcion__producto {
+    color: #084A46;
+}
 .container__cart__elements {
     margin: 2rem;
     background-color: #F5CE85;
     padding: 20px;
-    border-radius: 15px;    
+    border-radius: 15px;
 }
 
+.boton__mas__menos {
+    display: flex;
+    gap: 10px;
+    font-size: 1.8em;
+    justify-content: center;
+}
+
+
+.boton__del__carrito {
+    height: 40px;
+    width: 40px;
+    background-color: #79774E;
+    color: #ffffff;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-text);
+    transition: background-color 0.5s ease;
+}
+.boton__del__carrito:hover {
+    background-color: #ffffff;
+}
+
+
+.quitar__flechas{
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    border: 1px solid #000000;
+}
 /*Sirve para ocultar las flechas que aparecen por defecto en los navegadores 
 en esto la neta me eche un chat gpt xD
 alrato o el domingo pongo lo que falta en ingles
@@ -23,4 +57,17 @@ me falta poner el precio*/
 .quitar__flechas::-webkit-outer-spin-button,
 .quitar__flechas::-webkit-inner-spin-button {
     -webkit-appearance: none;
+}
+
+.card {
+    border: 1px solid #545454;
+}
+
+.total__button {
+background-color: #c1c0c0;
+  color: #3b390f;
+  border-color: #3b390f;
+}
+.total__button:hover {
+    background-color: #979696;
 }
