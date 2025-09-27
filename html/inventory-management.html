@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+    <link rel="stylesheet" href="./src/css/inventory-management.css">
+    <title>Gestion de Inventario</title>
+
+</head>
+<body>
+    <!--Header-->
+    <div id="header"></div>
+
+    <main style="padding-top: 50px;">
+        <h1>Gestión de Inventario</h1>
+        <div class="container-busqueda-inventory mb-3">
+            <label for="exampleInput#" class="form-label">Código de Barras</label>
+            <input type="bar-code" class="form-control" placeholder="#" id="exampleInput#"
+                aria-describedby="#Help">
+            <button>Buscar</button>
+        </div>
+    
+        <div class="card-table-inventory">
+            <table class="table  table- table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID producto</th>
+                        <th scope="col">Código de Barras</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Subcategoría</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Talla</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Descuento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    
+
+
+    <!--Footer-->
+    <div id="footer"></div>
+    <!--El Script hace que Vite inyecte main.js-->
+    <script type="module" src="/src/js/main.js"></script>
+    <!--<script type="module" src="/src/js/contact.js"></script>--> <!--Por el momento lo conectare así-->
+
+</body>
+</html>

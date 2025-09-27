@@ -1,0 +1,13 @@
+.container-busqueda-inventory{
+    max-width: 42.5rem;
+    margin: 0 auto;
+}
+
+.card-table-inventory {
+    margin: 20px; /* Margen exterior */
+    padding: 15px; /* Margen interior */
+    border: none; /* Quitamos borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background: #fff; /* Fondo blanco para resaltar la sombra */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra siempre visible */
+}
