@@ -164,15 +164,21 @@
     /* On small screens, the grid will be a single column. */
     /* On larger screens, this will change. */
     grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns. */
-    gap: 16px; /* Adds space between grid items. */
+    gap: 16px; /*Adds space between grid items.*/
 }
 
-/* Media query for larger screens */
-@media (max-width: 767px) {
+/*Media query for small screens*/ 
+@media (max-width: 943px) {
     .image-grid {
-        grid-template-columns: 1fr; /* On small screens, the grid will have a single column. */
+        grid-template-columns: repeat(2, 1fr); /*On small screens, the grid will have a single column*/
     }
 }
+
+/*@media (max-width: 767px) {
+    .image-grid {
+        grid-template-columns: 1fr; // On small screens, the grid will have a single column.
+    }
+}*/
 
 .image-grid img {
     width: 100%; /* Makes sure the image fills its grid cell. */
