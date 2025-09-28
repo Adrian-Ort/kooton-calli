@@ -5,7 +5,7 @@ const tableBody = document.getElementById('tableBody');
 async function loadTable(){
     try{
         const itemsController = new ItemsController();
-        //await espera a que caguen todos los productos
+        //await espera a que carguen todos los productos
         await itemsController.loadInitialItems();
         itemsController.items.forEach(item => addRow(item));
     }catch(error){
@@ -23,11 +23,28 @@ function addRow(item){
     <td>${item.category}</td>
     <td>${item.subcategory}</td>
     <td>
-      <button class="action-btn edit-btn" data-action="edit" data-id="${item.id}">Editar</button>
-      <button class="action-btn delete-btn" data-action="delete" data-id="${item.id}">Eliminar</button>
-    </td>`; //Añadimos los botones de editar y eliminar
+      <button 
+        class="btn btn-sm btn-primary" 
+        data-bs-toggle="modal" 
+        data-bs-target="#editModal"
+        data-id="${item.id}"
+        data-name="${item.name}"
+        data-price="${item.price}"
+        data-description="${item.description}"
+        data-category="${item.category}"
+        data-subcategory="${item.subcategory}"
+      >Editar
+      </button>
+      <button 
+        class="btn btn-sm btn-danger" 
+        data-action="delete" 
+        data-id="${item.id}"
+      >Eliminar
+      </button>
+    </td>`;
     tableBody.appendChild(tr);
 };
+
 
 //Con un evento excuchamos si activa alguno de los dos botones
 tableBody.addEventListener('click', (e)=>{
@@ -36,25 +53,43 @@ tableBody.addEventListener('click', (e)=>{
         return;
     const id = btn.dataset.id;
     if(btn.dataset.action=== 'edit'){
-        editItem(id);
+
     }
     else if(btn.dataset.action === 'delete'){
         deleteItem(id);
     }
-})
+});
 
-function editItem (id){
-    alert(`Editar producto con ID: ${id}`);
-}
-
-function deleteItem(id){
-    if(confirm(`¿Deseas eliminar el producto con el id: ${id}? `)){
-        const row = Array.from(tableBody.children).find(r => r.children[0].textContent=== id);
-        if(row)tableBody.removeChild(row)
+// Función eliminar
+function deleteItem(id) {
+    if (confirm(`¿Deseas eliminar el producto con el id: ${id}?`)) {
+        const row = Array.from(tableBody.children).find(r => r.children[0].textContent === id);
+        if (row) tableBody.removeChild(row);
     }
 }
+//Edicion en el modal
+const editModal = document.getElementById('editModal');
 
+editModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget; // botón que abrió el modal
 
-//ejecucion de la funcion para cargar el los datos a la tabla
-//Esperammos a que cargue todo el HTML con DOMContentLoaded
+    // Obtener datos del producto desde data-*
+    const id = button.getAttribute('data-id');
+    const name = button.getAttribute('data-name');
+    const price = button.getAttribute('data-price');
+    const description = button.getAttribute('data-description');
+    const category = button.getAttribute('data-category');
+    const subcategory = button.getAttribute('data-subcategory');
+
+    // Llenar campos del formulario
+    document.getElementById('editId').value = id;
+    document.getElementById('editName').value = name;
+    document.getElementById('editPrice').value = price;
+    document.getElementById('editDescription').value = description;
+    // Si agregas inputs para categoría y subcategoría, los llenas igual:
+    // document.getElementById('editCategory').value = category;
+    // document.getElementById('editSubcategory').value = subcategory;
+});
+
+// Ejecutar carga inicial cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', loadTable);
