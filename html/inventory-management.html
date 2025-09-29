@@ -22,74 +22,124 @@
             <label for="exampleInput#" class="form-label">Código de Barras</label>
             <input type="bar-code" class="form-control" placeholder="#" id="exampleInput#" aria-describedby="#Help">
             <button>Buscar</button>
-        </div>
     
-        <div class="card-table-inventory">
-            <table class="table table- table-hover" id="inventoryTable">
-                <thead>
-                    <tr>
-                        <th scope="col">ID producto</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">img</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Categoría</th>
-                        <th scope="col">Subcategoría</th>
-                        <th scope="col">Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="tableBody">
-    
-                </tbody>
-            </table>
-        </div>
+            <div class="container-inventory-btn-agregar">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+                    Agregar
+                </button>
+            </div>
     
     
-        <!-- Modal Bootstrap -->
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="editModalLabel">Editar Producto</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="editForm">
-                            <input type="hidden" id="editId">
+            <div class="card-table-inventory">
+                <table class="table table- table-hover" id="inventoryTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID producto</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">img</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Subcategoría</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
     
-                            <div class="mb-3">
-                                <label for="editName" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="editName">
-                            </div>
+                    </tbody>
+                </table>
+            </div>
     
-                            <div class="mb-3">
-                                <label for="editPrice" class="form-label">Precio</label>
-                                <input type="number" class="form-control" id="editPrice">
-                            </div>
     
-                            <div class="mb-3">
-                                <label for="editDescription" class="form-label">Descripción</label>
-                                <textarea class="form-control" id="editDescription"></textarea>
-                            </div>
+            <!-- Modal Bootstrap -->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fs-5" id="editModalLabel">Editar Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editForm">
+                                <input type="hidden" id="editId">
     
-                            <div class="mb-3">
-                                <label for="editCategory" class="form-label">Categoría</label>
-                                <input type="text" class="form-control" id="editCategory">
-                            </div>
+                                <div class="mb-3">
+                                    <label for="editName" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="editName">
+                                </div>
     
-                            <div class="mb-3">
-                                <label for="editSubcategory" class="form-label">Subcategoría</label>
-                                <input type="text" class="form-control" id="editSubcategory">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" form="editForm">Guardar</button>
+                                <div class="mb-3">
+                                    <label for="editPrice" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="editPrice">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="editDescription" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="editDescription"></textarea>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="editCategory" class="form-label">Categoría</label>
+                                    <input type="text" class="form-control" id="editCategory">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="editSubcategory" class="form-label">Subcategoría</label>
+                                    <input type="text" class="form-control" id="editSubcategory">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" form="editForm">Guardar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+    
+            <!-- Modal Agregar -->
+            <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title fs-5" id="addModalLabel">Agregar Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="addForm">
+                                <div class="mb-3">
+                                    <label for="addName" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="addName">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="addPrice" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="addPrice">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="addDescription" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="addDescription"></textarea>
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="addCategory" class="form-label">Categoría</label>
+                                    <input type="text" class="form-control" id="addCategory">
+                                </div>
+    
+                                <div class="mb-3">
+                                    <label for="addSubcategory" class="form-label">Subcategoría</label>
+                                    <input type="text" class="form-control" id="addSubcategory">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-success" form="addForm">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     
     </main>
 

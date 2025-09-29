@@ -91,5 +91,44 @@ editModal.addEventListener('show.bs.modal', function (event) {
     // document.getElementById('editSubcategory').value = subcategory;
 });
 
+//add form para el agregar
+const addForm = document.getElementById('addForm');
+
+addForm.addEventListener('submit', function (e) {
+    e.preventDefault(); 
+
+    // Generar un ID único 
+    const newId = Date.now().toString(); 
+
+    
+    const name = document.getElementById('addName').value;
+    const price = document.getElementById('addPrice').value;
+    const description = document.getElementById('addDescription').value;
+    const category = document.getElementById('addCategory').value;
+    const subcategory = document.getElementById('addSubcategory').value;
+
+    // Creamos el objeto
+    const newItem = {
+        id: newId,
+        name: name,
+        price: price,
+        img: "placeholder.png", 
+        description: description,
+        category: category,
+        subcategory: subcategory
+    };
+
+
+    addRow(newItem);
+
+    // Limpia el formulario
+    addForm.reset();
+
+    const addModalEl = document.getElementById('addModal');
+    const modal = bootstrap.Modal.getInstance(addModalEl);
+    modal.hide();
+});
+
+
 // Ejecutar carga inicial cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', loadTable);
