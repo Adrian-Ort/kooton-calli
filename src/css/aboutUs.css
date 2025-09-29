@@ -3,9 +3,17 @@
 .title-mision, .title-vision, .title-nosotros {
     padding-top: 3rem;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 34px;
     font-family: var(--font-display);
     color: var(--background-footer);
+}
+
+
+@media (max-width: 765px){
+    .title-mision, .title-vision, .title-nosotros {
+        font-size: 24px;
+        font-weight:500;
+    }
 }
 
 
@@ -18,10 +26,16 @@
     max-width: 70%;
     margin: 0 auto; /* Centra el párrafo horizontalmente */
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 20px;
     line-height: 1.5;
     font-family: var(--font-text);
     color: black;
+}
+
+@media (max-width: 765px){
+    .paragraph-mision, .paragraph-vision {
+        font-size: 16px;
+    }
 }
 
 .title-gracias {
@@ -40,12 +54,12 @@
     /*box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
 /*} */ 
 
-div > a > p {
-    margin-top: 8px; /*Espaciado superior para separar el texto de la imagen.*/
-    font-size: 14px; /*Tamaño de fuente pequeño y legible.*/
-    font-weight: 500; /*lo que da énfasis al texto sin ser muy grueso.*/
-    color: #333; /* color */
-}
+/*div > a > p {
+    margin-top: 8px; //Espaciado superior para separar el texto de la imagen.
+    font-size: 14px; //Tamaño de fuente pequeño y legible.
+    font-weight: 500; //lo que da énfasis al texto sin ser muy grueso.
+    color: #333; // color
+}*/
 
 .titulo-galeria {
     text-align: center;
@@ -150,15 +164,21 @@ div > a > p {
     /* On small screens, the grid will be a single column. */
     /* On larger screens, this will change. */
     grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns. */
-    gap: 16px; /* Adds space between grid items. */
+    gap: 16px; /*Adds space between grid items.*/
 }
 
-/* Media query for larger screens */
-@media (max-width: 767px) {
+/*Media query for small screens*/ 
+@media (max-width: 943px) {
     .image-grid {
-        grid-template-columns: 1fr; /* On small screens, the grid will have a single column. */
+        grid-template-columns: repeat(2, 1fr); /*On small screens, the grid will have a single column*/
     }
 }
+
+/*@media (max-width: 767px) {
+    .image-grid {
+        grid-template-columns: 1fr; // On small screens, the grid will have a single column.
+    }
+}*/
 
 .image-grid img {
     width: 100%; /* Makes sure the image fills its grid cell. */
