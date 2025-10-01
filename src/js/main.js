@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Import Bootstrap JS (included Popper)
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
+//Import Font Awesome Icons
+import "@fortawesome/fontawesome-free/css/all.css";
+
 // CSS
 import '../css/main.css';  // main styles
 import '../css/header.css'; // header styles
