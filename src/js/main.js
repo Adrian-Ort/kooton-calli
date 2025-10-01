@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 //Import Font Awesome Icons
-import "@fortawesome/fontawesome-free/css/all.css";
+ import "@fortawesome/fontawesome-free/css/all.css";
 
 // CSS
 import '../css/main.css';  // main styles
