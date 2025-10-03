@@ -26,7 +26,7 @@ document.getElementById('form-signup').addEventListener('submit', (e) => {
     if (!validatePassword(password)) return alert("Contraseña muy corta (mín 8 caracteres)");
     if (!verifyPassword(password, password2)) return alert("Las contraseñas no coinciden");
 
-    const newElement = {
+    const newSignup = {
         nombre: name,
         apellidos: lastName,
         telefono: phone,
@@ -36,10 +36,10 @@ document.getElementById('form-signup').addEventListener('submit', (e) => {
 
     // Save in localStorage
     const register = getRegisters();
-    register.push(newElement);
+    register.push(newSignup);
     saveInputs(register);
 
-    alert("Registro guardado en localStorage ✅");
+    alert("Registro guardado en localStorage");
 
     e.target.reset();
 });
