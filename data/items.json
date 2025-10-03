@@ -37,12 +37,12 @@
     },
     {
         "id": 5,
-        "name": "Sudadera para hombre rústica",
+        "name": "Playera para hombre rústica",
         "price": 60.0,
-        "img": "man-whit-hoodie-home.png",
-        "description": "Sudadera para hombre con un diseño atemporal y fresco",
+        "img": "sculpture-t-shirt.png",
+        "description": "Playera blanca para hombre con un diseño prehispánico y fresco",
         "category": "Hombre",
-        "subcategory": "Suéteres"
+        "subcategory": "Playeras"
     },
     {
         "id": 6,
