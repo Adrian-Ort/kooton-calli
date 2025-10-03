@@ -8,7 +8,6 @@
         // Dev: '/', Build/Preview: '/kooton-calli/'
         document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
     </script>
-    <link rel="stylesheet" href="./src/css/login.css">
     <title>Sign up</title>
 
 </head>
@@ -36,17 +35,21 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPhone" class="form-label">Número de Teléfono</label>
-                            <input type="phone" class="form-control" placeholder="5512345678" id="exampleInputPhone"
-                                aria-describedby="PhoneHelp">
+                            <input type="phone" class="form-control" placeholder="5512345678" id="signup-phone"
+                                aria-describedby="PhoneHelp" title="Solo números y guiones" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" placeholder="michaela@kooton.com" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
+                            <input type="email" class="form-control" placeholder="michaela@kooton.com" id="signup-email1"
+                                aria-describedby="emailHelp" title="Coloca un correo válido para que podamos contactarte" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="signup-password1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword2" class="form-label">Verificar contraseña</label>
+                            <input type="password" class="form-control" id="signup-password2">
                         </div>
                         <button type="submit" class="btn-register">Registrar</button>
                     </form>
