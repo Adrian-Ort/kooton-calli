@@ -47,7 +47,7 @@ function addRow(item){
 
 
 //Con un evento excuchamos si activa alguno de los dos botones
-tableBody.addEventListener('click', (e)=>{
+/* tableBody.addEventListener('click', (e)=>{
     const btn = e.target.closest('button[data-action]')
     if(!btn)
         return;
@@ -58,7 +58,7 @@ tableBody.addEventListener('click', (e)=>{
     else if(btn.dataset.action === 'delete'){
         deleteItem(id);
     }
-});
+}); */
 
 // Función eliminar
 function deleteItem(id) {
@@ -70,7 +70,7 @@ function deleteItem(id) {
 //Edicion en el modal
 const editModal = document.getElementById('editModal');
 
-editModal.addEventListener('show.bs.modal', function (event) {
+/* editModal.addEventListener('show.bs.modal', function (event) {
     const button = event.relatedTarget; // botón que abrió el modal
 
     // Obtener datos del producto desde data-*
@@ -89,12 +89,12 @@ editModal.addEventListener('show.bs.modal', function (event) {
     // Si agregas inputs para categoría y subcategoría, los llenas igual:
     // document.getElementById('editCategory').value = category;
     // document.getElementById('editSubcategory').value = subcategory;
-});
+}); */
 
 //add form para el agregar
 const addForm = document.getElementById('addForm');
 
-addForm.addEventListener('submit', function (e) {
+/* addForm.addEventListener('submit', function (e) {
     e.preventDefault(); 
 
     // Generar un ID único 
@@ -127,7 +127,7 @@ addForm.addEventListener('submit', function (e) {
     const addModalEl = document.getElementById('addModal');
     const modal = bootstrap.Modal.getInstance(addModalEl);
     modal.hide();
-});
+}); */
 
 
 // Ejecutar carga inicial cuando el DOM esté listo
