@@ -17,17 +17,20 @@
 
     <main style="padding-top: 50px;">
         <h1>Gestión de Inventario</h1>
-        <div class="container-busqueda-inventory mb-3">
-            <label for="exampleInput#" class="form-label">Código de Barras</label>
-            <input type="bar-code" class="form-control" placeholder="#" id="exampleInput#" aria-describedby="#Help">
-            <button>Buscar</button>
-        </div>
-    
-        <div class="container-inventory-btn-agregar">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
-                Agregar
-            </button>
-        </div>
+            <div class="container-busqueda-inventory mb-3">
+                <label for="exampleInput#" class="form-label">Código de Barras</label>
+                <div class="d-flex gap-2">
+                    <input type="text" class="form-control" placeholder="#" id="exampleInput#" aria-describedby="#Help">
+                    <button class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
+
+            <div class="container-inventory-btn-agregar">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+                    Agregar
+                </button>
+            </div>
+
     
     
         <div class="card-table-inventory">
