@@ -23,7 +23,7 @@
 <body>
     <!--Header-->
     <div id="header"></div>
-    <main class="container my-4">
+    <main class="body--container">
 
         <!-- First Row: Carousel -->
         <div id="carouselExampleFade" class="carousel slide carousel-fade w-100 ">
@@ -54,22 +54,38 @@
         </div>
 
         <!-- Second Row: Categories-->
+        <!-- Desktop version--> 
         <div class="row justify-content-center second-column-home">
             <div class="col-md-6 col-lg-5 mb-4">
                 <div class="category-image">
-                    <a href="#"><img id="woman-img-home" class="img-fluid woman-img-home"
-                            src="img/products-images/woman-with-hoodie-home.png" alt="..."></a>
+                    <picture>
+                        <!-- Imagen para pantallas chicas -->
+                        <source media="(max-width: 768px)" srcset="img/products-images/woman-with-hoodie-home-mobile.png">
+
+                        <!-- Imagen para pantallas grandes -->
+                        <img src="img/products-images/woman-with-hoodie-home.png" class="img-fluid woman-img-home" alt="Modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
+                    </picture>
+                    <!--<a href="#"><img id="woman-img-home" class="img-fluid woman-img-home"
+                            src="img/products-images/woman-with-hoodie-home.png" alt="..."></a>-->
                     <div class="overlay-text">MUJERES</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-5 mb-4">
                 <div class="category-image">
-                    <a href="#"><img class="img-fluid man-img-home" src="img/products-images/man-whit-hoodie-home.png"
-                            alt="..."></a>
+                    <picture>
+                        <!-- Imagen para pantallas chicas -->
+                        <source media="(max-width: 768px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
+
+                        <!-- Imagen para pantallas grandes -->
+                        <img src="img/products-images/man-whit-hoodie-home.png" class="img-fluid man-img-home" alt="Modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
+                    </picture>
+                    <!--<a href="#"><img class="img-fluid man-img-home" src="img/products-images/man-whit-hoodie-home.png"
+                            alt="..."></a>-->
                     <div class="overlay-text">HOMBRES</div>
                 </div>
             </div>
         </div>
+        <!-- Mobile version--> 
 
 
     </main>

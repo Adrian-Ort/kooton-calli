@@ -1,3 +1,13 @@
+#carouselExampleFade{
+    margin-top: 75px;    
+}
+
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 1500px;
+    }
+}
+
 .category-image, .woman-img-home, .man-img-home {
     display: block;
     max-width: 25rem;
