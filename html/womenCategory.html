@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+
+    <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link de fuente Maiandra GD-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet"> <!--Fuente Reddit Sans-->
+        <!--<link rel="stylesheet" href="./src/css/global_variables.css">-->
+
+</head>
+<body>
+     <!--Header-->
+    <div id="header"></div>
+
+    <main class="container my-1">
+    <!-- First row -->
+    <!-- Main label -->
+    
+    
+    <!-- Second row -->
+    <!-- Subcategories  -->
+    
+        
+    
+    </main>  
+    <!--Footer-->
+    <div id="footer"></div>
+    <!--El Script hace que Vite inyecte main.js-->
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
