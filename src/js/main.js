@@ -33,3 +33,4 @@ import './product.js';
 import './productList.js';
 import './shoppingCart.js';
 import './signup.js';
+import './login.js'
