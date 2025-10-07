@@ -32,7 +32,32 @@ export function validatePassword(password) {
     return password.length >= 8;
 }
 
+// Función para verificar si estamos en la página de signup
+function isOnSignupPage() {
+    // Verificar por URL
+    const currentUrl = window.location.href.toLowerCase();
+    const currentPath = window.location.pathname.toLowerCase();
+    const currentHash = window.location.hash.toLowerCase();
+    
+    // Verificar por título de la página
+    const pageTitle = document.title.toLowerCase();
+    
+    // Verificar si existe el formulario (última verificación)
+    const formExists = document.getElementById('form-signup') !== null;
+    
+    return currentUrl.includes('signup') || 
+           currentPath.includes('signup') ||
+           currentHash.includes('signup') ||
+           pageTitle.includes('sign up') ||
+           pageTitle.includes('registro') ||
+           pageTitle.includes('signup') ||
+           formExists; // Si el formulario existe, estamos en la página correcta
+}
 function initializeSignupForm() {
+if (!isOnSignupPage()) {
+    console.log(' No estamos en página de signup, omitiendo inicialización');
+        return;
+    }
 const form = document.getElementById('form-signup');
 if (form){
     console.log('Formulario de signup encontrado! Inicializando...');
@@ -88,3 +113,12 @@ initializeSignupForm();
 // También intentar inicializar cuando se navegue (para SPAs)
 window.addEventListener('popstate', initializeSignupForm);
 window.addEventListener('hashchange', initializeSignupForm);
+
+// Interceptar cambios de ruta en SPAs
+let currentUrl = window.location.href;
+setInterval(() => {
+    if (window.location.href !== currentUrl) {
+        currentUrl = window.location.href;
+        initializeSignupForm();
+    }
+}, 100);
