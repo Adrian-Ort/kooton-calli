@@ -1,19 +1,38 @@
 import ItemsController from "./itemsController";
 
-const tableBody = document.getElementById('tableBody');
+//const tableBody = document.getElementById('tableBody');
 
 async function loadTable(){
     try{
         const itemsController = new ItemsController();
         //await espera a que carguen todos los productos
         await itemsController.loadInitialItems();
+
+        //Obtener tableBody dentro de la funcion
+        const tableBody = document.getElementById('tableBody');
+
+        if (!tableBody) {
+            console.error("No se encontró tableBody en loadTable");
+            return;
+        }
+        
+        // Limpia la tabla antes de agregar items
+        tableBody.innerHTML = '';
+        
         itemsController.items.forEach(item => addRow(item));
     }catch(error){
-        console.error("Error cargando la tabla: ", error); // Corregido: console.error
+        console.error("Error cargando la tabla: ", error);
     }
 }
 
 function addRow(item){
+    const tableBody = document.getElementById('tableBody');
+
+    if(!tableBody){
+        console.error("No se puede agregar fila tableBody no encontrado");
+        return;
+    }
+
     const tr = document.createElement("tr"); 
     tr.innerHTML = `<td>${item.id}</td>
     <td>${item.name}</td>
@@ -47,6 +66,12 @@ function addRow(item){
 
 // Función eliminar
 function deleteItem(id) {
+    const tableBody = document.getElementById('tableBody');
+    if(!tableBody){
+        console.error("No se peude eliminar tableBody no econtrado");
+        return;
+    }
+
     if (confirm(`¿Deseas eliminar el producto con el id: ${id}?`)) {
         const row = Array.from(tableBody.children).find(r => r.children[0].textContent === id);
         if (row) tableBody.removeChild(row);
@@ -63,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function(){
     // Verifica que cada elemento exista antes, formulari y la tabla
     if(!addForm){
         console.error("No se encontró el formulario addForm");
-        return;
     }
     if(!tableBody){
         console.error("No se encontró la tabla tableBody");
