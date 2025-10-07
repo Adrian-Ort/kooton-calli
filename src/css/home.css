@@ -10,9 +10,11 @@
 
 .category-image, .woman-img-home, .man-img-home {
     display: block;
+    width: 100%;
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .man-img-home, .woman-img-home{
