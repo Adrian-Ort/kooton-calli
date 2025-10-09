@@ -11,6 +11,8 @@ export default defineConfig(({ command }) => ({
         contact: resolve(__dirname, 'html/contact.html'),
         product: resolve(__dirname, 'html/product.html'),
         about:   resolve(__dirname, 'html/aboutUs.html'),
+        productList: resolve(__dirname, 'html/productList.html'),
+        login: resolve(__dirname, 'html/login.html'),
       },
     },
   },
