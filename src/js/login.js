@@ -73,7 +73,7 @@ function handleLoginSubmit(e) {
     const userValidated = users.find(user => 
         user.correo === email && user.contraseña === password
     );
-    
+     
     if (userValidated) {
         alert("Ingreso correcto, Bienvenido.");
     } else {
