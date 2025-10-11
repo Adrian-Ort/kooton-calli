@@ -1,0 +1,27 @@
+/* Estilo del borde*/
+.container-login{
+    max-width: 42.5rem;
+    margin: 0 auto;
+}
+.form-control{
+    border:2px solid #E6C27F !important;
+}
+.form-control:focus{
+    border-color: #E6C27F !important;
+}
+.card-form-login {
+    margin: 20px; 
+    padding: 30px; 
+    border: none; 
+    border-radius: 8px; 
+    background: #fff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+.btn-register{
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #79774E;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+}

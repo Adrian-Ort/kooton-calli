@@ -1,8 +1,20 @@
+#carouselExampleFade{
+    margin-top: 75px;    
+}
+
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 1500px;
+    }
+}
+
 .category-image, .woman-img-home, .man-img-home {
     display: block;
+    width: 100%;
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
+
 }
 
 .man-img-home, .woman-img-home{
@@ -24,12 +36,11 @@
 }
 
 .second-column-home{
-    margin-top: 15%;
+    margin-top: 8%;
 }
 
 .category-image{
     position: relative;
-    display: inline-block;
     text-align: center;
 }
 

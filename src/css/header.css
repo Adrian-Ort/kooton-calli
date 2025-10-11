@@ -4,6 +4,12 @@
     color: var(--color-text);
 }
 
+@media (max-width: 768px) {
+    .header .navbar{
+        background: var(--background-header-tablet)
+    }
+}
+
 /*boton persona*/
 .login-button,
 .cart-button {

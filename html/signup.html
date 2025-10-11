@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+    <title>Sign up</title>
+
+</head>
+<body>
+
+    <!--Header-->
+    <div id="header"></div>
+
+    <main style="padding-top: 50px;">
+        <div class="container-login">
+            <div class="card-form-login">
+                <div class="signup-form my-4">
+                    <form id="form-signup">
+                        <div class="mb-3">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-label" >Nombre</label>
+                                    <input type="text" class="form-control" placeholder="Michaela" aria-label="First name" id="signup-name">
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" >Apellidos</label>
+                                    <input type="text" class="form-control" placeholder="Lopez" aria-label="Last name" id="signup-last-name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPhone" class="form-label">Número de Teléfono</label>
+                            <input type="phone" class="form-control" placeholder="5512345678" id="signup-phone"
+                                aria-describedby="PhoneHelp" title="Solo números y guiones" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" placeholder="michaela@kooton.com" id="signup-email"
+                                aria-describedby="emailHelp" title="Coloca un correo válido para que podamos contactarte" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="signup-password1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword2" class="form-label">Verificar contraseña</label>
+                            <input type="password" class="form-control" id="signup-password2">
+                        </div>
+                        <button type="submit" class="btn-register">Registrar</button>
+                    </form>
+        
+                </div>
+        
+                <div class="row px-3 mb-4">
+                    <small class="font-weight-bold">¿Ya tienes una cuenta?
+                        <a class="text-danger" href="#">Acceder</a></small>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--Footer-->
+    <div id="footer"></div>
+    <!--El Script hace que Vite inyecte main.js-->
+    <script type="module" src="/src/js/main.js"></script>
+    <!--<script type="module" src="/src/js/contact.js"></script>--> <!--Por el momento lo conectare así-->
+
+</body>
+</html>

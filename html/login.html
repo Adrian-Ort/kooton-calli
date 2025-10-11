@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+    <title>Login</title>
+</head>
+<body>
+
+    <!--Header-->
+    <div id="header"></div>
+
+    <main style="padding-top: 50px;">
+        <div class="container">
+            <div class="card-form-login">
+                <div class="signup-form my-4">
+                    <form id="form-login">
+                        <div class="mb-3">
+                            <div class="col">
+                                <label class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" placeholder="ejemplo@email.com" aria-label="First name" id="login-email">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control"  id="login-password">
+                        </div>
+                        <button type="submit" class="btn-register">Iniciar Sesión</button>
+                    </form>
+        
+                </div>
+        
+                <div class="row px-3 mb-4">
+                    <small class="font-weight-bold">¿No tienes un cuenta?
+                        <a class="text-danger" href="html/signup.html">Registrate</a></small>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!--Footer-->
+    <div id="footer"></div>
+    <!--El Script hace que Vite inyecte main.js-->
+    <script type="module" src="/src/js/main.js"></script>
+    <!--<script type="module" src="/src/js/contact.js"></script>--> <!--Por el momento lo conectare así-->
+
+</body>
+</html>

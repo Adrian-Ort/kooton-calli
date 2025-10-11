@@ -16,19 +16,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet"> <!--Fuente Reddit Sans-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!--<link rel="stylesheet" href="./src/css/global_variables.css">-->
+        <!--<link rel="stylesheet" href="./src/css/global_variables.css">-->
 
 </head>
 
 <body>
     <!--Header-->
     <div id="header"></div>
-    <main class="container my-4">
+    <main class="body--container">
 
         <!-- First Row: Carousel -->
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade ">
+            <div class="carousel-inner ">
                 <div class="carousel-item active">
                     <img src="img/carousel/img-carousel-1-kooton-calli.png" class="d-block w-100"
                         alt="modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
@@ -55,23 +54,37 @@
         </div>
 
         <!-- Second Row: Categories-->
+        <!-- Desktop version--> 
         <div class="row justify-content-center second-column-home">
             <div class="col-md-6 col-lg-5 mb-4">
                 <div class="category-image">
-                    <a href="#"><img id="woman-img-home" class="img-fluid woman-img-home"
-                            src="img/products-images/woman-with-hoodie-home.png" alt="..."></a>
+                    <picture>
+                        <!-- Img for sm screens -->
+                        <a href="/html/womenCategory.html"></a><source media="(max-width: 808px)" srcset="img/products-images/woman-with-hoodie-home-mobile.png">
+
+                        <!-- Img for lg screens -->
+                        <a href="/html/womenCategory.html"></a><img src="img/products-images/woman-with-hoodie-home.png" class="img-fluid woman-img-home" alt="Modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
+                    </picture>
+                    <!--<a href=""><img id="woman-img-home" class="img-fluid woman-img-home"
+                            src="img/products-images/woman-with-hoodie-home.png" alt="..."></a>-->
                     <div class="overlay-text">MUJERES</div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-5 mb-4">
                 <div class="category-image">
-                    <a href="#"><img class="img-fluid man-img-home" src="img/products-images/man-whit-hoodie-home.png"
-                            alt="..."></a>
+                    <picture>
+                        <!-- Img for sm screens -->
+                        <source media="(max-width: 808px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
+
+                        <!-- Img for lg screens -->
+                        <a href="#"></a><img src="img/products-images/man-whit-hoodie-home.png" class="img-fluid man-img-home" alt="Modelo mexicano usando una playera verde botella con estampado estilo mexicano, calaveras y colores llamativos.">
+                    </picture>
+                    <!--<a href="#"><img class="img-fluid man-img-home" src="img/products-images/man-whit-hoodie-home.png"
+                            alt="..."></a>-->
                     <div class="overlay-text">HOMBRES</div>
                 </div>
             </div>
         </div>
-
 
     </main>
 
