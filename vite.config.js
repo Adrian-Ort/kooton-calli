@@ -1,6 +1,7 @@
 // vite.config.js
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import { sign } from 'crypto';
 
 export default defineConfig(({ command }) => ({
   base: '/',
@@ -13,6 +14,7 @@ export default defineConfig(({ command }) => ({
         about:   resolve(__dirname, 'html/aboutUs.html'),
         productList: resolve(__dirname, 'html/productList.html'),
         login: resolve(__dirname, 'html/login.html'),
+        signup: resolve(__dirname, 'html/signup.html'),
       },
     },
   },
