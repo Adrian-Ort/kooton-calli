@@ -1,0 +1,11 @@
+.overlay-text {
+  position: relative;
+  bottom: 0; /* O usa top: 0 para arriba */
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 auto 0 auto;
+}
