@@ -1,17 +1,22 @@
 .card {
-    border: 1px solid #545454;
+    background-color: var(--card-background);
+    border: var(--card-stroke);
 }
 
 .button__product {
-background-color: #c1c0c0;
-  color: #3b390f;
-  border-color: #3b390f;
+background-color: var(--secondary-button-stroke-color-neutral);
+border-color: var(--secondary-button-stroke-color-and-font);
 }
 .button__product:hover {
-    background-color: #979696;
+    background-color: #ACAB91;
+}
+
+.card-title{
+    font-family: var(--font-text);
 }
 
 .flex__container__product__list {
+    margin-top: 75px;
     background-color: #F5CE85;
     display: flex;
     justify-content: center;

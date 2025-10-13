@@ -10,7 +10,8 @@
     border-color: #E6C27F !important;
 }
 .card-form-login {
-    margin: 20px; 
+    max-width: 560px;
+    margin: auto; 
     padding: 30px; 
     border: none; 
     border-radius: 8px; 
@@ -20,8 +21,11 @@
 .btn-register{
     padding: 10px;
     font-size: 1rem;
-    background-color: #79774E;
+    background-color: var(--primary-buttton-color-brown);
     color: white;
     border: none;
-    border-radius: 1rem;
+    border-radius: var(--primary-button-round-corners);
+}
+.btn-register:hover{
+    background-color: var(--primary-buttton-color-brown-hover);
 }
