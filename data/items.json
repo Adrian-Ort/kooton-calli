@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Suéter azul patrones blancos",
-        "price": 20.5,
+        "price": 390.00,
         "img": "blue-sweeter-man.png",
         "description": "Sueter azul con patrones blancos en el pecho y brazos tipo lana de esos que venden en Toluca",
         "category": "Hombre",
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": "Falda patrones océano",
-        "price": 35.0,
+        "price": 420.00,
         "img": "flowers-ocean-pattern-skirt.png",
         "description": "Falda con patrones inspirados en flores y en el océano hecha de manta en tonos azules y rojos",
         "category": "Mujer",
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "name": "Suéter verde con patrones",
-        "price": 25.0,
+        "price": 390.00,
         "img": "granite-sweeter-green-man.png",
         "description": "Suéter color verde con apariencia de arena y patrones cuadrangulares en el pecho y brazos. Colores rojo y azul",
         "category": "Mujer",
@@ -29,7 +29,7 @@
     {
         "id": 4,
         "name": "Sudadera blanca con flor",
-        "price": 45.0,
+        "price": 390.00,
         "img": "hoodie-flowe-white.png",
         "description": "Sudadera blanca con flor morada en la parte inferior. De la flor se desprenden mariposas y aves",
         "category": "Mujer",
@@ -38,7 +38,7 @@
     {
         "id": 5,
         "name": "Playera para hombre rústica",
-        "price": 60.0,
+        "price": 280.00,
         "img": "sculpture-t-shirt.png",
         "description": "Playera blanca para hombre con un diseño prehispánico y fresco",
         "category": "Hombre",
@@ -47,7 +47,7 @@
     {
         "id": 6,
         "name": "Playera azul Mictlán",
-        "price": 30.0,
+        "price": 280.00,
         "img": "mictlan-T-shirt.png",
         "description": "Playera azul inspirada en el río de los muertos Apanohuacalhuia hacia el Mictlán",
         "category": "Mujer",
@@ -65,7 +65,7 @@
     {
         "id": 8,
         "name": "Falda tableada",
-        "price": 18.0,
+        "price": 420.00,
         "img": "pettern-skirt.png",
         "description": "Falda tableada con estampado de paliacate que muestra colores verdes, azul y rojo",
         "category": "Mujer",
