@@ -10,8 +10,10 @@
     --background-footer: #084A46; 
     
     /*buttons*/
-    --primary-buttton-color-brown: #79774E;
+    --primary-buttton-color-brown: #79774E;  /*default*/
+    --primary-buttton-color-brown-hover: #ACAB91;
     --primary-buttton-color-salmon: #D3AF6C;
+    /*buttons for admin form*/
     --primary-buttton-color-delete: #E06464;
     --primary-buttton-color-add: #98DEDA;
     
