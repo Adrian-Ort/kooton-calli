@@ -56,7 +56,7 @@
     {
         "id": 7,
         "name": "Pants gris con patrones",
-        "price": 15.0,
+        "price": 490.00,
         "img": "pattern-grey-pants.png",
         "description": "Pantalones deportivos grises con blanco en forma de piedra",
         "category": "Hombre",
@@ -74,7 +74,7 @@
     {
         "id": 9,
         "name": "Pantalón con estampado tradicional",
-        "price": 50.0,
+        "price": 490.00,
         "img": "shredded-paper.png",
         "description": "Pantalones para mujer con un diseño de colores y estampado de tejidos tradicionales",
         "category": "Mujer",
@@ -83,7 +83,7 @@
     {
         "id": 10,
         "name": "Blusa bordada",
-        "price": 80.0,
+        "price": 280.00,
         "img": "talavera-blouse.png",
         "description": "Blusa para mujer de manga corta",
         "category": "Mujer",
