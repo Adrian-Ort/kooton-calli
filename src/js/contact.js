@@ -1,25 +1,3 @@
-//Validación nombre completo
-document.getElementById("formulario").addEventListener("submit", function (e) {
-  e.preventDefault(); // evita que se envíe el formulario automáticamente
-
-  const name = document.getElementById("input--name").value.trim();
-  const error = document.getElementById("error");
-
-  // Expresión regular: al menos dos palabras separadas por espacio
-  const regex = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]+(\s+[A-Za-zÁÉÍÓÚáéíóúÑñ]+)+$/;
-
-  if (!regex.test(name)) {
-    error.textContent = "Por favor, ingresa al menos dos palabras (nombre y apellido).";
-    error.style.display = "inline";
-    return;
-  }
-
-  // Si pasa la validación:
-  error.style.display = "none";
-  alert("Formulario enviado correctamente");
-  // Aquí podrías hacer: this.submit(); o procesar los datos
-});
-
 // Validación del teléfono (solo números y guiones)
 function validatePhone(input) {
     const phoneRegex = /^[0-9\-]+$/;
