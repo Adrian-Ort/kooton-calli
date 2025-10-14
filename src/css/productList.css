@@ -24,3 +24,7 @@ border-color: var(--secondary-button-stroke-color-and-font);
     color: #084A46;
     
 }
+
+.product-link {
+    text-decoration: none;
+}
