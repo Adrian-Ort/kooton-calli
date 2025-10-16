@@ -15,7 +15,7 @@ border-color: var(--secondary-button-stroke-color-and-font);
     font-family: var(--font-text);
 }
 
-.flex__container__product__list {
+.main-container {
     margin-top: 75px;
     background-color: #F5CE85;
     display: flex;
@@ -23,4 +23,8 @@ border-color: var(--secondary-button-stroke-color-and-font);
     padding: 15px;
     color: #084A46;
     
+}
+
+.product-link {
+    text-decoration: none;
 }

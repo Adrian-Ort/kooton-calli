@@ -1,21 +1,20 @@
 // vite.config.js
-import { defineConfig } from 'vite';
-import { resolve } from 'path';
-import { sign } from 'crypto';
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
-export default defineConfig(({ command }) => ({
-  base: '/',
+export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main:    resolve(__dirname, 'index.html'),
+        main: resolve(__dirname, 'index.html'),
         contact: resolve(__dirname, 'html/contact.html'),
-        product: resolve(__dirname, 'html/product.html'),
-        about:   resolve(__dirname, 'html/aboutUs.html'),
-        productList: resolve(__dirname, 'html/productList.html'),
+        aboutUs: resolve(__dirname, 'html/aboutUs.html'),
         login: resolve(__dirname, 'html/login.html'),
         signup: resolve(__dirname, 'html/signup.html'),
+        product: resolve(__dirname, 'html/product.html'),
+        productList: resolve(__dirname, 'html/productList.html'),
+        shoppingCart: resolve(__dirname, 'html/shoppingCart.html'),
       },
     },
   },
-}));
+})
