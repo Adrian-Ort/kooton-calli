@@ -37,7 +37,7 @@ async function loadAndDisplayProducts() {
                             <h5 class="card-title">${product.name}</h5>
                             <p class="fw-bold mt-auto">$${product.price.toFixed(2)} MXN</p>
                             
-                            <a href="/html/product.html?id=${product.id}" class="d-grid">
+                            <a href="/html/product.html?id=${product.id}" class="d-grid product-link">
                                 <button type="button" class="fw-bold rounded-pill p-1 w-100 shadow-sm button__product">
                                     Ver producto
                                 </button>
