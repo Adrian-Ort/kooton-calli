@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirección de Envío</title>
+    <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <base id="__base" href="/" />
+    <script type="module">
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main class="container py-5">
+        <div class="text-center mb-5 p-4 bg-light rounded-3 shadow-sm">
+            <h1 style="font-family: 'Maiandra GD', sans-serif; color: #79774E;">¿A DÓNDE LLEGARÁ TU PAQUETE?</h1>
+        </div>
+        
+        <div class="row g-5">
+            <!-- Columna Izquierda: Formulario de Dirección y Contacto -->
+            <div class="col-lg-7">
+                <div class="card p-4 shadow-lg h-100">
+                    <h4 class="card-title mb-4" style="color: #0E7C74;">Detalles de Envío y Contacto</h4>
+                    <form id="shipping-form" class="row g-3">
+                        
+                        <!-- Nombre del destinatario (Nuevo campo agregado) -->
+                        <div class="col-12">
+                            <label for="name" class="form-label fw-bold">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" name="name" required placeholder="Nombre de quien recibe">
+                        </div>
+                        
+                        <!-- Email (Nuevo campo agregado) -->
+                        <div class="col-12">
+                            <label for="email" class="form-label fw-bold">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" required placeholder="Para recibir notificaciones">
+                        </div>
+
+                        <!-- Dirección de envío -->
+                        <div class="col-12">
+                            <label for="address" class="form-label fw-bold">Dirección de Envío</label>
+                            <input type="text" class="form-control" id="address" name="address" required placeholder="Calle, número exterior/interior">
+                        </div>
+                        
+                        <!-- Cruce de calles -->
+                        <div class="col-12">
+                            <label for="cross-streets" class="form-label fw-bold">Cruce de Calles (Opcional)</label>
+                            <input type="text" class="form-control" id="cross-streets" name="cross-streets" placeholder="Entre qué calles se encuentra">
+                        </div>
+
+                        <!-- Ciudad y Estado -->
+                        <div class="col-md-6">
+                            <label for="city" class="form-label fw-bold">Ciudad</label>
+                            <input type="text" class="form-control" id="city" name="city" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="state" class="form-label fw-bold">Estado</label>
+                            <input type="text" class="form-control" id="state" name="state" required>
+                        </div>
+                        
+                        <!-- Referencias -->
+                        <div class="col-12">
+                            <label for="references" class="form-label fw-bold">Referencias o Comentarios (Opcional)</label>
+                            <textarea class="form-control" id="references" name="references" rows="2"></textarea>
+                        </div>
+                        
+                        <!-- Botón de Confirmar / Ir al Pago -->
+                        <div class="col-12 text-end mt-4">
+                            <button type="submit" class="btn btn-lg fw-bold" style="background-color: #D3AF6C; color: white;">
+                                Ir al Pago
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Resumen del Pedido y Detalles de Entrega -->
+            <div class="col-lg-5">
+                <div class="card p-4 shadow-lg">
+                    <h4 class="card-title mb-3" style="color: #79774E;">Resumen de la Compra</h4>
+                    <div id="shipping-summary-details" class="mb-4">
+                        <!-- El resumen de productos y total se cargará aquí desde el JS -->
+                    </div>
+
+                    <h4 class="card-title mb-3" style="color: #0E7C74;">Detalles Finales de la Entrega</h4>
+                    <ul class="list-group list-group-flush border-top border-bottom">
+                        <li class="list-group-item">Envío: <span class="fw-bold text-success">Gratis</span></li>
+                        <li class="list-group-item">Opciones de Entrega: Estándar (3-5 días hábiles)</li>
+                        <li class="list-group-item text-danger fw-bold">Fecha Estimada: 5-10 días hábiles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+    <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/shippingForm.js"></script>
+</body>
+
+</html>

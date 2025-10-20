@@ -24,8 +24,28 @@
     <main class="my-5">
      <div class="main-container">
         <h1>NUESTRA ROPA</h1> </div>
-        <div class="row g-5 p-3" id="product-list-container">
+         <div class="container">
+            <div class="row g-4">
+                
+                <!-- Left column filters -->
+                <div class="col-lg-3">
+                    <div class="filter-sidebar p-3 border rounded-3 bg-light shadow-sm sticky-top mt-3" style="top: 80px;">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Filtrar por Subcategoría</h5>
+                        <div id="subcategory-filter-container" class="d-flex flex-column gap-2">
+                            <!-- Checkboxes injected wit javascript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right column, Products -->
+                <div class="col-lg-9">
+                    <div class="row g-5 p-3" id="product-list-container">
+                        <!-- Filetered products will appear here -->
+                    </div>
+                </div>
+
             </div>
+        </div>
     </main>
     
     <!--Footer-->
