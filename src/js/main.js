@@ -26,11 +26,3 @@ import '../css/global_variables.css';
 
 // js import
 import './components.js';
-import './contact.js';
-import './inventory-management.js';
-import './itemsController.js';
-import './product.js';
-import './productList.js';
-import './shoppingCart.js';
-import './signup.js';
-import './login.js'

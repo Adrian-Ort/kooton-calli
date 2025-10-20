@@ -18,7 +18,7 @@ async function loadAndDisplayProducts() {
 
     try {
         // 2. Realiza la petición para obtener el archivo JSON de productos.
-        const response = await fetch('/data/items.json');
+        const response = await fetch(`/data/items.json?v=${new Date().getTime()}`);
         const products = await response.json();
 
         // 3. Limpia el contenido actual del contenedor (las tarjetas de ejemplo).

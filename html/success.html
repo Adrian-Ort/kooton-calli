@@ -1,39 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos</title>
-    <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link de fuente Maiandra GD-->
+    <title>Compra Exitosa</title>
+        <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link de fuente Maiandra GD-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet"> <!--Fuente Reddit Sans-->
+    
     <base id="__base" href="/" />
     <script type="module">
         // Dev: '/', Build/Preview: '/kooton-calli/'
         document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
     </script>
 </head>
-
 <body>
-    <!--Header-->
-    <div id="header"></div>
- 
-    <main class="my-5">
-     <div class="main-container">
-        <h1>NUESTRA ROPA</h1> </div>
-        <div class="row g-5 p-3" id="product-list-container">
-            </div>
+     <div id="header"></div>
+        <main class="container text-center my-5 py-5">
+        <div class="container-fluid align-items-center my-5 py-5" ><h1 class="mb-4">¡Gracias por tu compra!</h1></div>
+        <p class="lead">Tu pedido ha sido procesado exitosamente.</p>
+        <a href="/html/productList.html" class="btn btn-primary mt-4">Seguir comprando</a>
     </main>
-    
-    <!--Footer-->
-    <div id="footer"></div>
-    <!--El Script hace que Vite inyecte main.js-->
     <script type="module" src="/src/js/main.js"></script>
-    <script type="module" src="/src/js/productList.js"></script>
+
+
+
 
 </body>
-
 </html>
