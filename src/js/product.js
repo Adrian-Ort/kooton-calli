@@ -61,6 +61,7 @@ async function initializeApp() {
 
         if (product) {
             // Populate product details
+            document.getElementById('page-title').textContent = product.name + ' - Kooton Calli';
             document.querySelector('.product-title-header').textContent = product.name;
             document.getElementById('product-description').textContent = product.description;
             document.getElementById('product-price').textContent = product.price; // The price is already formatted

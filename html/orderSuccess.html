@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Exitosa</title>
+        <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link de fuente Maiandra GD-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet"> <!--Fuente Reddit Sans-->
+    
+    <base id="__base" href="/" />
+    <script type="module">
+        // Dev: '/', Build/Preview: '/kooton-calli/'
+        document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+    </script>
+</head>
+<body>
+     <div id="header"></div>
+        <main class="container text-center my-5 py-5">
+        <div class="container-fluid align-items-center mb-5" ><h1 class="mb-4">¡Gracias por tu compra!</h1></div>
+        <p class="lead">Tu pedido ha sido procesado exitosamente y pronto recibirás un correo con la confirmación.</p>
+        
+        <!-- Contenedor donde se inyectará el resumen de la orden con JS -->
+        <div id="success-summary" class="d-flex justify-content-center">
+            <!-- Order summary goes here -->
+        </div>
+
+        <!-- El botón "Seguir comprando" ahora se inyecta desde el JS para que tenga estilos personalizados -->
+    </main>
+    <div id="footer"></div>
+
+    <script type="module" src="/src/js/main.js"></script>
+    <!-- ENLACE AL NUEVO SCRIPT DE LÓGICA DE ÉXITO -->
+    <script type="module" src="/src/js/orderSuccess.js"></script>
+
+
+</body>
+</html>

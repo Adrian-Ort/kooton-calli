@@ -26,7 +26,7 @@ export default class ItemsController {
     async loadInitialItems() {
         try {
             // 1. Hacemos una petición para obtener el archivo JSON
-            const response = await fetch('data/items.json'); 
+            const response = await fetch(`/data/items.json?v=${new Date().getTime()}`);
             
             // 2. Convertimos la respuesta a un objeto JSON
             const itemsJson = await response.json();

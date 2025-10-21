@@ -10,7 +10,8 @@
         // Dev: '/', Build/Preview: '/kooton-calli/'
         document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
     </script>
-
+    <link type="stylesheet" href="/src/css/home.css"> <!--Link to CSS home-->
+    <link rel="stylesheet" href="/src/css/main.css"> <!--Link to CSS main-->
     <link href="https://fonts.cdnfonts.com/css/maiandra-gd" rel="stylesheet"> <!--Link de fuente Maiandra GD-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,15 +30,15 @@
         <div id="carouselExampleFade" class="carousel slide carousel-fade ">
             <div class="carousel-inner ">
                 <div class="carousel-item active">
-                    <img src="img/carousel/img-carousel-1-kooton-calli.png" class="d-block w-100"
+                    <img src="img/carousel/mexican-woman-categorie-1.webp" class="d-block w-100"
                         alt="modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel/img-carousel-2-kooton-calli.png" class="d-block w-100"
+                    <img src="img/carousel/mexican-man-categorie-2.webp" class="d-block w-100"
                         alt="modelo mexicano usando una playera verde bandera con estampado estilo mexicano con figuras abstractas estilo mosaico">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/carousel/img-carousel-3-kooton-calli.png" class="d-block w-100"
+                    <img src="img/carousel/mexican-woman-categorie-3.webp" class="d-block w-100"
                         alt="modelo mexicana usando una playera lila con estampado estilo mexicano, calaveras y flores que simulan un bordado">
                 </div>
             </div>
@@ -60,21 +61,21 @@
                 <div class="category-image">
                     <picture>
                         <!-- Img for sm screens -->
-                        <a href="/html/womenCategory.html"></a><source media="(max-width: 808px)" srcset="img/products-images/woman-with-hoodie-home-mobile.png">
+                        <source media="(max-width: 808px)" srcset="img/products-images/woman-with-hoodie-home-mobile.png">
 
                         <!-- Img for lg screens -->
                         <a href="/html/womenCategory.html"></a><img src="img/products-images/woman-with-hoodie-home.png" class="img-fluid woman-img-home" alt="Modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
                     </picture>
                     <!--<a href=""><img id="woman-img-home" class="img-fluid woman-img-home"
                             src="img/products-images/woman-with-hoodie-home.png" alt="..."></a>-->
-                    <div class="overlay-text">MUJERES</div>
+                    <div class="overlay-text"><a href="html/womenCategory.html">MUJERES</a></div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-5 mb-4">
                 <div class="category-image">
                     <picture>
                         <!-- Img for sm screens -->
-                        <source media="(max-width: 808px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
+                        <a href="html/womenCategory.html"></a><source media="(max-width: 808px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
 
                         <!-- Img for lg screens -->
                         <a href="#"></a><img src="img/products-images/man-whit-hoodie-home.png" class="img-fluid man-img-home" alt="Modelo mexicano usando una playera verde botella con estampado estilo mexicano, calaveras y colores llamativos.">

@@ -1,18 +1,150 @@
-.card {
-    background-color: var(--card-background);
-    border: var(--card-stroke);
+/**
+ * Product List Stylesheet
+ * Applies colors, typography, and layout adjustments for the product list page
+ * and the subcategory filter sidebar, based on global CSS variables.
+ */
+
+/* ========================================================================= */
+/* --- 1. General and Typography Styles --- */
+/* ========================================================================= */
+
+/* General body/background setup */
+body {
+    background-color: #f7f7f7; /* Light gray background for contrast */
 }
+
+/* Page Title (NUESTRA ROPA) */
+h1 {
+    font-family: var(--font-display);
+    color: var(--color-text-title); 
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+/* ========================================================================= */
+/* --- 2. Sidebar Filter Styles (Filter-Sidebar) --- */
+/* ========================================================================= */
+
+.filter-sidebar {
+    /* Sidebar container styling */
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: var(--primary-button-round-corners); /* Rounded corners based on var */
+    background-color: #ffffff; /* White background for the filter box */
+}
+
+.filter-sidebar h5 {
+    /* Filter title ("Filtrar por Subcategoría") */
+    font-family: var(--font-display);
+    color: var(--color-text-title);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-button-stroke-color-neutral);
+    padding-bottom: 0.5rem;
+}
+
+/* Ensure the sidebar stays fixed when scrolling on desktop */
+@media (min-width: 992px) {
+    .sticky-top {
+        position: sticky;
+        top: 80px; /* Offset from the top to account for the header */
+    }
+}
+
+/* Checkbox specific styles */
+.form-check-label {
+    /* Checkbox labels */
+    font-family: var(--font-text);
+    font-size: 0.95rem;
+    color: #333;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+
+.form-check-input {
+    /* Styling for the checkbox itself */
+    cursor: pointer;
+    /* Custom color for checked state */
+    background-color: var(--primary-buttton-color-brown);
+    border-color: var(--primary-buttton-color-brown);
+    
+    /* Override Bootstrap's default focus ring color for accessibility/branding */
+    box-shadow: none !important;
+}
+
+.form-check-input:checked {
+    /* Ensure the background and border stay brown when checked */
+    background-color: var(--primary-buttton-color-brown);
+    border-color: var(--primary-buttton-color-brown);
+}
+
+.form-check-input:focus {
+    /* Custom focus state */
+    border-color: var(--primary-buttton-color-brown-hover);
+    box-shadow: 0 0 0 0.25rem rgba(121, 119, 78, 0.25); /* Light shadow of brown color */
+}
+
+.form-check-input:checked + .form-check-label {
+    /* Label styling for checked items */
+    color: var(--color-text-title); 
+    font-weight: 600;
+}
+
+/* ========================================================================= */
+/* --- 3. Product Card Styles (Card) --- */
+/* ========================================================================= */
+
+.card {
+    /* Card container styling */
+    border: 1px solid var(--secondary-button-stroke-color-neutral) !important;
+    border-radius: var(--primary-button-round-corners) !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    /* Product name */
+    font-family: var(--font-display);
+    color: var(--color-text-title); /* Using title color for product name */
+    font-size: 1.3rem;
+}
+
+.card-body p {
+    /* Product price */
+    color: var(--primary-buttton-color-salmon); /* Salmon color for pricing */
+    font-size: 1.5rem;
+}
+
+/* ========================================================================= */
+/* --- 4. Product Button Styles (View Product) --- */
+/* ========================================================================= */
 
 .button__product {
-background-color: var(--secondary-button-stroke-color-neutral);
-border-color: var(--secondary-button-stroke-color-and-font);
-}
-.button__product:hover {
-    background-color: #ACAB91;
+    /* Base style for the button in the card */
+    background-color: var(--primary-buttton-color-brown);
+    color: var(--color-text); /* White text */
+    border: none;
+    border-radius: var(--secondary-button-round-corners); /* Highly rounded (pill shape) */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem !important;
 }
 
-.card-title{
-    font-family: var(--font-text);
+.button__product:hover {
+    background-color: var(--primary-buttton-color-brown-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.product-link {
+    text-decoration: none;
 }
 
 .main-container {
@@ -20,11 +152,5 @@ border-color: var(--secondary-button-stroke-color-and-font);
     background-color: #F5CE85;
     display: flex;
     justify-content: center;
-    padding: 15px;
-    color: #084A46;
     
-}
-
-.product-link {
-    text-decoration: none;
 }

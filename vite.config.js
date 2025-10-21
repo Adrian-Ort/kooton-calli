@@ -14,6 +14,8 @@ export default defineConfig({
         product: resolve(__dirname, 'html/product.html'),
         productList: resolve(__dirname, 'html/productList.html'),
         shoppingCart: resolve(__dirname, 'html/shoppingCart.html'),
+        orderSuccess: resolve(__dirname, 'html/orderSuccess.html'),
+        shipping: resolve(__dirname, 'html/shippingForm.html'),
       },
     },
   },

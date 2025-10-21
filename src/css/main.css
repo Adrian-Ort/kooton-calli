@@ -7,3 +7,8 @@
         background: var(--background-header-tablet)
     }
 }
+
+a {
+  color: inherit;        /* Usa el color del texto padre */
+  text-decoration: none; /* Quita el subrayado */
+}

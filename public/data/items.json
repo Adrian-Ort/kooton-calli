@@ -1,92 +1,218 @@
 [
     {
         "id": 1,
-        "name": "Suéter azul patrones blancos",
+        "name": "Suéter tejido 'Volcán Azul'",
         "price": 390.00,
         "img": "blue-sweeter-man.png",
-        "description": "Sueter azul con patrones blancos en el pecho y brazos tipo lana de esos que venden en Toluca",
+        "description": "Obra: 'Corazón de Montaña' del artista textil Xantico. La leyenda dice que Xantico teje solo durante los crepúsculos de invierno, usando hilos teñidos con el azul de las sombras de la montaña. Cada suéter captura el espíritu silencioso y el fuego latente de un volcán dormido.",
         "category": "Hombre",
-        "subcategory": "Camisas"
+        "subcategory": "Suéteres"
     },
     {
         "id": 2,
-        "name": "Falda patrones océano",
+        "name": "Falda 'Olas de Coral'",
         "price": 420.00,
         "img": "flowers-ocean-pattern-skirt.png",
-        "description": "Falda con patrones inspirados en flores y en el océano hecha de manta en tonos azules y rojos",
+        "description": "Obra: 'El Jardín Sumergido' de la pintora Ixchel Marina. Cuentan que Ixchel soñó que buceaba en un mar de manta, donde las flores eran de coral y las olas cantaban. Al despertar, pintó su sueño en esta falda, una pieza que te permite caminar con el vaivén del océano.",
         "category": "Mujer",
-        "subcategory": "Pantalones"
+        "subcategory": "Faldas"
     },
     {
         "id": 3,
-        "name": "Suéter verde con patrones",
+        "name": "Suéter 'Tierra de Grana'",
         "price": 390.00,
         "img": "granite-sweeter-green-man.png",
-        "description": "Suéter color verde con apariencia de arena y patrones cuadrangulares en el pecho y brazos. Colores rojo y azul",
+        "description": "Obra: 'Lluvia Seca' del colectivo Tlal-oc. Su arte busca representar sensaciones imposibles. Esta pieza captura el 'petricor', el aroma a tierra mojada. El verde es la tierra seca y los patrones en rojo y azul son las primeras gotas de lluvia que despiertan su aroma.",
         "category": "Mujer",
         "subcategory": "Suéteres"
     },
     {
         "id": 4,
-        "name": "Sudadera blanca con flor",
+        "name": "Sudadera 'Metamorfosis'",
         "price": 390.00,
         "img": "hoodie-flowe-white.png",
-        "description": "Sudadera blanca con flor morada en la parte inferior. De la flor se desprenden mariposas y aves",
+        "description": "Obra: 'El Último Pétalo' de la ilustradora Anahí. La historia detrás de la pieza es la de una flor que, en lugar de marchitar, libera su esencia en forma de mariposas y aves. Es una prenda que habla sobre la transformación y la belleza de dejar ir para renacer.",
         "category": "Mujer",
-        "subcategory": "Suéteres"
+        "subcategory": "Sudaderas"
     },
     {
         "id": 5,
-        "name": "Playera para hombre rústica",
+        "name": "Playera 'Estela de Piedra'",
         "price": 280.00,
         "img": "sculpture-t-shirt.png",
-        "description": "Playera blanca para hombre con un diseño prehispánico y fresco",
+        "description": "Obra: 'Glifo Urbano' del artista conocido como 'El Cantero'. Se dice que El Cantero no usa lienzo, sino los muros de la ciudad. Este diseño es la huella de una de sus estelas modernas, una fusión de la iconografía prehispánica con el pulso del concreto.",
         "category": "Hombre",
-        "subcategory": "Playeras"
+        "subcategory": "Camisas"
     },
     {
         "id": 6,
-        "name": "Playera azul Mictlán",
+        "name": "Playera 'Río Apanohuacalhuia'",
         "price": 280.00,
         "img": "mictlan-T-shirt.png",
-        "description": "Playera azul inspirada en el río de los muertos Apanohuacalhuia hacia el Mictlán",
+        "description": "Obra: 'El Cruce' de la artista visual Nicté. Su trabajo explora los mitos del inframundo. Esta playera no representa la muerte, sino el viaje sereno del alma a través del río Apanohuacalhuia. Es una pieza que invita a la introspección y a la calma.",
         "category": "Mujer",
         "subcategory": "Camisas"
     },
     {
         "id": 7,
-        "name": "Pants gris con patrones",
+        "name": "Pants 'Roca Volcánica'",
         "price": 490.00,
         "img": "pattern-grey-pants.png",
-        "description": "Pantalones deportivos grises con blanco en forma de piedra",
+        "description": "Obra: 'Piel de Xitle' del diseñador Ecatl. Ecatl se inspiró en la textura del pedregal formado por el volcán Xitle. Usar estos pants es como llevar la energía primigenia de la tierra, una pieza que equilibra la comodidad del movimiento con la solidez de la roca.",
         "category": "Hombre",
         "subcategory": "Pantalones"
     },
     {
         "id": 8,
-        "name": "Falda tableada",
+        "name": "Falda tableada 'Fiesta de Colores'",
         "price": 420.00,
         "img": "pettern-skirt.png",
-        "description": "Falda tableada con estampado de paliacate que muestra colores verdes, azul y rojo",
+        "description": "Obra: 'Remolino' de las artesanas 'Las Coloradas'. Ellas deconstruyen elementos folclóricos para crear algo nuevo. Aquí, el paliacate se libera de su forma cuadrada para convertirse en un torbellino de color en cada pliegue de la falda. Es la alegría de la fiesta hecha prenda.",
         "category": "Mujer",
-        "subcategory": "Suéteres"
+        "subcategory": "Faldas"
     },
     {
         "id": 9,
-        "name": "Pantalón con estampado tradicional",
+        "name": "Pantalón 'Telar de Sueños'",
         "price": 490.00,
-        "img": "shredded-paper.png",
-        "description": "Pantalones para mujer con un diseño de colores y estampado de tejidos tradicionales",
+        "img": "pantalon-floreado.png",
+        "description": "Obra: 'Lo que Hila la Abuela' de la artista Citlalli. Citlalli digitaliza los patrones de los telares de su abuela, creando estampados que cuentan historias de su linaje. Este pantalón es un homenaje a la memoria y a la sabiduría tejida a través de generaciones.",
         "category": "Mujer",
         "subcategory": "Pantalones"
     },
     {
         "id": 10,
-        "name": "Blusa bordada",
+        "name": "Blusa 'Corazón de Talavera'",
         "price": 280.00,
         "img": "talavera-blouse.png",
-        "description": "Blusa para mujer de manga corta",
+        "description": "Obra: 'El Suspiro del Alfarero' de un artesano anónimo de Puebla. La leyenda cuenta que el primer maestro de la talavera suspiró sobre una pieza de barro, y de su aliento floreció este patrón. La blusa lleva la delicadeza y el alma de esa primera creación.",
         "category": "Mujer",
         "subcategory": "Camisas"
+    },
+    {
+        "id": 11,
+        "name": "Chamarra 'Guerrero Águila'",
+        "price": 750.00,
+        "img": "eagle-warrior-jacket.png",
+        "description": "Obra: 'Insignia Solar' del bordador Ocelotl. Se dice que Ocelotl solo borda bajo el sol del mediodía para que cada puntada capture un rayo de luz. Esta chamarra no es una prenda, es un emblema de valor, inspirado en el uniforme ceremonial de los guerreros águila.",
+        "category": "Hombre",
+        "subcategory": "Chamarras"
+    },
+    {
+        "id": 12,
+        "name": "Vestido 'Sol de Mediodía'",
+        "price": 580.00,
+        "img": "midday-sun-dress.png",
+        "description": "Obra: 'Cenit' de la diseñadora Izel. Izel creó este estampado para capturar el instante exacto en que el sol está en su punto más alto, un momento de plenitud y energía pura. Este vestido irradia calidez y está hecho para los días en que te sientes en el centro de tu propio universo.",
+        "category": "Mujer",
+        "subcategory": "Vestidos"
+    },
+    {
+        "id": 13,
+        "name": "Playera 'Serpiente Emplumada'",
+        "price": 290.00,
+        "img": "quetzalcoatl-t-shirt.png",
+        "description": "Obra: 'El Viento y la Raíz' del artista gráfico Ehecatl. En su visión, Quetzalcóatl no es solo un dios, sino el equilibrio entre el cielo y la tierra. El diseño minimalista de esta playera representa esa dualidad, una línea que une lo espiritual y lo terrenal.",
+        "category": "Hombre",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 14,
+        "name": "Sudadera 'Códice Negro'",
+        "price": 550.00,
+        "img": "codex-hoodie.png",
+        "description": "Obra: 'Fragmentos de la Noche Triste' del historiador y artista 'El Tlacuilo'. El Tlacuilo rescata glifos de códices perdidos y les da un nuevo significado. Esta sudadera es un rompecabezas de símbolos que narran una historia de resistencia y memoria.",
+        "category": "Hombre",
+        "subcategory": "Sudaderas"
+    },
+    {
+        "id": 15,
+        "name": "Blusa campesina 'Viento de la Malintzi'",
+        "price": 320.00,
+        "img": "malintzi-blouse.png",
+        "description": "Obra: 'Flores de Altura' de la bordadora Metzli. Metzli vive en las faldas de La Malinche y borda únicamente las flores que crecen a más de 3,000 metros de altura. Esta blusa lleva la pureza y la resiliencia de la flora alpina, un soplo de aire fresco y libertad.",
+        "category": "Mujer",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 16,
+        "name": "Pants 'Obsidiana Pulida'",
+        "price": 490.00,
+        "img": "obsidian-pants-woman.png",
+        "description": "Obra: 'Espejo Humeante' de la diseñadora Itzmin. Inspirada en el espejo de Tezcatlipoca, Itzmin creó una tela que captura la luz de forma sutil, como la obsidiana pulida. Estos pants son un amuleto de protección y elegancia, para ver y ser visto con claridad.",
+        "category": "Mujer",
+        "subcategory": "Pantalones"
+    },
+    {
+        "id": 17,
+        "name": "Camisa de manta 'Hombre de Maíz'",
+        "price": 410.00,
+        "img": "corn-man-shirt.png",
+        "description": "Obra: 'La Ofrenda' del artesano Centeotl. La leyenda popol vuh cuenta que los humanos fueron hechos de maíz. Esta camisa, con sus discretos bordados de mazorcas, es un tributo a ese origen. Es una pieza humilde y poderosa que nos recuerda de qué estamos hechos.",
+        "category": "Hombre",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 18,
+        "name": "Camisa 'Ojo de Jaguar'",
+        "price": 250.00,
+        "img": "jaguar-eye-shirt.png",
+        "description": "Obra: 'El Vigía de la Selva' del colectivo Balam. Su arte se enfoca en la mirada de los animales de poder. Este ojo de jaguar no es una simple imagen, es un símbolo de intuición y de la capacidad de ver en la oscuridad. Un accesorio para agudizar tus sentidos.",
+        "category": "Unisex",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 19,
+        "name": "Falda Larga 'Jardín de Oaxaca'",
+        "price": 520.00,
+        "img": "oaxaca-garden-skirt.png",
+        "description": "Obra: 'El Edén Zapoteco' de la muralista Yatziri. Yatziri pintó un mural celebrando la flora y fauna de Monte Albán, y este es un fragmento de esa obra. Llevar esta falda es como envolverse en un pedazo de ese paraíso, una explosión de vida y color.",
+        "category": "Mujer",
+        "subcategory": "Faldas"
+    },
+    {
+        "id": 20,
+        "name": "Shorts de lino 'Arena de Tulum'",
+        "price": 380.00,
+        "img": "tulum-sand-shorts.png",
+        "description": "Obra: 'Polvo de Sacbé' del diseñador Itzamná. Un 'sacbé' era un camino blanco maya. Itzamná creó estos shorts con un lino cuyo color y textura recuerdan la arena de esos caminos ancestrales. Son una invitación a caminar con la ligereza y la historia del mundo maya.",
+        "category": "Hombre",
+        "subcategory": "Pantalones"
+    },
+    {
+        "id": 21,
+        "name": "Top 'Geometría Wirikuta'",
+        "price": 260.00,
+        "img": "wirikuta-top.png",
+        "description": "Obra: 'El Ojo de Dios' del artista wixárika Kauyumari. Este diseño no es un simple patrón, es un mándala de protección y una ventana al mundo espiritual. Cada línea y color tienen un significado sagrado, convirtiendo este top en una pieza de arte visionario.",
+        "category": "Mujer",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 22,
+        "name": "Tote blouse 'Mercado de Tlatelolco'",
+        "price": 350.00,
+        "img": "market-tote-blouse.png",
+        "description": "Obra: 'El Trueque' del ilustrador 'Pochteca'. El artista, fascinado por los antiguos comerciantes, dibujó esta escena imaginando el bullicio y la abundancia del mercado de Tlatelolco. Esta bolsa es un homenaje a ese intercambio de tesoros, cultura y sabores.",
+        "category": "Unisex",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 23,
+        "name": "Playera 'Calendario Solar'",
+        "price": 290.00,
+        "img": "sun-calendar-tshirt.png",
+        "description": "Obra: 'El Quinto Sol' del astrónomo y artista Kin. Kin no ve la Piedra del Sol como un objeto del pasado, sino como un mapa del tiempo. Su diseño minimalista resalta los anillos del movimiento cósmico. Es una playera que te recuerda que eres parte de un universo en constante ciclo.",
+        "category": "Hombre",
+        "subcategory": "Camisas"
+    },
+    {
+        "id": 24,
+        "name": "Vestido 'Noche de Cempasúchil'",
+        "price": 610.00,
+        "img": "cempasuchil-dress.png",
+        "description": "Obra: 'El Hilo de Luz' de la bordadora Alma. La leyenda familiar de Alma dice que sus antepasados bordaban caminos de cempasúchil para guiar a las almas. Este vestido es la encarnación de esa tradición, una prenda elegante que celebra la memoria y el amor que nunca muere.",
+        "category": "Mujer",
+        "subcategory": "Vestidos"
     }
 ]

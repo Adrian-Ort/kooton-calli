@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartContainer = document.getElementById('cart-items-container');
     const subtotalPriceEl = document.getElementById('subtotal-price');
     const totalPriceEl = document.getElementById('total-price');
+    const checkoutButton = document.getElementById('checkout-button');
 
     // Main function to render the cart from localStorage data
     function renderCart() {
@@ -10,10 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cart.length === 0) {
             cartContainer.innerHTML = '<p class="text-center text-muted">Tu carrito de compras está vacío.</p>';
+            checkoutButton.disabled = true; // Disable checkout if cart is empty
             updateTotals();
             return;
         }
 
+        // Enable checkout button
+        checkoutButton.disabled = false;
+        
         cart.forEach(item => {
             const cartItemHTML = `
                 <div class="card mb-3" data-product-id="${item.id}" data-product-size="${item.size}">
@@ -86,6 +91,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Save the modified cart and re-render everything
         localStorage.setItem('cart', JSON.stringify(cart));
         renderCart();
+    });
+    
+    // Listener for the checkout button to redirect to the shipping form
+    checkoutButton.addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        if (cart.length > 0) {
+            window.location.href = '/html/shippingForm.html';
+        } else {
+            // Should not happen if button is disabled, but good for safety
+            console.warn("Cannot proceed to checkout, cart is empty.");
+        }
     });
 
     // Initial render when the page loads

@@ -12,9 +12,9 @@
 /* --- CART ITEM STYLING --- */
 /* The old .container__cart__elements style is now applied to each individual card in the cart. */
 #cart-items-container .card {
-    background-color: #F5CE85; /* */
+    background-color: #f7ead2; /* */
     border-radius: 15px; /* */
-    border: 1px solid #545454; /* */
+    border: 1px solid #f5c469; /* */
     padding: 10px; /* Adapted from the original padding. */
 }
 
