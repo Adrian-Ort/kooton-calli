@@ -1,6 +1,6 @@
 .overlay-text {
   position: relative;
-  bottom: 0; /* O usa top: 0 para arriba */
+  bottom: 0;
   left: 0;
   right: 0;
   color: white;
@@ -8,4 +8,20 @@
   font-size: 1.2rem;
   font-weight: 500;
   margin: 0 auto 0 auto;
+}
+
+#subcategories {
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 8%;
+  height: 30%;
+  padding: 1.5rem;
+  background-color: var(--background-title);
+  border-radius: var(--primary-button-round-corners);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subcategory-image {
+  /* height: ; */
+
 }
