@@ -3,8 +3,7 @@
 }
 .img-link{
   position: relative;
-  z-index: 10;
-  display: inline-block;
+
 }
 .category-image{
     position: relative;
@@ -21,7 +20,14 @@
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.category-image a {
+  position: relative;
+  z-index: 10;
+  display: inline-block; /* asegura que el área clickeable sea solo la imagen */
 }
 
 .man-img-home, .woman-img-home{
@@ -41,6 +47,10 @@
 .man-img-home{
     border: 0.5rem solid #79774E;
 }
-.body--container {
+.second-column-home {
+  pointer-events: none;
+}
+
+.category-image a {
   pointer-events: auto;
 }
