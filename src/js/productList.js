@@ -49,7 +49,7 @@ async function loadAndDisplayProducts() {
         console.error("ERROR al cargar productos:", error);
         const container = document.getElementById('product-list-container');
         if (container) {
-            container.innerHTML = '<div class="col-12"><p class="text-danger text-center">Could not load products. Please try again later.</p></div>';
+            container.innerHTML = '<div class="col-12"><p class="text-danger text-center">No se pudieron cargar los productos. Por favor, inténtelo de nuevo más tarde.</p></div>';
         }
     }
 }
@@ -157,7 +157,7 @@ function displayProducts(productsToDisplay) {
 
     if (productsToDisplay.length === 0) {
         // Display a message if no products match the current filter.
-        container.innerHTML = '<div class="col-12"><p class="text-center fw-bold text-muted p-5 border rounded-3 bg-white shadow-sm">No products found matching the selected filters.</p></div>';
+        container.innerHTML = '<div class="col-12"><p class="text-center fw-bold text-muted p-5 border rounded-3 bg-white shadow-sm">No se encontraron productos que coincidan con los filtros seleccionados.</p></div>';
         return;
     }
 
