@@ -64,7 +64,7 @@ const tr = document.createElement("tr");
         <td>${item.product?.subcategory || 'N/A'}</td>
         <td>
             <button 
-                class="btn btn-sm btn-primary" 
+                class="btn btn-sm btn-edit-inventory" 
                 data-bs-toggle="modal" 
                 data-bs-target="#editModal"
                 data-id="${item.id_inventory}"
@@ -81,7 +81,7 @@ const tr = document.createElement("tr");
                 Editar
             </button>
             <button 
-                class="btn btn-sm btn-danger" 
+                class="btn btn-sm btn-delete-inventory" 
                 data-action="delete" 
                 data-id="${item.id_inventory}"
             >
