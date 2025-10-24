@@ -4,16 +4,15 @@ export default class ItemsController {
     }
 
     addItem(id, name, price, imgUrl, description, category, subcategory) {
-        // Formatted price
+        // Formatted price for display
         const formattedPrice = `$${Number(price).toFixed(2)} MXN`;
 
         const item = {
             id: id,
             name: name,
-            price: formattedPrice, // Formatted price
-            // This 'priceRaw' is needed for product.js
-            priceRaw: Number(price), 
-            imgUrl: imgUrl,
+            price: formattedPrice, // Formatted price for display
+            priceRaw: Number(price), // Raw number for cart/calculations
+            imgUrl: imgUrl,        // Correct property name
             description: description,
             category: category,
             subcategory: subcategory
@@ -38,6 +37,10 @@ export default class ItemsController {
                 fetch(PRODUCTS_ENDPOINT),
                 fetch(INVENTORY_ENDPOINT)
             ]);
+
+            if (!productResponse.ok || !inventoryResponse.ok) {
+                 throw new Error('Failed to fetch from one or more endpoints.');
+            }
             
             const products = await productResponse.json();
             const inventories = await inventoryResponse.json();
@@ -45,14 +48,13 @@ export default class ItemsController {
             // 2. Create a price map (using 'idProduct' and 'productPrice')
             const priceMap = new Map();
             inventories.forEach(inv => {
-                // Set price based on idProduct
                 priceMap.set(inv.idProduct, inv.productPrice);
             });
 
             // 3. Combine products with their prices
             products.forEach(item => {
                 // Get price from the map using the product's ID ('id')
-                const price = priceMap.get(item.id) || 0; 
+                const price = priceMap.get(item.id) || 0; // Default to 0 if not in inventory
                 
                 // Add the combined item using correct API names
                 this.addItem(
