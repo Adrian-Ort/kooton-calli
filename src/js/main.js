@@ -21,6 +21,7 @@ import '../css/main.css';  // main styles
 import '../css/productList.css'; // productList styles
 import '../css/shoppingCart.css'; // shoppingCart styles
 import '../css/womenCategory.css';//womeCategory styles
+import '../css/product.css'; //product styles
 
 // global variables
 import '../css/global_variables.css';
