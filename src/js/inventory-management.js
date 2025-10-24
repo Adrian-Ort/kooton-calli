@@ -1,89 +1,126 @@
 const endPointInventory = 'https://kooton-calli.duckdns.org/api/v1/inventories';
+const endPointProducts = 'https://kooton-calli.duckdns.org/api/v1/products';
 
-import ItemsController from "./itemsController";
+// Global variable to store the combined data
+let allInventoryData = [];
 
-//funcion para llamar a la API y obtener los datos
-async function fetchInventoryData() {
-    try{
-        const response = await fetch(endPointInventory);
-        if(!response.ok){
-            throw new Error(`Error HTTP: ${response.status}`)
-    }
-        const data = await response.json();
-        return data;
-    }catch(error){
-        console.error("Error fetching inventory data: ", error);
+/**
+ * Fetches data from BOTH endpoints and combines them.
+ * This is the same logic as in your productList.js
+ */
+async function fetchCombinedData() {
+    try {
+        const [productResponse, inventoryResponse] = await Promise.all([
+            fetch(endPointProducts),
+            fetch(endPointInventory)
+        ]);
+
+        if (!productResponse.ok || !inventoryResponse.ok) {
+            throw new Error('Error fetching data from one or more endpoints');
+        }
+
+        const products = await productResponse.json();
+        const inventories = await inventoryResponse.json();
+
+        // Create a lookup map for product details (name, imgUrl, etc.)
+        // We use the 'id' from the product list (like in image_2a96db.png)
+        const productMap = new Map();
+        products.forEach(p => {
+            productMap.set(p.id, p); 
+        });
+
+        // Combine the data
+        const combinedData = inventories.map(inv => {
+            // We use 'inv.idProduct' to find the matching product
+            const productDetails = productMap.get(inv.idProduct) || {}; 
+            return {
+                ...inv,           // (id, idProduct, productPrice, productSize, quantity, barCode)
+                ...productDetails // (name, imgUrl, description, category, subcategory)
+            };
+        });
+        
+        return combinedData;
+
+    } catch (error) {
+        console.error("Error fetching combined data: ", error);
         throw error;
     }
 }
 
-
-async function loadTable(){
-    try{
-        //await espera a que carguen todos los productos
-        const inventoryData = await fetchInventoryData();
-        //Obtener tableBody dentro de la funcion
+/**
+ * Loads the combined data and populates the table.
+ */
+async function loadTable() {
+    try {
+        // Fetch and store the combined data globally
+        allInventoryData = await fetchCombinedData(); 
+        
         const tableBody = document.getElementById('tableBody');
-
         if (!tableBody) {
             console.error("No se encontró tableBody en loadTable");
             return;
         }
         
-        // Limpia la tabla antes de agregar items
+        // Limpia la tabla
         tableBody.innerHTML = '';
         
-        inventoryData.items.forEach(item => addRow(item));
-    }catch(error){
+        // Itera sobre la data combinada
+        allInventoryData.forEach(item => addRow(item));
+
+    } catch(error) {
         console.error("Error cargando la tabla: ", error);
     }
 }
 
-function addRow(item){
+/**
+ * Adds a single row to the table using the combined (flat) object.
+ */
+function addRow(item) {
     const tableBody = document.getElementById('tableBody');
-
-    if(!tableBody){
+    if (!tableBody) {
         console.error("No se puede agregar fila tableBody no encontrado");
         return;
     }
 
-    //Se accede a los datos anidados
-const tr = document.createElement("tr");
+    const tr = document.createElement("tr"); 
+    
+    // We use the flat properties from the combined object
+    // We use the property names from your API screenshots (name, imgUrl, productPrice, etc.)
     tr.innerHTML = `
-        <td>${item.product?.id_product || 'N/A'}</td>
-        <td>${item.product?.product_name || 'N/A'}</td>
-        <td>$${item.product_price || '0.00'}</td>
+        <td>${item.idProduct || 'N/A'}</td>
+        <td>${item.name || 'N/A'}</td>
+        <td>$${Number(item.productPrice || 0).toFixed(2)}</td>
         <td>
-            ${item.product?.img_url 
-                ? `<img src="${item.product.img_url}" alt="${item.product.product_name}" style="width: 50px; height: 50px; object-fit: cover;">`
+            ${item.imgUrl 
+                ? `<img src="/img/products-images/${item.imgUrl}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">`
                 : 'Sin imagen'
             }
         </td>
-        <td>${item.product?.description || 'Sin descripción'}</td>
-        <td>${item.product?.category || 'N/A'}</td>
-        <td>${item.product?.subcategory || 'N/A'}</td>
+        <td>${item.description || 'Sin descripción'}</td>
+        <td>${item.quantity || 0}</td>
+        <td>${item.productSize || 'N/A'}</td>
         <td>
             <button 
-                class="btn btn-sm btn-edit-inventory" 
+                class="btn btn-sm btn-primary btn-edit-inventory" 
                 data-bs-toggle="modal" 
                 data-bs-target="#editModal"
-                data-id="${item.id_inventory}"
-                data-product-id="${item.product?.id_product}"
-                data-name="${item.product?.product_name || ''}"
-                data-price="${item.product_price || ''}"
-                data-description="${item.product?.description || ''}"
-                data-category="${item.product?.category || ''}"
-                data-subcategory="${item.product?.subcategory || ''}"
+                data-id="${item.id}" 
+                data-product-id="${item.idProduct}"
+                data-name="${item.name || ''}"
+                data-price="${item.productPrice || ''}"
+                data-description="${item.description || ''}"
+                data-category="${item.category || ''}"
+                data-subcategory="${item.subcategory || ''}"
                 data-quantity="${item.quantity || ''}"
-                data-size="${item.product_size || ''}"
-                data-barcode="${item.bar_code || ''}"
+                data-size="${item.productSize || ''}"
+                data-barcode="${item.barCode || ''}"
             >
                 Editar
             </button>
             <button 
-                class="btn btn-sm btn-delete-inventory" 
+                class="btn btn-sm btn-danger" 
                 data-action="delete" 
-                data-id="${item.id_inventory}"
+                data-id="${item.id}"
             >
                 Eliminar
             </button>
@@ -92,83 +129,86 @@ const tr = document.createElement("tr");
     tableBody.appendChild(tr);
 }
 
-
-
-// Función eliminar
+/**
+ * Deletes an inventory item by its ID.
+ */
 async function deleteItem(id) {
-
-    if (!confirm(`¿Deseas eliminar el producto con el ID: ${id}?`)) {
+    if (!confirm(`¿Deseas eliminar el item de inventario con el ID: ${id}?`)) {
         return;
     }
-    try{
-        const response = await fetch(`${endPointInventory}/${id}`,{
+    try {
+        const response = await fetch(`${endPointInventory}/${id}`, {
             method: 'DELETE',
         });
 
-        if(response.ok){
-            await loadTable();
-        }else{
+        // 204 No Content is also a success
+        if (response.ok || response.status === 204) {
+            await loadTable(); // Recargar la tabla
+        } else {
             alert("Error al eliminar el producto");
         }
-    }catch (error){
-        console.log.error("Error eliminando item: ", error)
+    } catch (error) {
+        console.error("Error eliminando item: ", error)
         alert('Error al eliminar el producto')
     }
 }
 
-// Función para buscar por código de barras
-async function searchByBarcode(barcode) {
-    try {
-        const inventoryData = await fetchInventoryData();
-        const filteredData = inventoryData.filter(item => 
-            item.bar_code && item.bar_code.toString().includes(barcode)
-        );
-        
-        const tableBody = document.getElementById('tableBody');
-        tableBody.innerHTML = '';
-        
-        if (filteredData.length === 0) {
-            tableBody.innerHTML = '<tr><td colspan="8" class="text-center">No se encontraron productos</td></tr>';
-        } else {
-            filteredData.forEach(item => addRow(item));
-        }
-    } catch (error) {
-        console.error("Error buscando producto:", error);
+/**
+ * Searches the globally stored data by barcode without re-fetching.
+ */
+function searchByBarcode(barcode) {
+    const filteredData = allInventoryData.filter(item => 
+        item.barCode && item.barCode.toString().includes(barcode)
+    );
+    
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = '';
+    
+    if (filteredData.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="8" class="text-center">No se encontraron productos</td></tr>';
+    } else {
+        filteredData.forEach(item => addRow(item));
     }
 }
 
-// Evento cuando el DOM está listo
+// --- Event Listeners ---
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Referencias a los elementos
+    // Referencias
     const addForm = document.getElementById('addForm');
     const editForm = document.getElementById('editForm');
     const tableBody = document.getElementById('tableBody');
     const searchButton = document.querySelector('.container-busqueda-inventory button');
     const searchInput = document.querySelector('.container-busqueda-inventory input');
+    const editModal = document.getElementById('editModal');
 
-    // Evento para botones de la tabla (ELIMINAR/EDITAR)
+    if (!tableBody) {
+        console.error("CRITICAL: tableBody not found.");
+        return;
+    }
+    
+    // Evento para botones de la tabla (ELIMINAR)
     tableBody.addEventListener('click', (e) => {
-        const btn = e.target.closest('button[data-action]');
-        if (!btn) return;
-        
-        const id = btn.dataset.id;
-        if (btn.dataset.action === 'delete') {
+        const btn = e.target.closest('button[data-action="delete"]');
+        if (btn) {
+            const id = btn.dataset.id;
             deleteItem(id);
         }
     });
 
-    // Evento para búsqueda por código de barras
+    // Evento para búsqueda
     if (searchButton && searchInput) {
         searchButton.addEventListener('click', () => {
             const barcode = searchInput.value.trim();
             if (barcode) {
                 searchByBarcode(barcode);
             } else {
-                loadTable(); // Recargar tabla completa si no hay búsqueda
+                // Recargar tabla completa si no hay búsqueda
+                tableBody.innerHTML = '';
+                allInventoryData.forEach(item => addRow(item));
             }
         });
 
-        // También buscar al presionar Enter
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 searchButton.click();
@@ -176,64 +216,106 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Evento para el formulario de AGREGAR
-    addForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    // Evento para el formulario de AGREGAR (POST)
+    if (addForm) {
+        addForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
 
-        // Aquí necesitarías implementar la lógica para enviar datos a tu API
-        // Por ahora solo mostraremos un mensaje
-        alert('Función de agregar producto - Pendiente de implementar con tu API');
-        
-        // Limpiar formulario y cerrar modal
-        addForm.reset();
-        const addModalEl = document.getElementById('addModal');
-        const modal = bootstrap.Modal.getInstance(addModalEl);
-        modal.hide();
-    });
+            // Este formulario solo debe crear un item de INVENTARIO
+            const newInventoryItem = {
+                idProduct: parseInt(document.getElementById('addProductId').value),
+                productPrice: parseFloat(document.getElementById('addPrice').value),
+                quantity: parseInt(document.getElementById('addQuantity').value),
+                productSize: document.getElementById('addSize').value,
+                barCode: document.getElementById('addBarcode').value
+            };
 
-    // Evento para el formulario de EDITAR
-    editForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+            try {
+                const response = await fetch(endPointInventory, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newInventoryItem)
+                });
+                if (!response.ok) throw new Error('Error al guardar');
+                
+                await loadTable(); // Recargar
+                
+                addForm.reset();
+                const addModalEl = document.getElementById('addModal');
+                const modal = bootstrap.Modal.getInstance(addModalEl);
+                modal.hide();
+                
+            } catch (error) {
+                console.error("Error al agregar item:", error);
+                alert('Error al agregar item.');
+            }
+        });
+    }
 
-        // Aquí necesitarías implementar la lógica para actualizar datos en tu API
-        alert('Función de editar producto - Pendiente de implementar con tu API');
-        
-        // Recargar tabla después de editar
-        await loadTable();
-        
-        // Cerrar modal
-        const editModalEl = document.getElementById('editModal');
-        const modal = bootstrap.Modal.getInstance(editModalEl);
-        modal.hide();
-    });
+    // Evento para el formulario de EDITAR (PUT)
+    if (editForm) {
+        editForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // El ID del item de inventario
+            const inventoryId = document.getElementById('editId').value;
+            
+            // Este formulario solo debe actualizar el item de INVENTARIO
+            // No podemos editar el nombre o descripción del producto desde aquí
+            const updatedInventoryItem = {
+                idProduct: parseInt(document.getElementById('editProductId').value),
+                productPrice: parseFloat(document.getElementById('editPrice').value),
+                quantity: parseInt(document.getElementById('editQuantity').value),
+                productSize: document.getElementById('editSize').value,
+                barCode: document.getElementById('editBarcode').value
+            };
+
+            try {
+                const response = await fetch(`${endPointInventory}/${inventoryId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updatedInventoryItem)
+                });
+                if (!response.ok) throw new Error('Error al actualizar');
+
+                await loadTable(); // Recargar
+
+                const editModalEl = document.getElementById('editModal');
+                const modal = bootstrap.Modal.getInstance(editModalEl);
+                modal.hide();
+
+            } catch (error) {
+                console.error("Error al editar item:", error);
+                alert('Error al editar item.');
+            }
+        });
+    }
 
     // Evento para el modal de edición (cargar datos en el formulario)
-    const editModal = document.getElementById('editModal');
     if (editModal) {
         editModal.addEventListener('show.bs.modal', function(event) {
             const button = event.relatedTarget;
 
-            // Obtener datos del botón que abrió el modal
+            // Obtener datos del botón
             const id = button.getAttribute('data-id');
             const productId = button.getAttribute('data-product-id');
             const name = button.getAttribute('data-name');
             const price = button.getAttribute('data-price');
             const description = button.getAttribute('data-description');
-            const category = button.getAttribute('data-category');
-            const subcategory = button.getAttribute('data-subcategory');
             const quantity = button.getAttribute('data-quantity');
             const size = button.getAttribute('data-size');
             const barcode = button.getAttribute('data-barcode');
 
             // Llenar el formulario con los datos
+            // **Asegúrate de que los IDs de tu modal coincidan**
             document.getElementById('editId').value = id;
-            document.getElementById('editName').value = name || '';
+            document.getElementById('editProductId').value = productId;
+            document.getElementById('editName').value = name || ''; // Este campo es solo de vista
+            document.getElementById('editDescription').value = description || ''; // Este campo es solo de vista
             document.getElementById('editPrice').value = price || '';
-            document.getElementById('editDescription').value = description || '';
-            document.getElementById('editCategory').value = category || '';
-            document.getElementById('editSubcategory').value = subcategory || '';
-            
-            // Puedes agregar más campos aquí según necesites
+            document.getElementById('editQuantity').value = quantity || '';
+            document.getElementById('editSize').value = size || '';
+            document.getElementById('editBarcode').value = barcode || '';
         });
     }
 
