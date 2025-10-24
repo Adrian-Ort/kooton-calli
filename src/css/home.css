@@ -1,7 +1,13 @@
 #carouselExampleFade{
     margin-top: 75px;    
 }
+.img-link{
+  position: relative;
 
+}
+.category-image{
+    position: relative;
+}
 @media (min-width: 768px) {
     .container, .container-md, .container-sm {
         max-width: 1500px;
@@ -14,11 +20,18 @@
     max-width: 25rem;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.category-image a {
+  position: relative;
+  z-index: 10;
+  display: inline-block; /* asegura que el área clickeable sea solo la imagen */
 }
 
 .man-img-home, .woman-img-home{
-    border: 0.5rem solid 79774E;
+    border: 0.5rem solid #79774E;
     border-radius: 2rem;
 }
 
@@ -34,24 +47,10 @@
 .man-img-home{
     border: 0.5rem solid #79774E;
 }
-
-.second-column-home{
-    margin-top: 8%;
+.second-column-home {
+  pointer-events: none;
 }
 
-.category-image{
-    position: relative;
-    text-align: center;
-}
-
-.overlay-text{
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
-    color: white; 
-    background-color: rgba(0, 0, 0, 0.0);
-    padding: 5px 10px; 
-    font-family: var(--font-display);
-    font-size: 2rem;
+.category-image a {
+  pointer-events: auto;
 }

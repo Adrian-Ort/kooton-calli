@@ -20,44 +20,62 @@
 </head>
 <body>
      <!--Header-->
+
     <div id="header"></div>
 
+    <div class="text-wrapper mt-6"><h2>MUJERES</h2></div>
+
     <main class="container my-1">
-    <!-- First row -->
-    <div class="row" id="subcategoriees">
-        <!-- Subcategories  -->
-        <!-- First column -->
-        <!-- T-Shirt -->
-        <div class="col-lg-4 position-relative">
-            <div class="overlay-text">BLUSAS</div>
-            <a href="#"><img src="public/img/products-images/t-shirt-subcategory.png" class="img-fluid w-100" alt=""></a>
-        </div>
-    
-        <!-- Second column -->
-        <!-- Sweater -->
-        <div class="col-lg-4 position-relative p-0">
-            <a href="#"><img src="public/img/products-images/sweater-subcategory.png" class="img-fluid w-100"alt=""></a>
-            <div class="overlay-text">SUÉTERES</div>
-        </div>
+     <!-- First row -->
+      <div class="row" id="subcategories">
+    <!-- Versión normal para pantallas grandes -->
+    <div class="col-12 d-none d-md-block">
+        <div class="row">
+            <!-- First column - T-Shirt -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <a href="#"><img src="/img/products-images/woman-category-t-shirts.png" class="subcategory-image img-fluid w-100" alt=""></a>
+            </div>
         
-        <!-- Third column -->
-        <!-- Pans & skirts -->
-        <div class="col-lg-4 position-relative">
-            <a href="productList.html"><img src="public/img/products-images/under-subcategory.png" class="img-fluid w-100" alt=""></a>
-            <div class="overlay-text">FALDAS</div>
+            <!-- Second column - Sweater -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <a href="#"><img src="/img/products-images/woman-category-sweater.png" class="subcategory-image img-fluid w-100" alt=""></a>
+            </div>
+            
+            <!-- Third column - Pans & skirts -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <a href="productList.html"><img src="/img/products-images/woman-category-bottom.png" class="subcategory-image img-fluid w-100" alt=""></a>
+            </div>
         </div>
     </div>
-    <!-- Main label -->
 
+    <!-- Versión carrusel para pantallas pequeñas -->
+    <div class="col-12 d-md-none">
+        <div id="subcategoriesCarousel" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="#"><img src="/img/products-images/woman-category-t-shirts-mobil.png" class="d-block w-100" alt="T-Shirts"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#"><img src="/img/products-images/woma" class="d-block w-100" alt="Sweaters"></a>
+                </div>
+                <div class="carousel-item">
+                    <a href="productList.html"><img src="/img/products-images/woman-category-bottom-mobil.png" class="d-block w-100" alt="Pants & Skirts"></a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
+</div>
     
-    <!-- Second row -->
-    
-        <!-- Third row -->
-        <!-- New titles -->
 
-        <!-- Fourth row -->
-        <!-- Carousel News -->
+</div>
     
     </main>  
     <!--Footer-->

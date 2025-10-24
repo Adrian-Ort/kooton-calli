@@ -16,6 +16,7 @@ export default defineConfig({
         shoppingCart: resolve(__dirname, 'html/shoppingCart.html'),
         orderSuccess: resolve(__dirname, 'html/orderSuccess.html'),
         shipping: resolve(__dirname, 'html/shippingForm.html'),
+        womenCategory: resolve(__dirname, 'html/womenCategory.html'),
       },
     },
   },

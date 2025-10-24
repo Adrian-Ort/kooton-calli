@@ -1,11 +1,14 @@
-.overlay-text {
-  position: relative;
-  bottom: 0; /* O usa top: 0 para arriba */
-  left: 0;
-  right: 0;
-  color: white;
-  padding: 0;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin: 0 auto 0 auto;
+.text-wrapper{
+  padding: 40px 0 0 40px;
+  background-color: #F5CE85;
+  /*isplay: flex;*/
+  justify-content: center;
 }
+
+h2{
+  font-family: var(--font-display);
+  font-size: 58px;
+  color: var(--color-text-title); 
+}
+
+ 
