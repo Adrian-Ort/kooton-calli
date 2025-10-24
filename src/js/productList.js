@@ -4,7 +4,7 @@
  * and rendering the product list based on selections.
  */
 
-// Global variable to store all products once loaded from the JSON file.
+// Global variable to store all products once loaded from the API.
 let allProducts = [];
 
 // --- Initialization ---
@@ -24,14 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Data Fetching and Setup ---
 
 /**
- * Fetches product data from the JSON endpoint, stores it globally,
+ * Fetches product data from the API endpoint, stores it globally,
  * sets up the filter UI, and displays the initial product list.
  * @async
  */
 async function loadAndDisplayProducts() {
     try {
-        // 1. Fetch product data (Ensure the path is correct for your project).
-        const response = await fetch(`/data/items.json?v=${new Date().getTime()}`);
+        // 1. Fetch product data from the endpoint.
+        const API_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
+        const response = await fetch(API_ENDPOINT);
+        
         const products = await response.json(); 
         
         // 2. Store the complete list.
@@ -165,13 +167,13 @@ function displayProducts(productsToDisplay) {
             <div class="col-md-4 col-sm-6">
                 <div class="card h-100 shadow-lg border-2 rounded-4">
                     <div class="p-3">
-                        <img src="/img/products-images/${product.img}" class="img-fluid rounded-4" alt="Image of ${product.name}">
+                        <img src="/img/products-images/${product.img_url}" class="img-fluid rounded-4" alt="Image of ${product.product_name}">
                     </div>
                     <div class="card-body text-center d-flex flex-column p-2">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="fw-bold mt-auto">$${product.price.toFixed(2)} MXN</p>
+                        <h5 class="card-title">${product.product_name}</h5>
+                        <p class="fw-bold mt-auto">$${product.product_price.toFixed(2)} MXN</p>
                         
-                        <a href="/html/product.html?id=${product.id}" class="d-grid product-link">
+                        <a href="/html/product.html?id=${product.id_product}" class="d-grid product-link">
                             <button type="button" class="fw-bold rounded-pill p-1 w-100 shadow-sm button__product">
                                 Ver Producto
                             </button>

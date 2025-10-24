@@ -5,12 +5,13 @@ export default class ItemsController {
 
     addItem(id, name, price, img, description, category, subcategory) {
         // Formateamos el precio para que incluya el símbolo de moneda y dos decimales
+        // We use the price from the API, which we assume is a number
         const formattedPrice = `$${Number(price).toFixed(2)} MXN`;
 
         const item = {
             id: id,
             name: name,
-            price: formattedPrice, // Usamos el precio ya formateado
+            price: formattedPrice, // Formatted price
             img: img,
             description: description,
             category: category,
@@ -24,27 +25,31 @@ export default class ItemsController {
     }
 
     async loadInitialItems() {
+        // Define the new API endpoint
+        const API_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
+
         try {
-            // 1. Hacemos una petición para obtener el archivo JSON
-            const response = await fetch(`/data/items.json?v=${new Date().getTime()}`);
+            // 1. We fetch the data from the API endpoint
+            const response = await fetch(API_ENDPOINT);
             
-            // 2. Convertimos la respuesta a un objeto JSON
+            // 2. We parse the JSON response
             const itemsJson = await response.json();
             
-            // 3. Iteramos sobre cada producto del JSON y lo añadimos a nuestro array
+            // 3. We iterate over the fetched items and add them to the controller
+            //    Note the change in property names to match your database schema
             itemsJson.forEach(item => {
                 this.addItem(
-                    item.id,
-                    item.name,
-                    item.price,
-                    item.img,
+                    item.id_product,    // <-- Changed
+                    item.product_name,  // <-- Changed
+                    item.product_price, // <-- Changed
+                    item.img_url,       // <-- Changed
                     item.description,
                     item.category,
                     item.subcategory
                 );
             });
         } catch (error) {
-            console.error('Error al cargar los productos desde JSON:', error);
+            console.error('Error al cargar los productos desde el API:', error);
         }
     }
 }
