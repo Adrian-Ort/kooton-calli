@@ -31,7 +31,7 @@ function handleAddToCart(product) {
                 id: product.id,
                 name: product.name,
                 // We store the base price as a number for easier calculations
-                price: parseFloat(product.price.replace(/[^0-9.-]+/g,"")), 
+                price: product.priceRaw,
                 img: product.img,
                 size: selectedSize,
                 quantity: 1

@@ -11,6 +11,8 @@ export default class ItemsController {
             id: id,
             name: name,
             price: formattedPrice, // Formatted price
+            // This 'priceRaw' is needed for product.js
+            priceRaw: Number(price), 
             img: img,
             description: description,
             category: category,
@@ -31,7 +33,7 @@ export default class ItemsController {
         const INVENTORY_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/inventories';
 
         try {
-            // 1. Fetch both data sources in parallel
+            // 1. Fetch both data sources
             const [productResponse, inventoryResponse] = await Promise.all([
                 fetch(PRODUCTS_ENDPOINT),
                 fetch(INVENTORY_ENDPOINT)
@@ -40,23 +42,23 @@ export default class ItemsController {
             const products = await productResponse.json();
             const inventories = await inventoryResponse.json();
 
-            // 2. Create a fast lookup map for prices
-            //    This assumes inventory has `id_product` and `product_price`
+            // 2. Create a price map (using 'idProduct' and 'productPrice')
             const priceMap = new Map();
             inventories.forEach(inv => {
+                // Set price based on idProduct
                 priceMap.set(inv.idProduct, inv.productPrice);
             });
 
             // 3. Combine products with their prices
             products.forEach(item => {
-                // Get price from the map using the product's ID
+                // Get price from the map using the product's ID ('id')
                 const price = priceMap.get(item.id) || 0; 
                 
-                // Add the combined item to the controller
+                // Add the combined item using correct API names
                 this.addItem(
                     item.id,
                     item.name,
-                    price,       // <-- The price from the inventory
+                    price,       // <-- The price from inventory
                     item.imgUrl,
                     item.description,
                     item.category,
