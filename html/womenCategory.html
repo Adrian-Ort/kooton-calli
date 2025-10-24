@@ -27,7 +27,7 @@
 
     <main class="container my-1">
      <!-- First row -->
-      <div class="row" id="subcategories">
+<div class="row" id="subcategories">
     <!-- Versión normal para pantallas grandes -->
     <div class="col-12 d-none d-md-block">
         <div class="row">
@@ -50,37 +50,70 @@
 
     <!-- Versión carrusel para pantallas pequeñas -->
     <div class="col-12 d-md-none">
-        <div id="subcategoriesCarousel" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="#"><img src="/img/products-images/woman-category-t-shirts-mobil.png" class="d-block w-100" alt="T-Shirts"></a>
-                </div>
-                <div class="carousel-item">
-                    <a href="#"><img src="/img/products-images/woma" class="d-block w-100" alt="Sweaters"></a>
-                </div>
-                <div class="carousel-item">
-                    <a href="productList.html"><img src="/img/products-images/woman-category-bottom-mobil.png" class="d-block w-100" alt="Pants & Skirts"></a>
-                </div>
+    <div id="subcategoriesCarousel" class="carousel slide" data-bs-interval="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="#"><img src="/img/products-images/woman-category-t-shirts-mobil.png" class="d-block w-100" alt="T-Shirts"></a>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="carousel-item">
+                <a href="#"><img src="/img/products-images/woman-category-sweater-mobil.png" class="d-block w-100" alt="Sweaters"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="productList.html"><img src="/img/products-images/woman-category-bottom-mobil.png" class="d-block w-100" alt="Pants & Skirts"></a>
+            </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#subcategoriesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+  </div>
 </div>
-    
+<section class="featured-products mt-5">
+            <h3 class="text-center mb-4">Productos Destacados</h3>
+            
+            <!-- Carrusel para desktop -->
+            <div id="productsCarouselDesktop" class="carousel slide d-none d-md-block" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carousel-inner-desktop">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productsCarouselDesktop" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productsCarouselDesktop" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        
+            <!-- Carrusel para mobile -->
+            
+            <div id="productsCarouselMobile" class="carousel slide d-md-none" data-bs-ride="carousel">
+                <div class="carousel-inner" id="carousel-inner-mobile">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productsCarouselMobile" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productsCarouselMobile" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </section>
 
-</div>
-    
-    </main>  
+    </main> 
+
     <!--Footer-->
     <div id="footer"></div>
     <!--El Script hace que Vite inyecte main.js-->
     <script type="module" src="/src/js/main.js"></script>
+    <script type="module" src="/src/js/womenCategory.js"></script>
 </body>
 </html>
