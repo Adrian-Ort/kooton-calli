@@ -8,7 +8,6 @@
     color: var(--background-footer);
 }
 
-
 @media (max-width: 765px){
     .title-mision, .title-vision, .title-nosotros {
         font-size: 24px;
@@ -16,15 +15,9 @@
     }
 }
 
-
-/*.title-vision, .title-nosotros {
-    margin-top: 2rem; /*Adrian: refactor: remove duplicate margin-top rules for the same classes to avoid redundancy and confusion
-
-}*/
-
 .paragraph-mision, .paragraph-vision {
     max-width: 70%;
-    margin: 0 auto; /* Centra el párrafo horizontalmente */
+    margin: 0 auto;
     text-align: center;
     font-size: 20px;
     line-height: 1.5;
@@ -35,53 +28,59 @@
 @media (max-width: 765px){
     .paragraph-mision, .paragraph-vision {
         font-size: 16px;
+        max-width: 90%;
+        padding: 0 1rem;
     }
 }
 
 .title-gracias {
     text-align: center;
-    margin-top: 2rem; /*Adrian: style: adjust margin-top from 4rem to 2 rem to reduce excessive spacing */
-    margin-bottom: 2rem;/*Adrian: style: adjust margin-bottom from 4rem to 2 rem to reduce excessive spacing */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-size: 2.5rem;
     font-family: var(--font-display);
     color: var(--color-text-title);
 }
 
-/*div > a > img {
-    border-radius: 8px; /*Bordes redondeados de las imagenes*/
-    /* width: 100%; /*La imagen ocupa el 100% del ancho de su contenedor.*/
-    /*height: auto; /*Mantiene la proporción original de la imagen.*/
-    /*box-shadow: 0px 0px 30px #000000; /*Agrega la sombra y el color de la misma*/
-/*} */ 
-
-/*div > a > p {
-    margin-top: 8px; //Espaciado superior para separar el texto de la imagen.
-    font-size: 14px; //Tamaño de fuente pequeño y legible.
-    font-weight: 500; //lo que da énfasis al texto sin ser muy grueso.
-    color: #333; // color
-}*/
-
 .titulo-galeria {
     text-align: center;
-    font-size: clamp(1.5rem, 5vw, 3rem); /* se adapta al tamaño de pantalla */
+    font-size: clamp(1.5rem, 5vw, 3rem);
     margin-bottom: 24px;
     color: #222;
 }
 
-/* Contenedor principal de la sección (opcional, para centrar) */
+/* Contenedor principal de la sección */
 .team-members {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Si tienes varias tarjetas */
-    gap: 20px; /* Espacio entre tarjetas */
-    padding: 1rem 0; /*Adrian: style: reduce padding from 50px 0 to 1rem 0 to avoid excessive white space at the top*/
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 1rem;
 }
 
 /* Contenedor individual de cada tarjeta para la perspectiva 3D */
 .card-container {
-    width: 300px; /* Ancho deseado de la tarjeta */
-    height: 300px; /* Altura deseada de la tarjeta */ /*Adrian: Resolved extra whitespace issue in stylesheet*/
-    perspective: 1000px; /* Define la profundidad del efecto 3D */
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+/* Responsive para tablets */
+@media (max-width: 943px) {
+    .card-container {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+    .card-container {
+        width: 90vw;
+        max-width: 350px;
+        height: 90vw;
+        max-height: 350px;
+    }
 }
 
 /* El elemento que gira */
@@ -89,15 +88,20 @@
     width: 100%;
     height: 100%;
     position: relative;
-    transform-style: preserve-3d; /* Esencial para el giro 3D */
-    transition: transform 0.8s; /* Animación de giro */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Al pasar el cursor, la tarjeta gira */
 .card-container:hover .card {
-    transform: rotateY(180deg); /* Gira 180 grados en el eje Y */
+    transform: rotateY(180deg);
+}
+
+/* Clase para voltear en móviles/tablets */
+.card.flipped {
+    transform: rotateY(180deg);
 }
 
 /* Estilos para las caras frontal y trasera */
@@ -105,33 +109,51 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden; /* Oculta la cara cuando está girada */
+    backface-visibility: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    overflow: hidden; /* Para que la imagen no se salga */
+    overflow: hidden;
 }
 
 .card-front {
-    background-color: #f8f9fa; /* Color de fondo si la imagen no cubre todo */
+    background-color: #f8f9fa;
 }
 
 .card-front img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra todo el espacio */
+    object-fit: cover;
     border-radius: 10px;
 }
 
 .card-back {
-    background-color: #084A46; /* Color de fondo del mensaje */
+    background-color: #084A46;
     color: white;
-    transform: rotateY(180deg); /* La cara trasera comienza girada 180 grados */
+    transform: rotateY(180deg);
     padding: 20px;
-    flex-direction: column; /* Para alinear el texto verticalmente */
-    justify-content: center; /* Centrar contenido */
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+@media (max-width: 576px) {
+    .card-back {
+        padding: 15px;
+    }
+    
+    .card-back h3 {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    
+    .card-back p {
+        font-size: 0.8em;
+        line-height: 1.3;
+        margin-bottom: 12px;
+    }
 }
 
 .card-back h3 {
@@ -161,28 +183,25 @@
 
 .image-grid {
     display: grid;
-    /* On small screens, the grid will be a single column. */
-    /* On larger screens, this will change. */
-    grid-template-columns: repeat(3, 1fr); /* Creates three equal-width columns. */
-    gap: 16px; /*Adds space between grid items.*/
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
 }
 
-/*Media query for small screens*/ 
 @media (max-width: 943px) {
     .image-grid {
-        grid-template-columns: repeat(2, 1fr); /*On small screens, the grid will have a single column*/
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/*@media (max-width: 767px) {
+@media (max-width: 576px) {
     .image-grid {
-        grid-template-columns: 1fr; // On small screens, the grid will have a single column.
+        grid-template-columns: 1fr;
     }
-}*/
+}
 
 .image-grid img {
-    width: 100%; /* Makes sure the image fills its grid cell. */
-    height: auto; /* Maintains the image's aspect ratio. */
-    border-radius: 8px; /* Adds a nice rounded border to the images. */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gives the images a slight shadow. */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
