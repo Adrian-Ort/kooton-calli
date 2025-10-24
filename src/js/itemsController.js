@@ -3,7 +3,7 @@ export default class ItemsController {
         this.items = [];
     }
 
-    addItem(id, name, price, img, description, category, subcategory) {
+    addItem(id, name, price, imgUrl, description, category, subcategory) {
         // Formatted price
         const formattedPrice = `$${Number(price).toFixed(2)} MXN`;
 
