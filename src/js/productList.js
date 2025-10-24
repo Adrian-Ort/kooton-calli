@@ -171,7 +171,7 @@ function displayProducts(productsToDisplay) {
                     </div>
                     <div class="card-body text-center d-flex flex-column p-2">
                         <h5 class="card-title">${product.product_name}</h5>
-                        <p class="fw-bold mt-auto">$${product.product_price.toFixed(2)} MXN</p>
+                        <p class="fw-bold mt-auto">$${(product.product_price || 0).toFixed(2)} MXN</p>
                         
                         <a href="/html/product.html?id=${product.id_product}" class="d-grid product-link">
                             <button type="button" class="fw-bold rounded-pill p-1 w-100 shadow-sm button__product">
