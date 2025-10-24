@@ -216,12 +216,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Evento para el formulario de AGREGAR (POST)
+    // --- CORRECTION: Evento para el formulario de AGREGAR (POST) ---
     if (addForm) {
         addForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             // Este formulario solo debe crear un item de INVENTARIO
+            // Asumiendo que los IDs de tu modal son 'addProductId', 'addPrice', etc.
             const newInventoryItem = {
                 idProduct: parseInt(document.getElementById('addProductId').value),
                 productPrice: parseFloat(document.getElementById('addPrice').value),
@@ -252,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Evento para el formulario de EDITAR (PUT)
+    // --- CORRECTION: Evento para el formulario de EDITAR (PUT) ---
     if (editForm) {
         editForm.addEventListener('submit', async function(e) {
             e.preventDefault();
