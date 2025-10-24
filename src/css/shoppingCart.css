@@ -77,3 +77,29 @@
     background-color: #979696; /* */
     border-color: #3b390f;
 }
+
+/* Alinear input de cantidad con los botones + y - */
+.d-flex .form-control {
+  height: 31px; /* misma altura que los botones .btn-sm */
+  padding: 0 0.5rem;
+  margin: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 0.9rem;
+}
+
+/* Eliminar margen vertical que puede desalinear el input */
+.d-flex .form-control[type="number"] {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Ajuste opcional para evitar que los botones parezcan despegados */
+.quantity-decrease,
+.quantity-increase {
+  height: 31px;
+  line-height: 1;
+  padding: 0 0.6rem;
+}
