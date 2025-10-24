@@ -1,5 +1,5 @@
 /**
- * Carrusel de productos destacados para womenCategory.html
+ * Carrusel de productos destacados para menCategory.html
  */
 
 // Función para cargar y mostrar productos en el carrusel
@@ -8,9 +8,9 @@ async function loadFeaturedProducts() {
         const response = await fetch('/data/items.json');
         const allProducts = await response.json();
         
-        // Filtrar productos de categoría "Mujer"
+        // Filtrar productos de categoría "Hombre"
         const womenProducts = allProducts.filter(product => 
-            product.category === "Mujer"
+            product.category === "Hombre"
         );
         
         // Tomar los primeros 10 productos para tener suficientes
