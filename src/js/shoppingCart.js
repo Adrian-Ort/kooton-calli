@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="card-body">
                         <div class="row align-items-center text-center">
                             <div class="col-12 col-md-2 mb-2 mb-md-0">
-                                <img src="/img/products-images/${item.img}" class="img-fluid rounded-3" alt="${item.name}">
+                                <img src="/img/products-images/${item.imgUrl}" class="img-fluid rounded-3" alt="${item.name}">
                             </div>
                             <div class="col-12 col-md-3 mb-2 mb-md-0">
                                 <h6 class="mb-0">${item.name}</h6>
