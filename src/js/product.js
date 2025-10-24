@@ -1,5 +1,6 @@
 import ItemsController from './itemsController.js';
 
+
 // Function to handle adding items to the cart
 function handleAddToCart(product) {
     const addToCartBtn = document.getElementById('add-to-cart-btn');

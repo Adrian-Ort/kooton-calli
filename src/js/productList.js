@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners for checkboxes are added inside setupFilters() once elements exist.
 });
 
+
+
+
 // --- Data Fetching and Setup ---
 
 /**
