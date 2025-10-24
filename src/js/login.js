@@ -67,7 +67,7 @@ function initializeLoginForm() {
     }
 }
 
-function handleLoginSubmit(e) {
+/* function handleLoginSubmit(e) {
     e.preventDefault();
 
     const emailInput = document.getElementById("login-email");
@@ -104,7 +104,69 @@ function handleLoginSubmit(e) {
     }
 
     e.target.reset();
+} */
+async function handleLoginSubmit(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
+
+    if (!email || !password) {
+        alert('Por favor, completa todos los campos');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert("Email inválido");
+        return;
+    }
+
+    if (!validatePassword(password)) {
+        alert("Contraseña inválida");
+        return;
+    }
+
+    try {
+        // Llamada POST al backend para validar login
+        const response = await fetch(endPointUser, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ email, password })
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al validar usuario');
+        }
+
+        const data = await response.json(); // data debe ser el usuario validado
+
+        if (data && data.length > 0) {
+            const user = data[0]; // asumimos que el backend devuelve un array con 1 usuario
+
+            alert(`Bienvenido, ${user.name}`);
+            localStorage.setItem('loggedUser', JSON.stringify(user));
+
+            // Redirigir según rol
+            if (user.idRole === 1) {
+                window.location.href = '/html/inventory.html';
+            } else if (user.idRole === 2) {
+                window.location.href = '/html/home.html';
+            } else {
+                alert('Rol desconocido, contacta al administrador');
+            }
+
+        } else {
+            alert('Email o contraseña incorrectos');
+        }
+
+    } catch (error) {
+        console.error('Error en el login:', error);
+        alert('Ocurrió un error al intentar iniciar sesión.');
+    }
+
+    e.target.reset();
 }
+
 
 initializeLoginForm();
 window.addEventListener('popstate', initializeLoginForm);
