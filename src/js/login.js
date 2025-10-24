@@ -1,4 +1,27 @@
 console.log('login.js cargado correctamente');
+const endPointUser = 'https://kooton-calli.duckdns.org/api/v1/users';
+
+async function fetchLogin() {
+    const userCredentials = {
+        email: document.getElementById('login-email').value,
+        password: document.getElementById('login-password').value
+    };
+
+    const response = await fetch(endPointUser, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(userCredentials)
+    });
+
+    const data = await response.json();
+    console.log(data);
+}
+
+document.getElementById('form-login').addEventListener('submit', async function (e) {
+    e.preventDefault(); //Avoid page reload
+    await fetchLogin(); //Calls the function
+});
+
 
 export function getLogin() {
     const data = localStorage.getItem('register');
