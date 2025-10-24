@@ -48,7 +48,7 @@ async function loadAndDisplayProducts() {
         const priceMap = new Map();
         inventories.forEach(inv => {
             // We store the price using the product ID (which is `id_product` in the inventory table)
-            priceMap.set(inv.id_product, inv.product_price);
+            priceMap.set(inv.idProduct, inv.productPrice);
         });
 
         // 3. Combine products with their prices
