@@ -1,5 +1,5 @@
  console.log('signup.js cargado correctamente');
- const endPointUser = 'http://kooton-calli.duckdns.org/api/v1/users';
+ const endPointUser = 'https://kooton-calli.duckdns.org/api/v1/users';
 
 async function fetchSingUp() {
     let password1 = document.getElementById('signup-password1').value;
@@ -16,7 +16,6 @@ async function fetchSingUp() {
         phone: document.getElementById('signup-phone').value,
         email: document.getElementById('signup-email').value,
         password: document.getElementById('signup-password1').value,
-        verifyPassword: document.getElementById('signup-password2').value
     };
 
     const response = await fetch(endPointUser, {
