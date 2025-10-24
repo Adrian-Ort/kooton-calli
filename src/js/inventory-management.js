@@ -90,7 +90,7 @@ function addRow(item) {
         <td>$${Number(item.productPrice || 0).toFixed(2)}</td>
         <td>
             ${item.imgUrl 
-                ? `<img src="/img/products-images/${item.imgUrl}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">`
+                ? `<img src="${item.imgUrl}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover;">`
                 : 'Sin imagen'
             }
         </td>
