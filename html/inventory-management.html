@@ -26,7 +26,7 @@
 
             <div class="container-inventory-btn-agregar">
                 <button class="btn btn-add-management" data-bs-toggle="modal" data-bs-target="#addModal">
-                    Agregar
+                    Agregar Producto y Stock
                 </button>
             </div>
 
@@ -62,6 +62,7 @@
                         <form id="editForm">
                             <input type="hidden" id="editId">
                             
+                            <h6 class="text-primary">Inventario</h6>
                             <div class="mb-3">
                                 <label for="editProductId" class="form-label">Product ID</label>
                                 <input type="number" class="form-control" id="editProductId" required>
@@ -84,7 +85,7 @@
                             </div>
 
                             <hr>
-                            <p class="text-muted small">Información del Producto (solo vista)</p>
+                            <h6 class="text-muted">Producto (solo vista)</h6>
                             
                             <div class="mb-3">
                                 <label for="editName" class="form-label">Nombre</label>
@@ -101,7 +102,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary" form="editForm">Guardar</button>
+                        <button type="submit" class="btn btn-primary" form="editForm">Guardar Cambios</button>
                     </div>
                 </div>
             </div>
@@ -111,36 +112,63 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="addModalLabel">Agregar Item de Inventario</h5>
+                        <h5 class="modal-title fs-5" id="addModalLabel">Agregar Nuevo Producto e Inventario</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                     </div>
                     <div class="modal-body">
                         <form id="addForm">
+                            <h6 class="text-primary">Detalles del Producto</h6>
                             <div class="mb-3">
-                                <label for="addProductId" class="form-label">Product ID (id_product)</label>
-                                <input type="number" class="form-control" id="addProductId" placeholder="ID del producto existente" required>
+                                <label for="addName" class="form-label">Nombre del Producto</label>
+                                <input type="text" class="form-control" id="addName" required>
                             </div>
                             <div class="mb-3">
-                                <label for="addPrice" class="form-label">Precio</label>
-                                <input type="number" step="0.01" class="form-control" id="addPrice" required>
+                                <label for="addDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="addDescription" required></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="addQuantity" class="form-label">Cantidad (Quantity)</label>
-                                <input type="number" class="form-control" id="addQuantity" required>
+                                <label for="addImgUrl" class="form-label">URL de Imagen (imgUrl)</label>
+                                <input type="text" class="form-control" id="addImgUrl" placeholder="ejemplo.jpg" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="addSize" class="form-label">Talla (Product Size)</label>
-                                <input type="text" class="form-control" id="addSize" placeholder="Ej: M, L, XL" required>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="addCategory" class="form-label">Categoría</label>
+                                    <input type="text" class="form-control" id="addCategory" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="addSubcategory" class="form-label">Subcategoría</label>
+                                    <input type="text" class="form-control" id="addSubcategory" required>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="addBarcode" class="form-label">Código de Barras (Barcode)</label>
-                                <input type="text" class="form-control" id="addBarcode">
+                            
+                            <hr>
+
+                            <h6 class="text-primary">Detalles de Inventario</h6>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="addPrice" class="form-label">Precio</label>
+                                    <input type="number" step="0.01" class="form-control" id="addPrice" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="addQuantity" class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id="addQuantity" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="addSize" class="form-label">Talla (Product Size)</label>
+                                    <input type="text" class="form-control" id="addSize" placeholder="Ej: M, L, XL" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="addBarcode" class="form-label">Código de Barras</label>
+                                    <input type="text" class="form-control" id="addBarcode">
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success" form="addForm">Agregar</button>
+                        <button type="submit" class="btn btn-success" form="addForm">Agregar Producto</button>
                     </div>
                 </div>
             </div>
