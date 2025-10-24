@@ -203,9 +203,9 @@ async function handleLoginSubmit(e) {
 
             // Redirigir según rol
             if (userValidated.idRole === 1) {
-                window.location.href = '/html/inventory.html';
+                window.location.href = '/html/inventory-management.html';
             } else if (userValidated.idRole === 2) {
-                window.location.href = '/html/home.html';
+                window.location.href = 'index.html';
             } else {
                 alert('Rol desconocido, contacta al administrador');
             }
