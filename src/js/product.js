@@ -32,7 +32,7 @@ function handleAddToCart(product) {
                 name: product.name,
                 // We store the base price as a number for easier calculations
                 price: product.priceRaw,
-                img: product.imgUrl,
+                imgUrl: product.imgUrl,
                 size: selectedSize,
                 quantity: 1
             };
