@@ -32,7 +32,7 @@ function handleAddToCart(product) {
                 name: product.name,
                 // We store the base price as a number for easier calculations
                 price: product.priceRaw,
-                img: product.img,
+                img: product.imgUrl,
                 size: selectedSize,
                 quantity: 1
             };
@@ -68,7 +68,7 @@ async function initializeApp() {
             document.getElementById('product-price').textContent = product.price; // The price is already formatted
             
             const productImage = document.getElementById('product-image');
-            productImage.src = `/img/products-images/${product.img}`; 
+            productImage.src = `${product.imgUrl}`; 
             productImage.alt = `Imagen de ${product.name}`;
             
             // Set up the "Add to Cart" button functionality
