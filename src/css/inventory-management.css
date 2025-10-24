@@ -4,10 +4,53 @@
 }
 
 .card-table-inventory {
-    margin: 20px; /* Margen exterior */
-    padding: 15px; /* Margen interior */
-    border: none; /* Quitamos borde */
-    border-radius: 8px; /* Esquinas redondeadas */
-    background: #fff; /* Fondo blanco para resaltar la sombra */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra siempre visible */
+    margin: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px; 
+    background: #fff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.btn-add-management {
+  display: block;
+  width: 150px;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+  background-color: rgb(4, 145, 4);
+  height: 40px; 
+  color: #fff;
+}
+.btn-add-management:hover{
+    background-color: rgb(62, 219, 62);
+}
+
+.btn-edit-inventory{
+  display: block;
+  width: 120px;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+  background-color: #0a58ca;
+  height: 40px; 
+  color: #fff;
+}
+.btn-edit-inventory:hover{
+    background-color: #3a76d1;
+}
+
+.btn-delete-inventory{
+  display: block;
+  width: 120px;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+  background-color: #bb2d3b ;
+  height: 40px; 
+  color: #fff;
+  margin-top: 5px;
+}
+.btn-delete-inventory:hover{
+    background-color: #d54a58;
 }
