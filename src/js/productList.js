@@ -219,11 +219,8 @@ function displayProducts(productsToDisplay) {
             <div class="col-md-4 col-sm-6">
                 <div class="card h-100 shadow-lg border-2 rounded-4">
                     <div class="p-3">
-<<<<<<< HEAD
                         <img src="/img/products-images/${product.img}" class="img-fluid rounded-4" alt="Image of ${product.name}">
-=======
                         <img src="${product.imgUrl}" class="img-fluid rounded-4" alt="Image of ${product.name}">
->>>>>>> 8ffd6a6afc15b631c76eef9f6cf3b5bf566bec6b
                     </div>
                     <div class="card-body text-center d-flex flex-column p-2">
                         <h5 class="card-title">${product.name}</h5>
