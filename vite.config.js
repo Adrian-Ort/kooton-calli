@@ -17,6 +17,7 @@ export default defineConfig({
         orderSuccess: resolve(__dirname, 'html/orderSuccess.html'),
         shipping: resolve(__dirname, 'html/shippingForm.html'),
         womenCategory: resolve(__dirname, 'html/womenCategory.html'),
+        menCategory: resolve(__dirname, 'html/menCategory.html'),
         inventoryManagment: resolve(__dirname, 'html/inventory-management.html'),
       },
     },
