@@ -216,13 +216,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- CORRECTION: Evento para el formulario de AGREGAR (POST) ---
+    // Evento para el formulario de AGREGAR (POST)
     if (addForm) {
         addForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             // Este formulario solo debe crear un item de INVENTARIO
-            // Asumiendo que los IDs de tu modal son 'addProductId', 'addPrice', etc.
             const newInventoryItem = {
                 idProduct: parseInt(document.getElementById('addProductId').value),
                 productPrice: parseFloat(document.getElementById('addPrice').value),
@@ -253,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- CORRECTION: Evento para el formulario de EDITAR (PUT) ---
+    // Evento para el formulario de EDITAR (PUT)
     if (editForm) {
         editForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -262,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const inventoryId = document.getElementById('editId').value;
             
             // Este formulario solo debe actualizar el item de INVENTARIO
-            // No podemos editar el nombre o descripción del producto desde aquí
             const updatedInventoryItem = {
                 idProduct: parseInt(document.getElementById('editProductId').value),
                 productPrice: parseFloat(document.getElementById('editPrice').value),
@@ -308,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const barcode = button.getAttribute('data-barcode');
 
             // Llenar el formulario con los datos
-            // **Asegúrate de que los IDs de tu modal coincidan**
+            // Estos IDs deben coincidir con tu HTML
             document.getElementById('editId').value = id;
             document.getElementById('editProductId').value = productId;
             document.getElementById('editName').value = name || ''; // Este campo es solo de vista
