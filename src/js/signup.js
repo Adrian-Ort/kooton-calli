@@ -1,4 +1,46 @@
  console.log('signup.js cargado correctamente');
+ const endPointUser = 'http://kooton-calli.duckdns.org/api/v1/users';
+
+async function fetchSingUp() {
+    let password1 = document.getElementById('signup-password1').value;
+    let password2 = document.getElementById('signup-password2').value;
+
+    if (!verifyPassword(password1, password2)){
+        alert("Las contraseñas no coinciden");
+        return;
+    }
+
+    const user = {
+        name: document.getElementById('signup-name').value,
+        lastName: document.getElementById('signup-last-name').value,
+        phone: document.getElementById('signup-phone').value,
+        email: document.getElementById('signup-email').value,
+        password: document.getElementById('signup-password1').value,
+        verifyPassword: document.getElementById('signup-password2').value
+    };
+
+    const response = await fetch(endPointUser, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (response.ok) {
+        alert('Usuario registrado exitosamente');
+    } else {
+        alert("Error al registrar usuario:" + (data.message || response.status));
+    }
+ }
+
+ document.getElementById('form-signup').addEventListener('submit', async function (e) {
+    e.preventDefault(); //Avoid page reload 
+    await fetchSingUp(); //Calls the function
+ });
 
  export function getRegisters() {
     const data = localStorage.getItem('register');
@@ -102,7 +144,7 @@ function handleFormSubmit(e) {
     register.push(newSignup);
     saveInputs(register);
 
-    alert("Registro guardado en localStorage");
+    //alert("Registro guardado en localStorage");
 
     e.target.reset();
 }
