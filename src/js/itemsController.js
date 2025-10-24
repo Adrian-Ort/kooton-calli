@@ -44,7 +44,7 @@ export default class ItemsController {
             //    This assumes inventory has `id_product` and `product_price`
             const priceMap = new Map();
             inventories.forEach(inv => {
-                priceMap.set(inv.id_product, inv.product_price);
+                priceMap.set(inv.idProduct, inv.productPrice);
             });
 
             // 3. Combine products with their prices
