@@ -46,7 +46,7 @@ async function loadAndDisplayProducts() {
         displayProducts(allProducts); 
 
     } catch (error) {
-        console.error("Error loading products:", error);
+        console.error("ERROR al cargar productos:", error);
         const container = document.getElementById('product-list-container');
         if (container) {
             container.innerHTML = '<div class="col-12"><p class="text-danger text-center">Could not load products. Please try again later.</p></div>';
