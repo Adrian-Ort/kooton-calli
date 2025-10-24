@@ -4,8 +4,8 @@ export default class ItemsController {
     }
 
     addItem(id, name, price, img, description, category, subcategory) {
-        // Formateamos el precio para que incluya el símbolo de moneda y dos decimales
-        // We use the price from the API, which we assume is a number
+        // Format the price to include currency and two decimal places
+        // We use the price from the API which is a number
         const formattedPrice = `$${Number(price).toFixed(2)} MXN`;
 
         const item = {
@@ -25,7 +25,7 @@ export default class ItemsController {
     }
 
     async loadInitialItems() {
-        // Define the new API endpoint
+        // API endpoint URL
         const API_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
 
         try {
@@ -36,7 +36,6 @@ export default class ItemsController {
             const itemsJson = await response.json();
             
             // 3. We iterate over the fetched items and add them to the controller
-            //    Note the change in property names to match your database schema
             itemsJson.forEach(item => {
                 this.addItem(
                     item.id_product,    // <-- Changed
