@@ -13,7 +13,7 @@ export default class ItemsController {
             price: formattedPrice, // Formatted price
             // This 'priceRaw' is needed for product.js
             priceRaw: Number(price), 
-            img: img,
+            imgUrl: imgUrl,
             description: description,
             category: category,
             subcategory: subcategory
