@@ -4,12 +4,42 @@
 }
 
 .card-table-inventory {
-    margin: 20px;
-    padding: 15px;
-    border: none;
-    border-radius: 8px; 
-    background: #fff; 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+  margin: 20px;
+  border: 1px solid #5e9e33;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.card-table-inventory table {
+  width: 100%; 
+  border-collapse: collapse; 
+}
+
+.card-table-inventory th,
+.card-table-inventory td {
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  text-align: left;
+}
+
+.card-table-inventory th {
+  background-color: #cbcbcb; 
+}
+.btn-search-inventory{
+  display: block;
+  width: 120px;   
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+  background-color: #0a58ca;
+  height: 52px; 
+  color: #fff;
+}
+
+.btn-search-inventory:hover{
+    background-color: #3a76d1;
+    color: black;
 }
 
 .btn-add-management {
@@ -19,7 +49,7 @@
   margin-right: auto;
   text-align: center; 
   background-color: rgb(4, 145, 4);
-  height: 40px; 
+  height: 60px; 
   color: #fff;
 }
 .btn-add-management:hover{
@@ -38,6 +68,7 @@
 }
 .btn-edit-inventory:hover{
     background-color: #3a76d1;
+    color: black;
 }
 
 .btn-delete-inventory{

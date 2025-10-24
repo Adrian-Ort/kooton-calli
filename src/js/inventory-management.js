@@ -114,7 +114,7 @@ function addRow(item) {
                 Editar
             </button>
             <button 
-                class="btn btn-sm btn-danger" 
+                class="btn btn-sm btn-delete-inventory" 
                 data-action="delete" 
                 data-id="${item.id}"
             >
