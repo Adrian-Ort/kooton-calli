@@ -47,9 +47,9 @@
 .man-img-home{
     border: 0.5rem solid #79774E;
 }
-.second-column-home {
+/*.second-column-home {
   pointer-events: none;
-}
+}*/
 
 .category-image a {
   pointer-events: auto;

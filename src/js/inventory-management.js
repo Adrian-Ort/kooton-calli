@@ -43,7 +43,7 @@ function addRow(item){
     <td>${item.subcategory}</td>
     <td>
       <button 
-        class="btn btn-sm btn-primary" 
+        class="btn btn-sm btn-edit-inventory" 
         data-bs-toggle="modal" 
         data-bs-target="#editModal"
         data-id="${item.id}"
@@ -55,7 +55,7 @@ function addRow(item){
       >Editar
       </button>
       <button 
-        class="btn btn-sm btn-danger" 
+        class="btn btn-sm btn-delete-inventory" 
         data-action="delete" 
         data-id="${item.id}"
       >Eliminar
