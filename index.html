@@ -9,6 +9,7 @@
     <script type="module">
         // Dev: '/', Build/Preview: '/kooton-calli/'
         document.getElementById('__base')?.setAttribute('href', import.meta.env.BASE_URL);
+         console.log('Base URL:', import.meta.env.BASE_URL); // Para debug
     </script>
     <link type="stylesheet" href="/src/css/home.css"> <!--Link to CSS home-->
     <link rel="stylesheet" href="/src/css/main.css"> <!--Link to CSS main-->
@@ -76,32 +77,20 @@
 
             <div class="col-md-6 col-lg-5 my-4 position-relative">
                 <div class="category-image">
-                    <picture>
+                        <picture>
                         <!-- Img for sm screens -->
-                        <a href="html/menCategory.html">
+                        <a href="/html/menCategory.html">
                             <source media="(max-width: 808px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
                         </a>
 
                         <!-- Img for lg screens -->
-                        <a href="html/menCategory.html">
+                        <a href="/html/menCategory.html">
                             <img src="img/products-images/man-whit-hoodie-home.png" class="img-fluid man-img-home" alt="Modelo mexicana usando una playera azul marino con estampado estilo mexicano, calaveras y colores llamativos.">
                         </a>
-                    </picture>
-                   
+                        </picture>
+                   </a>
                 </div>
             </div>
-            <!--<div class="col-md-6 col-lg-5 my-4 position-relative">
-                <div class="category-image">
-                    <picture>
-                         Img for sm screens --
-                        <a href="/html/womenCategory.html"></a><source media="(max-width: 808px)" srcset="img/products-images/man-whit-hoodie-home-mobile.png">
-
-                        Img for lg screens --
-                        <a href="#"></a><img src="img/products-images/man-whit-hoodie-home.png" class="img-fluid man-img-home" alt="Modelo mexicano usando una playera verde botella con estampado estilo mexicano, calaveras y colores llamativos.">
-                    </picture>
-
-                </div>
-            </div>-->
         </div>
 
     </main>
