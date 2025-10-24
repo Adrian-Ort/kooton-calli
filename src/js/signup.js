@@ -1,5 +1,5 @@
- console.log('signup.js cargado correctamente');
- const endPointUser = 'https://kooton-calli.duckdns.org/api/v1/users';
+console.log('signup.js cargado correctamente');
+const endPointUser = 'https://kooton-calli.duckdns.org/api/v1/users';
 
 async function fetchSingUp() {
     let password1 = document.getElementById('signup-password1').value;
@@ -31,17 +31,25 @@ async function fetchSingUp() {
 
     if (response.ok) {
         alert('Usuario registrado exitosamente');
+        // Limpiar formulario después de registro exitoso
+        document.getElementById('form-signup').reset();
     } else {
-        alert("Error al registrar usuario:" + (data.message || response.status));
+        alert("Error al registrar usuario: " + (data.message || response.status));
     }
- }
+}
 
- document.getElementById('form-signup').addEventListener('submit', async function (e) {
-    e.preventDefault(); //Avoid page reload 
-    await fetchSingUp(); //Calls the function
- });
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form-signup');
+    
+    if (form) {
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            await fetchSingUp();
+        });
+    }
+});
 
- export function getRegisters() {
+export function getRegisters() {
     const data = localStorage.getItem('register');
     return data ? JSON.parse(data) : [];
 }
@@ -50,9 +58,14 @@ export function saveInputs(register) {
     localStorage.setItem('register', JSON.stringify(register));
 }
 
-// Validation functions
+// Validación de nombre - solo letras y espacios
 export function validateName(name) {
-    return name.length > 0; 
+    if (name.length === 0) {
+        return false;
+    }
+    // Solo permite letras (incluyendo acentos), espacios y guiones
+    const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]+$/;
+    return nameRegex.test(name);
 }
 
 export function validateEmail(email) {
@@ -60,30 +73,28 @@ export function validateEmail(email) {
     return emailRegex.test(email);
 }
 
- export function validatePhone(phone) {
-    const phoneRegex = /^\d{10}$/; 
+// Validación de teléfono - exactamente 10 dígitos numéricos
+export function validatePhone(phone) {
+    // Debe ser exactamente 10 dígitos
+    const phoneRegex = /^\d{10}$/;
     return phoneRegex.test(phone);
 }
 
 export function verifyPassword(password, confirmPassword) {
-    return password === confirmPassword;
+    return password === confirmPassword && password.length > 0;
 }
 
+// Validación de contraseña - mínimo 8 caracteres
 export function validatePassword(password) {
     return password.length >= 8;
 }
 
 // Función para verificar si estamos en la página de signup
 function isOnSignupPage() {
-    // Verificar por URL
     const currentUrl = window.location.href.toLowerCase();
     const currentPath = window.location.pathname.toLowerCase();
     const currentHash = window.location.hash.toLowerCase();
-    
-    // Verificar por título de la página
     const pageTitle = document.title.toLowerCase();
-    
-    // Verificar si existe el formulario (última verificación)
     const formExists = document.getElementById('form-signup') !== null;
     
     return currentUrl.includes('signup') || 
@@ -92,44 +103,132 @@ function isOnSignupPage() {
            pageTitle.includes('sign up') ||
            pageTitle.includes('registro') ||
            pageTitle.includes('signup') ||
-           formExists; // Si el formulario existe, estamos en la página correcta
+           formExists;
 }
+
 function initializeSignupForm() {
-if (!isOnSignupPage()) {
-    console.log(' No estamos en página de signup, omitiendo inicialización');
+    if (!isOnSignupPage()) {
+        console.log('No estamos en página de signup, omitiendo inicialización');
         return;
     }
-const form = document.getElementById('form-signup');
-if (form){
-    console.log('Formulario de signup encontrado! Inicializando...');
-    form.removeEventListener('submit', handleFormSubmit);
-    form.addEventListener('submit', handleFormSubmit);
-    console.log('Event listener agregado al formulario de signup')
-} else {
-    console.log("Formulario no encontrado en la página, reintentando")
-    setTimeout(initializeSignupForm, 500);
+    
+    const form = document.getElementById('form-signup');
+    
+    if (form){
+        console.log('Formulario de signup encontrado! Inicializando...');
+        
+        // Agregar validación en tiempo real para el teléfono
+        const phoneInput = document.getElementById('signup-phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                // Eliminar cualquier carácter que no sea número
+                this.value = this.value.replace(/[^0-9]/g, '');
+                // Limitar a 10 dígitos máximo
+                if (this.value.length > 10) {
+                    this.value = this.value.slice(0, 10);
+                }
+            });
+        }
+        
+        // Agregar validación en tiempo real para nombre y apellido
+        const nameInput = document.getElementById('signup-name');
+        const lastNameInput = document.getElementById('signup-last-name');
+        
+        if (nameInput) {
+            nameInput.addEventListener('input', function(e) {
+                // Eliminar números y caracteres especiales (excepto espacios y guiones)
+                this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]/g, '');
+            });
+        }
+        
+        if (lastNameInput) {
+            lastNameInput.addEventListener('input', function(e) {
+                // Eliminar números y caracteres especiales (excepto espacios y guiones)
+                this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑ\s-]/g, '');
+            });
+        }
+        
+        form.removeEventListener('submit', handleFormSubmit);
+        form.addEventListener('submit', handleFormSubmit);
+        console.log('Event listener agregado al formulario de signup');
+    } else {
+        console.log("Formulario no encontrado en la página, reintentando");
+        setTimeout(initializeSignupForm, 500);
     }
 }
 
 function handleFormSubmit(e) {
     e.preventDefault();
 
-    //Data request
+    // Obtener valores y limpiarlos
     let name = document.getElementById('signup-name').value.trim();
     let lastName = document.getElementById('signup-last-name').value.trim();
     let phone = document.getElementById('signup-phone').value.trim();
     let email = document.getElementById('signup-email').value.trim();
     let password = document.getElementById('signup-password1').value.trim();
     let password2 = document.getElementById('signup-password2').value.trim();
+    
+    // Validar nombre
+    if (name === "") {
+        alert("El nombre es obligatorio");
+        return;
+    }
+    if (!validateName(name)) {
+        alert("El nombre no puede contener números ni caracteres especiales");
+        return;
+    }
+    
+    // Validar apellido
+    if (lastName === "") {
+        alert("El apellido es obligatorio");
+        return;
+    }
+    if (!validateName(lastName)) {
+        alert("El apellido no puede contener números ni caracteres especiales");
+        return;
+    }
+    
+    // Validar teléfono
+    if (phone === "") {
+        alert("El teléfono es obligatorio");
+        return;
+    }
+    if (!validatePhone(phone)) {
+        alert("El teléfono debe tener exactamente 10 dígitos numéricos");
+        return;
+    }
+    
+    // Validar email
+    if (email === "") {
+        alert("El correo electrónico es obligatorio");
+        return;
+    }
+    if (!validateEmail(email)) {
+        alert("Por favor ingresa un correo electrónico válido");
+        return;
+    }
+    
+    // Validar contraseña
+    if (password === "") {
+        alert("La contraseña es obligatoria");
+        return;
+    }
+    if (!validatePassword(password)) {
+        alert("La contraseña debe tener al menos 8 caracteres");
+        return;
+    }
+    
+    // Validar confirmación de contraseña
+    if (password2 === "") {
+        alert("Debes verificar tu contraseña");
+        return;
+    }
+    if (!verifyPassword(password, password2)) {
+        alert("Las contraseñas no coinciden");
+        return;
+    }
 
-    // Validations
-    if (!validateName(name)) return alert("Nombre inválido");
-    if (!validateName(lastName)) return alert("Apellido inválido");
-    if (!validatePhone(phone)) return alert("Teléfono inválido");
-    if (!validateEmail(email)) return alert("Email inválido");
-    if (!validatePassword(password)) return alert("Contraseña muy corta (mín 8 caracteres)");
-    if (!verifyPassword(password, password2)) return alert("Las contraseñas no coinciden");
-
+    // Si todas las validaciones pasan, guardar en localStorage
     const newSignup = {
         nombre: name,
         apellidos: lastName,
@@ -143,9 +242,8 @@ function handleFormSubmit(e) {
     register.push(newSignup);
     saveInputs(register);
 
-    //alert("Registro guardado en localStorage");
-
-    e.target.reset();
+    // Enviar al backend
+    fetchSingUp();
 }
 
 // Iniciar el proceso de búsqueda del formulario
