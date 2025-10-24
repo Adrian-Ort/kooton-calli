@@ -18,38 +18,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners for checkboxes are added inside setupFilters() once elements exist.
 });
 
-
-
-
 // --- Data Fetching and Setup ---
 
 /**
- * Fetches product data from the API endpoint, stores it globally,
- * sets up the filter UI, and displays the initial product list.
+ * Fetches product and inventory data from the API endpoints, combines them,
+ * stores the combined list globally, sets up filters, and displays the list.
  * @async
  */
 async function loadAndDisplayProducts() {
-    try {
-        // 1. Fetch product data from the endpoint.
-        const API_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
-        const response = await fetch(API_ENDPOINT);
-        
-        const products = await response.json(); 
-        
-        // 2. Store the complete list.
-        allProducts = products;
+    const PRODUCTS_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
+    const INVENTORY_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/inventories';
 
-        // 3. Configure the subcategory filter sidebar.
+    try {
+        // 1. Fetch both data sources in parallel
+        const [productResponse, inventoryResponse] = await Promise.all([
+            fetch(PRODUCTS_ENDPOINT),
+            fetch(INVENTORY_ENDPOINT)
+        ]);
+
+        if (!productResponse.ok || !inventoryResponse.ok) {
+            throw new Error('Failed to fetch data from one or more endpoints.');
+        }
+
+        const products = await productResponse.json();
+        const inventories = await inventoryResponse.json();
+
+        // 2. Create a fast lookup map for prices
+        //    This assumes inventory has `id_product` and `product_price`
+        const priceMap = new Map();
+        inventories.forEach(inv => {
+            // We store the price using the product ID (which is `id_product` in the inventory table)
+            priceMap.set(inv.id_product, inv.product_price);
+        });
+
+        // 3. Combine products with their prices
+        const combinedProducts = products.map(product => {
+            // Get price from the map using the product's ID (which is `id` from the product list)
+            const price = priceMap.get(product.id) || 0; 
+            
+            // Return a new object that includes the price
+            return {
+                ...product,  // (id, name, imgUrl, description, etc.)
+                price: price // <-- Add the price
+            };
+        });
+        
+        // 4. Store the complete COMBINED list.
+        allProducts = combinedProducts;
+
+        // 5. Configure the subcategory filter sidebar.
         setupFilters(allProducts);
         
-        // 4. Display all products initially.
+        // 6. Display all products initially.
+        //    (displayProducts will now correctly find 'product.price')
         displayProducts(allProducts); 
 
     } catch (error) {
-        console.error("ERROR al cargar productos:", error);
+        console.error("ERROR al cargar y combinar productos:", error);
         const container = document.getElementById('product-list-container');
         if (container) {
-            container.innerHTML = '<div class="col-12"><p class="text-danger text-center">Could not load products. Please try again later.</p></div>';
+            container.innerHTML = '<div class="col-12"><p class="text-danger text-center">No se pudieron cargar los productos. Por favor, inténtelo de nuevo más tarde.</p></div>';
         }
     }
 }
@@ -157,23 +185,25 @@ function displayProducts(productsToDisplay) {
 
     if (productsToDisplay.length === 0) {
         // Display a message if no products match the current filter.
-        container.innerHTML = '<div class="col-12"><p class="text-center fw-bold text-muted p-5 border rounded-3 bg-white shadow-sm">No products found matching the selected filters.</p></div>';
+        container.innerHTML = '<div class="col-12"><p class="text-center fw-bold text-muted p-5 border rounded-3 bg-white shadow-sm">No se encontraron productos que coincidan con los filtros seleccionados.</p></div>';
         return;
     }
 
     // 4. Iterate over the products and generate HTML for each card.
+    //    We use the API property names: product.imgUrl, product.name, product.price, product.id
     productsToDisplay.forEach(product => {
         const productCardHTML = `
             <div class="col-md-4 col-sm-6">
                 <div class="card h-100 shadow-lg border-2 rounded-4">
                     <div class="p-3">
-                        <img src="/img/products-images/${product.img_url}" class="img-fluid rounded-4" alt="Image of ${product.product_name}">
+                        <img src="/img/products-images/${product.imgUrl}" class="img-fluid rounded-4" alt="Image of ${product.name}">
                     </div>
                     <div class="card-body text-center d-flex flex-column p-2">
-                        <h5 class="card-title">${product.product_name}</h5>
-                        <p class="fw-bold mt-auto">$${product.product_price.toFixed(2)} MXN</p>
+                        <h5 class="card-title">${product.name}</h5>
                         
-                        <a href="/html/product.html?id=${product.id_product}" class="d-grid product-link">
+                        <p class="fw-bold mt-auto">$${(product.price || 0).toFixed(2)} MXN</p>
+                        
+                        <a href="/html/product.html?id=${product.id}" class="d-grid product-link">
                             <button type="button" class="fw-bold rounded-pill p-1 w-100 shadow-sm button__product">
                                 Ver Producto
                             </button>

@@ -4,8 +4,7 @@ export default class ItemsController {
     }
 
     addItem(id, name, price, img, description, category, subcategory) {
-        // Format the price to include currency and two decimal places
-        // We use the price from the API which is a number
+        // Formatted price
         const formattedPrice = `$${Number(price).toFixed(2)} MXN`;
 
         const item = {
@@ -24,31 +23,49 @@ export default class ItemsController {
         return this.items.find(item => item.id === id);
     }
 
+    /**
+     * Fetches from BOTH endpoints and combines the data.
+     */
     async loadInitialItems() {
-        // API endpoint URL
-        const API_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
+        const PRODUCTS_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/products';
+        const INVENTORY_ENDPOINT = 'https://kooton-calli.duckdns.org/api/v1/inventories';
 
         try {
-            // 1. We fetch the data from the API endpoint
-            const response = await fetch(API_ENDPOINT);
+            // 1. Fetch both data sources in parallel
+            const [productResponse, inventoryResponse] = await Promise.all([
+                fetch(PRODUCTS_ENDPOINT),
+                fetch(INVENTORY_ENDPOINT)
+            ]);
             
-            // 2. We parse the JSON response
-            const itemsJson = await response.json();
-            
-            // 3. We iterate over the fetched items and add them to the controller
-            itemsJson.forEach(item => {
+            const products = await productResponse.json();
+            const inventories = await inventoryResponse.json();
+
+            // 2. Create a fast lookup map for prices
+            //    This assumes inventory has `id_product` and `product_price`
+            const priceMap = new Map();
+            inventories.forEach(inv => {
+                priceMap.set(inv.id_product, inv.product_price);
+            });
+
+            // 3. Combine products with their prices
+            products.forEach(item => {
+                // Get price from the map using the product's ID
+                const price = priceMap.get(item.id) || 0; 
+                
+                // Add the combined item to the controller
                 this.addItem(
-                    item.id_product,    // <-- Changed
-                    item.product_name,  // <-- Changed
-                    item.product_price, // <-- Changed
-                    item.img_url,       // <-- Changed
+                    item.id,
+                    item.name,
+                    price,       // <-- The price from the inventory
+                    item.imgUrl,
                     item.description,
                     item.category,
                     item.subcategory
                 );
             });
+
         } catch (error) {
-            console.error('Error al cargar los productos desde el API:', error);
+            console.error('Error al cargar y combinar los productos/inventario:', error);
         }
     }
 }

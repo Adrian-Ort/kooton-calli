@@ -1,91 +1,282 @@
+/* Contact Page Styles - Responsive */
+
 .title-container {
     background-color: #E6C27F;
+    padding: 1rem 0;
+    margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        margin-top: 60px;
+        padding: 1.5rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .title-container {
+        margin-top: 55px;
+        padding: 1rem 0;
+    }
 }
 
 .contact--title {
-    margin-top: 6.5rem;
+    margin: 0;
     text-align: center;
     font-family: var(--font-display);
     color: var(--background-footer);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    padding: 0 1rem;
 }
 
-.contact--box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+@media (max-width: 576px) {
+    .contact--title {
+        font-size: 1.8rem;
+        padding: 0.5rem 1rem;
+    }
 }
 
-.contact--box--title {
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-text);
-    text-align: center;
-    margin: 1rem 0rem 1rem 5rem;
-
-}
-
-.contact--box--input {
-    width: 30rem;
-    height: 2rem;
-    border: 2px solid #E6C27F;
-    border-radius: 0.5rem;
-}
-
-#contact--box--input--message {
-    width: 50rem;
-    height: 10rem;
-}
-
-
-.contact--div {
-    display: flex;
-    margin-top: 3rem;
-    justify-content: center;
-}
-.contact--div--button {
-    background-color: var(--color-text-title);
-    color: var(--color-text);
-    font-family: var(--font-text);
-    font-size: 24px;
-    border-radius: 6px;
+/* Formulario - Estilos base */
+.card-form-login {
+    max-width: 680px;
+    margin: 2rem auto;
+    padding: 30px;
     border: none;
-    padding: 10px 24px 10px 24px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+@media (max-width: 768px) {
+    .card-form-login {
+        margin: 1.5rem 1rem;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-form-login {
+        margin: 1rem;
+        padding: 20px 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.form-control {
+    border: 2px solid #E6C27F !important;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.form-control:focus {
+    border-color: #E6C27F !important;
+}
+
+@media (max-width: 576px) {
+    .form-control {
+        font-size: 16px;
+        padding: 0.6rem;
+    }
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 576px) {
+    .form-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Textarea */
+#floatingTextarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+@media (max-width: 576px) {
+    #floatingTextarea {
+        min-height: 80px;
+    }
+}
+
+/* Botón de enviar */
+.btn-register {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background-color: var(--primary-buttton-color-brown);
+    color: white;
+    border: none;
+    border-radius: var(--primary-button-round-corners);
+    width: 100%;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: var(--primary-buttton-color-brown-hover);
+}
+
+@media (max-width: 576px) {
+    .btn-register {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Sección inferior con logo e información */
 .contact--bottom--box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 4rem;
-    margin: 1rem 0rem 4rem 0rem;
-
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 3rem auto 2rem;
+    padding: 0 1rem;
+    max-width: 1200px;
 }
 
+@media (max-width: 768px) {
+    .contact--bottom--box {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 2rem auto 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact--bottom--box {
+        gap: 1rem;
+        margin: 2rem auto 1.5rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Logo */
+.contact--logo {
+    width: 100%;
+    max-width: 18rem;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .contact--logo {
+        max-width: 14rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact--logo {
+        max-width: 8rem;
+        margin-bottom: 0;
+    }
+}
+
+/* Caja de información */
 .contact--last--box {
-    width: 35rem;
+    flex: 1;
+    min-width: 280px;
+    max-width: 600px;
     background-color: var(--color-text-title);
     color: var(--color-text);
     font-family: var(--font-text);
-    font-size: 24px;
-    border-radius: 6px;
-    border: none;
-    margin: 3rem 2rem 3rem;
-    padding: 10px 24px 10px 24px;
+    border-radius: 8px;
+    padding: 1.5rem;
 }
 
-.contact--logo {
-        width: 18rem;
-        height: auto;
+@media (max-width: 768px) {
+    .contact--last--box {
+        width: 100%;
+        max-width: 90%;
+        min-width: auto;
     }
+}
 
+@media (max-width: 576px) {
+    .contact--last--box {
+        max-width: calc(100% - 2rem);
+        padding: 1rem;
+        border-radius: 6px;
+        margin: 0 1rem;
+    }
+}
+
+/* Título de la caja */
 .contact--last--box--title {
     color: white;
-    padding: 1rem 0rem 1rem 0.5rem;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
+@media (max-width: 576px) {
+    .contact--last--box--title {
+        font-size: 1.1rem;
+        margin-bottom: 0.6rem;
+    }
+}
+
+/* Lista de items */
 .contact--last--box--items {
-    font-size: 1rem;
-    padding-left: 4rem;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    padding-left: 1.5rem;
+    list-style-position: outside;
+    line-height: 1.8;
 }
 
+.contact--last--box--items li {
+    margin-bottom: 0.6rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
 
+@media (max-width: 768px) {
+    .contact--last--box--items {
+        padding-left: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact--last--box--items {
+        font-size: 0.75rem;
+        padding-left: 1rem;
+        line-height: 1.5;
+    }
+    
+    .contact--last--box--items li {
+        margin-bottom: 0.4rem;
+    }
+}
+
+/* Ajustes para el contenedor principal */
+@media (max-width: 576px) {
+    main {
+        min-height: calc(100vh - 55px);
+        padding-bottom: 1rem;
+    }
+}
+
+/* Ajustes para inputs y selects en móvil */
+@media (max-width: 576px) {
+    .row .col {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+/* Prevenir zoom en iOS al hacer focus en inputs */
+@media (max-width: 576px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="phone"],
+    textarea,
+    select {
+        font-size: 16px !important;
+    }
+}
