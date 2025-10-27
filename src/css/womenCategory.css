@@ -1,192 +1,57 @@
-.text-wrapper{
-  padding: 40px 0 0 40px;
-  background-color: #F5CE85;
-  justify-content: center;
-}
-
-h2{
-  font-family: var(--font-display);
-  font-size: 58px;
-  color: var(--color-text-title); 
-}
-
-/* Estilos para la sección de productos destacados */
-.featured-products {
-    padding: 2rem 0;
-    background-color: #f7f7f7;
-}
-
-.featured-products h3 {
-    font-family: var(--font-display);
-    color: var(--color-text-title);
-    font-size: 2rem;
-}
-
-/* Ajustes para el carrusel */
-.carousel-item {
-    padding: 1rem 0;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: var(--primary-buttton-color-brown);
-    border-radius: 50%;
-    padding: 1.5rem;
-}
-
-/* Estilos para las tarjetas con ancho máximo de 258px */
-.featured-product-card {
-    height: 100%;
-    min-height: 420px;
-    max-width: 258px;
-    width: 100%;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin: 0 auto;
-}
-
-.featured-product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.featured-product-card .card-img-container {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f8f9fa;
-    border-radius: 12px 12px 0 0;
-    padding: 1rem;
-}
-
-.featured-product-card .product-carousel-image {
+/* Asegurar que las imágenes se carguen correctamente */
+.product-carousel-image {
     max-height: 100%;
     max-width: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
+    transition: opacity 0.3s ease;
 }
 
-.featured-product-card .card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 1.25rem;
+/* Prevenir flash de imágenes */
+.carousel-item {
+    opacity: 1 !important;
 }
 
-.featured-product-card .card-title {
-    font-family: var(--font-display);
-    color: var(--color-text-title);
-    font-size: 1rem;
-    min-height: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
+/* Mejorar la transición del carrusel */
+.carousel-inner {
+    overflow: visible;
 }
 
-.featured-product-card .card-body p {
-    color: var(--primary-buttton-color-salmon);
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+/* Asegurar que todas las tarjetas tengan el mismo tamaño */
+.featured-product-card {
+    height: 100%;
+    min-height: 420px;
+    max-width: 258px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* Sistema de 5 columnas para pantallas grandes */
-@media (min-width: 992px) {
-    .col-lg-5col {
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-    
-    .featured-products .row.g-2 {
-        --bs-gutter-x: 0.5rem;
-        --bs-gutter-y: 0.5rem;
-    }
-    
-    .featured-product-card {
-        max-width: 220px; /* Un poco menos para que quepan 5 con espacio */
-        min-height: 400px;
-    }
-    
-    .featured-product-card .card-img-container {
-        height: 180px;
-        padding: 0.75rem;
-    }
-    
-    .featured-product-card .card-title {
-        font-size: 0.9rem;
-        min-height: 2.2rem;
-    }
-    
-    .featured-product-card .card-body p {
-        font-size: 1.1rem;
-    }
+/* Forzar la carga de imágenes */
+img[src] {
+    min-height: 1px;
 }
 
-/* Para pantallas muy grandes */
-@media (min-width: 1200px) {
-    .featured-product-card {
-        max-width: 240px;
-    }
+/* Estilos para cuando la imagen falla */
+img:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
 }
 
-@media (min-width: 1400px) {
-    .featured-product-card {
-        max-width: 258px;
-    }
-}
-
-/* Asegurar que todas las tarjetas tengan la misma altura y estén centradas */
-.featured-products .row {
-    align-items: stretch;
-    justify-content: center;
-}
-
-.featured-products .col-md-4,
-.featured-products .col-12 {
-    display: flex;
-    justify-content: center;
-    padding: 0 4px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .featured-products {
-        padding: 1rem 0;
-    }
-    
-    .featured-products h3 {
-        font-size: 1.5rem;
-    }
-    
-    .carousel-item {
-        padding: 0.5rem 0;
-    }
-    
-    .featured-product-card {
-        min-height: 380px;
-        max-width: 280px;
-    }
-    
-    .featured-product-card .card-img-container {
-        height: 200px;
-    }
-}
-
-@media (max-width: 576px) {
-    .featured-product-card {
-        min-height: 350px;
-        max-width: 260px;
-    }
-    
-    .featured-product-card .card-img-container {
-        height: 180px;
-    }
+img:after {
+    content: "Imagen no disponible";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #6c757d;
+    font-size: 12px;
 }

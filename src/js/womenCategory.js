@@ -1,158 +1,52 @@
-/**
- * Carrusel de productos destacados y subcategorías para womenCategory.html - CON BACKEND
- */
-
-const API_BASE_URL = 'https://kootoncalli.duckdns.org/api/v1';
-const PRODUCTS_ENDPOINT = `${API_BASE_URL}/products`;
-const INVENTORY_ENDPOINT = `${API_BASE_URL}/inventories`;
-
-/**
- * Carga las subcategorías dinámicamente desde el backend
- */
-async function loadSubcategories() {
+// Función para probar la conexión con el backend
+async function testBackendConnection() {
     try {
-        console.log('Cargando subcategorías desde el backend...');
+        console.log('🔍 Probando conexión con el backend...');
         
-        // Cargar productos para obtener las subcategorías únicas
-        const productsResponse = await fetch(PRODUCTS_ENDPOINT);
-        if (!productsResponse.ok) {
-            throw new Error(`Error al cargar productos: ${productsResponse.status}`);
+        const testResponse = await fetch(PRODUCTS_ENDPOINT);
+        console.log('Status del backend:', testResponse.status);
+        console.log('URL del backend:', PRODUCTS_ENDPOINT);
+        
+        if (testResponse.ok) {
+            const data = await testResponse.json();
+            console.log('Backend conectado. Productos recibidos:', data.length);
+            return true;
+        } else {
+            console.error('Error del backend:', testResponse.status);
+            return false;
         }
-        
-        const products = await productsResponse.json();
-        
-        // Filtrar productos de categoría "Mujer" y obtener subcategorías únicas
-        const womenProducts = products.filter(product => product.category === "Mujer");
-        const subcategories = [...new Set(womenProducts.map(p => p.subcategory))];
-        
-        console.log('Subcategorías encontradas:', subcategories);
-        
-        // Mapeo de subcategorías a imágenes
-        const subcategoryImages = {
-            'Camisas': {
-                desktop: '/img/products-images/woman-category-t-shirts.png',
-                mobile: '/img/products-images/woman-category-t-shirts-mobil.png'
-            },
-            'Suéteres': {
-                desktop: '/img/products-images/woman-category-sweater.png',
-                mobile: '/img/products-images/woman-category-sweater-mobil.png'
-            },
-            'Faldas': {
-                desktop: '/img/products-images/woman-category-bottom.png',
-                mobile: '/img/products-images/woman-category-bottom-mobil.png'
-            },
-            'Pantalones': {
-                desktop: '/img/products-images/woman-category-bottom.png',
-                mobile: '/img/products-images/woman-category-bottom-mobil.png'
-            }
-        };
-        
-        // Generar subcategorías dinámicamente
-        generateSubcategoriesDesktop(subcategories, subcategoryImages);
-        generateSubcategoriesMobile(subcategories, subcategoryImages);
-        
     } catch (error) {
-        console.error('Error loading subcategories:', error);
+        console.error('Error de conexión con el backend:', error);
+        return false;
     }
 }
 
-/**
- * Genera las subcategorías para desktop
- */
-function generateSubcategoriesDesktop(subcategories, images) {
-    const container = document.querySelector('#subcategories .d-none.d-md-block .row');
-    if (!container) return;
-    
-    container.innerHTML = '';
-    
-    subcategories.forEach(subcategory => {
-        const imageData = images[subcategory] || {
-            desktop: '/img/products-images/default-category.png'
-        };
-        
-        const col = document.createElement('div');
-        col.className = 'col-lg-4 col-md-4 col-sm-4';
-        col.innerHTML = `
-            <a href="productList.html?category=Mujer&subcategory=${encodeURIComponent(subcategory)}">
-                <img src="${imageData.desktop}" class="subcategory-image img-fluid w-100" alt="${subcategory}">
-            </a>
-        `;
-        
-        container.appendChild(col);
-    });
-}
-
-/**
- * Genera las subcategorías para mobile (carrusel)
- */
-function generateSubcategoriesMobile(subcategories, images) {
-    const carouselInner = document.querySelector('#subcategoriesCarousel .carousel-inner');
-    if (!carouselInner) return;
-    
-    carouselInner.innerHTML = '';
-    
-    subcategories.forEach((subcategory, index) => {
-        const imageData = images[subcategory] || {
-            mobile: '/img/products-images/default-category.png'
-        };
-        
-        const item = document.createElement('div');
-        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-        item.innerHTML = `
-            <a href="productList.html?category=Mujer&subcategory=${encodeURIComponent(subcategory)}">
-                <img src="${imageData.mobile}" class="d-block w-100" alt="${subcategory}">
-            </a>
-        `;
-        
-        carouselInner.appendChild(item);
-    });
-}
-
-/**
- * Carga y muestra productos destacados en el carrusel
- */
-async function loadFeaturedProducts() {
+// Modifica initialize para incluir la prueba:
+async function initialize() {
     try {
-        console.log('Cargando productos destacados desde el backend...');
+        console.log('Inicializando página de mujeres...');
         
-        // 1. Cargar productos desde el backend
-        const productsResponse = await fetch(PRODUCTS_ENDPOINT);
-        if (!productsResponse.ok) {
-            throw new Error(`Error al cargar productos: ${productsResponse.status}`);
+        // Probar conexión primero
+        const isConnected = await testBackendConnection();
+        if (!isConnected) {
+            throw new Error('No se pudo conectar con el backend');
         }
         
-        const products = await productsResponse.json();
-
-        // 2. Cargar inventarios para obtener precios
-        const inventoryResponse = await fetch(INVENTORY_ENDPOINT);
-        if (!inventoryResponse.ok) {
-            throw new Error(`Error al cargar inventarios: ${inventoryResponse.status}`);
+        // Esperar a que el DOM esté listo
+        if (document.readyState === 'loading') {
+            await new Promise(resolve => {
+                document.addEventListener('DOMContentLoaded', resolve);
+            });
         }
         
-        const inventories = await inventoryResponse.json();
-
-        // 3. Combinar productos con precios
-        const allProducts = combineProductsWithPrices(products, inventories);
-        
-        // Filtrar productos de categoría "Mujer"
-        const womenProducts = allProducts.filter(product => 
-            product.category === "Mujer"
-        );
-        
-        // Tomar los primeros 10 productos para tener suficientes
-        const featuredProducts = womenProducts.slice(0, 10);
-        
-        console.log('Productos destacados para carrusel:', featuredProducts);
-        
-        // Generar el carrusel para desktop (5 productos por slide)
-        generateCarousel(featuredProducts, 'carousel-inner-desktop', 5);
-        
-        // Generar el carrusel para mobile (1 producto por slide)
-        generateCarousel(featuredProducts, 'carousel-inner-mobile', 1);
+        console.log('DOM listo, cargando productos...');
+        await loadFeaturedProducts();
+        console.log('Página inicializada correctamente');
         
     } catch (error) {
-        console.error('Error loading featured products:', error);
-        // Mostrar mensaje de error en los carruseles
+        console.error('Error durante inicialización:', error);
+        
+        // Mostrar error en la página
         const containers = ['carousel-inner-desktop', 'carousel-inner-mobile'];
         containers.forEach(containerId => {
             const container = document.getElementById(containerId);
@@ -161,7 +55,8 @@ async function loadFeaturedProducts() {
                     <div class="carousel-item active">
                         <div class="row justify-content-center">
                             <div class="col-12 text-center p-5">
-                                <p class="text-muted">Error al cargar productos: ${error.message}</p>
+                                <p class="text-danger">Error de conexión: ${error.message}</p>
+                                <button onclick="location.reload()" class="btn btn-primary mt-2">Reintentar</button>
                             </div>
                         </div>
                     </div>
@@ -171,25 +66,39 @@ async function loadFeaturedProducts() {
     }
 }
 
-/**
- * Combina productos con precios del inventario
- */
+// ----> womenCategory.js <-----
+
+// 1. PRIMERO: Configuración de API (constantes)
+const API_BASE_URL = 'https://kooton-calli.duckdns.org/api/v1';
+const PRODUCTS_ENDPOINT = `${API_BASE_URL}/products`;
+const INVENTORY_ENDPOINT = `${API_BASE_URL}/inventories`;
+
+// 2. SEGUNDO: Función para combinar productos con precios
 function combineProductsWithPrices(products, inventories) {
     const priceMap = new Map();
+    const stockMap = new Map();
     
-    // Crear un mapa de precios por producto
     inventories.forEach(inventory => {
         if (inventory.idProduct && inventory.productPrice) {
-            if (!priceMap.has(inventory.idProduct)) {
-                priceMap.set(inventory.idProduct, inventory.productPrice);
+            const productId = inventory.idProduct;
+            if (!priceMap.has(productId)) {
+                priceMap.set(productId, inventory.productPrice);
             }
+            const currentStock = stockMap.get(productId) || 0;
+            stockMap.set(productId, currentStock + (inventory.quantity || 0));
         }
     });
 
-    // Combinar productos con sus precios
     return products.map(product => {
         const price = priceMap.get(product.id) || 0;
-        const imageUrl = product.imgUrl || `/img/products-images/default-product.png`;
+        const stock = stockMap.get(product.id) || 0;
+        
+        // Manejo mejorado de imágenes
+        let imageUrl = product.imgUrl || '/img/products-images/default-product.png';
+        
+        if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('/')) {
+            imageUrl = '/' + imageUrl;
+        }
         
         return {
             id: product.id,
@@ -197,16 +106,15 @@ function combineProductsWithPrices(products, inventories) {
             subcategory: product.subcategory,
             category: product.category,
             description: product.description,
-            img: imageUrl,
             imgUrl: imageUrl,
-            price: parseFloat(price)
+            price: parseFloat(price),
+            stock: stock,
+            available: stock > 0
         };
     });
 }
 
-/**
- * Genera el carrusel de productos
- */
+// 3. TERCERO: Función para generar el carrusel
 function generateCarousel(products, containerId, itemsPerSlide) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -216,11 +124,26 @@ function generateCarousel(products, containerId, itemsPerSlide) {
     
     container.innerHTML = '';
     
-    // Dividir productos en grupos según itemsPerSlide
+    if (products.length === 0) {
+        container.innerHTML = `
+            <div class="carousel-item active">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center p-5">
+                        <p class="text-muted">No hay productos disponibles</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        return;
+    }
+    
+    // Dividir productos en grupos
     const slides = [];
     for (let i = 0; i < products.length; i += itemsPerSlide) {
         slides.push(products.slice(i, i + itemsPerSlide));
     }
+    
+    console.log(`Generando ${slides.length} slides para ${containerId}`);
     
     // Generar HTML para cada slide
     slides.forEach((slideProducts, index) => {
@@ -228,23 +151,31 @@ function generateCarousel(products, containerId, itemsPerSlide) {
         
         let slideHTML = `
             <div class="carousel-item ${isActive}">
-                <div class="row g-2 justify-content-center align-items-stretch">
+                <div class="row g-3 justify-content-center align-items-stretch">
         `;
         
         slideProducts.forEach(product => {
-            const colClass = itemsPerSlide === 5 ? 'col-lg-5col' : `col-md-${12/itemsPerSlide}`;
+            const colClass = itemsPerSlide === 5 
+                ? 'col-lg-5col col-md-4 col-sm-6' 
+                : 'col-12';
+            
+            const stockBadge = product.available 
+                ? '' 
+                : '<span class="badge bg-danger position-absolute top-0 end-0 m-2">Sin stock</span>';
             
             slideHTML += `
-                <div class="${colClass} col-12 d-flex justify-content-center">
-                    <div class="card h-100 w-100 shadow-lg border-2 rounded-4 d-flex flex-column featured-product-card">
+                <div class="${colClass} d-flex justify-content-center">
+                    <div class="card h-100 w-100 shadow-lg border-2 rounded-4 d-flex flex-column featured-product-card position-relative">
+                        ${stockBadge}
                         <div class="card-img-container p-3 d-flex align-items-center justify-content-center">
-                            <img src="${product.img}" 
+                            <img src="${product.imgUrl}" 
                                  class="img-fluid rounded-4 product-carousel-image" 
-                                 alt="Image of ${product.name}"
-                                 onerror="this.src='/img/products-images/default-product.png'">
+                                 alt="${product.name}"
+                                 onerror="this.onerror=null; this.src='/img/products-images/default-product.png'">
                         </div>
                         <div class="card-body text-center d-flex flex-column p-3">
                             <h5 class="card-title flex-grow-0">${product.name}</h5>
+                            <p class="text-muted small mb-1">${product.subcategory}</p>
                             <p class="fw-bold mt-2 mb-3 flex-grow-0">$${product.price.toFixed(2)} MXN</p>
                             
                             <div class="mt-auto">
@@ -269,22 +200,95 @@ function generateCarousel(products, containerId, itemsPerSlide) {
     });
 }
 
-/**
- * Inicializa todas las funciones cuando el DOM esté listo
- */
-async function initialize() {
+// 4. CUARTO: Función principal que carga los productos
+async function loadFeaturedProducts() {
     try {
-        // Cargar subcategorías y productos en paralelo
-        await Promise.all([
-            loadSubcategories(),
-            loadFeaturedProducts()
-        ]);
+        console.log('Cargando productos destacados...');
         
-        console.log('Página cargada exitosamente');
+        // Cargar productos
+        const productsResponse = await fetch(PRODUCTS_ENDPOINT);
+        if (!productsResponse.ok) {
+            throw new Error(`Error productos: ${productsResponse.status}`);
+        }
+        const products = await productsResponse.json();
+        console.log('Productos recibidos:', products);
+
+        // Cargar inventarios
+        const inventoryResponse = await fetch(INVENTORY_ENDPOINT);
+        if (!inventoryResponse.ok) {
+            throw new Error(`Error inventarios: ${inventoryResponse.status}`);
+        }
+        const inventories = await inventoryResponse.json();
+        console.log('Inventarios recibidos:', inventories);
+
+        // Combinar datos
+        const allProducts = combineProductsWithPrices(products, inventories);
+        
+        // Filtrar productos de mujer
+        const womenProducts = allProducts.filter(product => 
+            product.category === "Mujer" && product.available
+        );
+        
+        console.log('Productos de mujer con stock:', womenProducts);
+        
+        const productsToShow = womenProducts.length > 0 
+            ? womenProducts 
+            : allProducts.filter(p => p.category === "Mujer");
+        
+        const featuredProducts = productsToShow.slice(0, 10);
+        
+        console.log('Productos para carrusel:', featuredProducts);
+        
+        if (featuredProducts.length === 0) {
+            throw new Error('No se encontraron productos para mostrar');
+        }
+        
+        // Generar carruseles
+        generateCarousel(featuredProducts, 'carousel-inner-desktop', 5);
+        generateCarousel(featuredProducts, 'carousel-inner-mobile', 1);
+        
     } catch (error) {
-        console.error('Error durante la inicialización:', error);
+        console.error('Error loading featured products:', error);
+        // Mostrar error en los contenedores
+        const containers = ['carousel-inner-desktop', 'carousel-inner-mobile'];
+        containers.forEach(containerId => {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-12 text-center p-5">
+                                <p class="text-muted">Error: ${error.message}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
     }
 }
 
-// Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', initialize);
+// 5. QUINTO: Función initialize (la que se ejecuta al cargar la página)
+
+async function initialize() {
+    try {
+        console.log('Inicializando página de mujeres...');
+        
+        // Esperar a que el DOM esté completamente listo
+        if (document.readyState === 'loading') {
+            await new Promise(resolve => {
+                document.addEventListener('DOMContentLoaded', resolve);
+            });
+        }
+        
+        console.log('DOM listo, cargando productos...');
+        await loadFeaturedProducts();
+        console.log('Página inicializada correctamente');
+        
+    } catch (error) {
+        console.error('Error durante inicialización:', error);
+    }
+}
+
+// 6. SEXTO: Ejecutar la inicialización
+initialize();
